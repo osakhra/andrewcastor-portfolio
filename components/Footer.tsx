@@ -1,0 +1,17 @@
+import { siteConfig } from '@/data/content';
+
+export default function Footer() {
+  const year = new Date().getFullYear();
+  return (
+    <footer className="border-t border-border-subtle bg-bg-primary">
+      <div className="section-container flex flex-col items-center justify-between gap-2 py-4 sm:flex-row">
+        <p className="font-mono text-[10px] text-text-muted">
+          &copy; {year} {siteConfig.name} · {siteConfig.domain}
+        </p>
+        <p className="font-mono text-[10px] text-text-muted">
+          Built with Next.js · Tailwind · TypeScript
+        </p>
+      </div>
+    </footer>
+  );
+}
