@@ -54,7 +54,7 @@ export default function HomePage() {
           <FadeUp>
             <div className="mb-4 flex items-center gap-2">
               <span className="inline-block h-1.5 w-1.5 animate-pulse-slow rounded-full bg-accent-teal" />
-              <span className="font-mono text-[11px] text-text-muted">
+              <span className="font-mono text-[12px] text-text-tertiary">
                 {siteConfig.availability}
               </span>
             </div>
@@ -66,16 +66,16 @@ export default function HomePage() {
             <p className="mb-6 font-display text-xl font-medium text-text-secondary sm:text-2xl">
               <span className="text-accent-teal">Hardened.</span>{' '}
               <span className="text-accent-purple-bright">Recoverable.</span>{' '}
-              <span style={{ color: '#D0D8E2' }}>Offline-first.</span>
+              <span style={{ color: '#DDE3EB' }}>Offline-first.</span>
             </p>
 
-            <h1 className="mb-1 font-display text-xl font-semibold tracking-tight text-text-primary sm:text-2xl">
+            <h1 className="mb-1 font-display text-2xl font-semibold tracking-tight text-text-primary sm:text-[26px]">
               {siteConfig.name}
             </h1>
-            <p className="mb-4 font-display text-sm font-medium text-accent-teal">
+            <p className="mb-4 font-display text-base font-medium text-accent-teal">
               {siteConfig.title}
             </p>
-            <p className="mb-6 max-w-xl font-body text-sm leading-relaxed text-text-tertiary sm:text-[15px]">
+            <p className="mb-6 max-w-xl font-body text-base leading-relaxed text-text-secondary sm:text-[17px]">
               {summary}
             </p>
 
@@ -101,18 +101,18 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="text-text-muted transition-colors hover:text-accent-teal"
+                className="text-text-tertiary transition-colors hover:text-accent-teal"
               >
-                <GithubIcon size={18} />
+                <GithubIcon size={20} />
               </a>
               <a
                 href={siteConfig.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="text-text-muted transition-colors hover:text-accent-teal"
+                className="text-text-tertiary transition-colors hover:text-accent-teal"
               >
-                <LinkedinIcon size={18} />
+                <LinkedinIcon size={20} />
               </a>
             </div>
           </FadeUp>
@@ -138,9 +138,9 @@ export default function HomePage() {
                 <span className="status-pill status-progress">{flagship.statusLabel}</span>
               </div>
               {flagship.context && (
-                <p className="mb-5 font-mono text-xs text-text-muted">{flagship.context}</p>
+                <p className="mb-5 font-mono text-[13px] text-text-tertiary">{flagship.context}</p>
               )}
-              <p className="mb-7 max-w-3xl font-body text-sm leading-relaxed text-text-tertiary sm:text-[15px]">
+              <p className="mb-7 max-w-3xl font-body text-base leading-relaxed text-text-secondary sm:text-[17px]">
                 {flagship.description}
               </p>
             </FadeUp>
@@ -161,10 +161,10 @@ export default function HomePage() {
                   { label: 'Impact', body: mmdmCaseStudy.impact },
                 ].map((box) => (
                   <div key={box.label} className="ac-card">
-                    <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-text-muted">
+                    <p className="mb-2 font-mono text-[11px] uppercase tracking-wider text-text-tertiary">
                       {box.label}
                     </p>
-                    <p className="font-body text-[13px] leading-relaxed text-text-secondary">
+                    <p className="font-body text-[15px] leading-relaxed text-text-secondary">
                       {box.body}
                     </p>
                   </div>
@@ -204,14 +204,14 @@ export default function HomePage() {
 
           <FadeUp delay={200}>
             <div className="mt-5">
-              <p className="mb-2.5 font-mono text-[10px] uppercase tracking-widest text-text-muted">
+              <p className="mb-2.5 font-mono text-[11px] uppercase tracking-widest text-text-tertiary">
                 Certifications
               </p>
               <div className="flex flex-wrap gap-2">
                 {certifications.map((cert) => (
                   <span
                     key={cert.name}
-                    className="inline-flex items-center gap-1.5 rounded-md border border-border-subtle bg-bg-secondary/70 px-2.5 py-1.5 font-mono text-[11px] text-text-secondary backdrop-blur"
+                    className="inline-flex items-center gap-1.5 rounded-md border border-border-subtle bg-bg-secondary/70 px-3 py-1.5 font-mono text-[12px] text-text-secondary backdrop-blur"
                   >
                     <ShieldIcon
                       className={
@@ -220,7 +220,7 @@ export default function HomePage() {
                     />
                     {cert.name}
                     {cert.status === 'progress' && (
-                      <span className="text-text-muted">(in study)</span>
+                      <span className="text-text-tertiary">(in study)</span>
                     )}
                   </span>
                 ))}
@@ -257,7 +257,7 @@ export default function HomePage() {
             <h2 className="mb-2.5 font-display text-2xl font-semibold text-text-primary">
               Build systems that hold up.
             </h2>
-            <p className="mx-auto mb-5 max-w-md font-body text-sm leading-relaxed text-text-tertiary">
+            <p className="mx-auto mb-5 max-w-md font-body text-base leading-relaxed text-text-secondary">
               I&apos;m open to infrastructure, security, and field deployment roles — internships, co-op, contract, or full-time. Based in Orlando, FL.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2.5">

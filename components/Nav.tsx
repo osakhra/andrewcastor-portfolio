@@ -20,7 +20,7 @@ export default function Nav() {
       <nav className="section-container flex h-14 items-center justify-between">
         <Link
           href="/"
-          className="font-display text-[13px] font-semibold tracking-wide text-text-primary transition-colors hover:text-accent-teal"
+          className="font-display text-[14px] font-semibold tracking-wide text-text-primary transition-colors hover:text-accent-teal"
         >
           <span className="text-accent-teal">{'>'}</span> andrew.castor
         </Link>
@@ -30,10 +30,10 @@ export default function Nav() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`font-body text-xs transition-colors duration-200 ${
+                className={`font-body text-[13px] font-medium transition-colors duration-200 ${
                   isActive(link.href)
                     ? 'text-accent-teal'
-                    : 'text-text-tertiary hover:text-text-primary'
+                    : 'text-text-secondary hover:text-text-primary'
                 }`}
               >
                 {link.label}
@@ -41,7 +41,7 @@ export default function Nav() {
             </li>
           ))}
           <li>
-            <a href={`mailto:${siteConfig.email}`} className="btn-primary !px-3 !py-1.5 !text-[11px]">
+            <a href={`mailto:${siteConfig.email}`} target="_blank" rel="noopener noreferrer" className="btn-primary !px-3 !py-1.5 !text-[12px]">
               Get in Touch
             </a>
           </li>
@@ -64,10 +64,10 @@ export default function Nav() {
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`block rounded-md px-3 py-2 font-body text-sm transition-colors ${
+                  className={`block rounded-md px-3 py-2.5 font-body text-[15px] font-medium transition-colors ${
                     isActive(link.href)
                       ? 'bg-bg-tertiary text-accent-teal'
-                      : 'text-text-tertiary hover:bg-bg-secondary hover:text-text-primary'
+                      : 'text-text-secondary hover:bg-bg-secondary hover:text-text-primary'
                   }`}
                 >
                   {link.label}
@@ -77,6 +77,8 @@ export default function Nav() {
             <li className="pt-2">
               <a
                 href={`mailto:${siteConfig.email}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary inline-flex"
                 onClick={() => setOpen(false)}
               >

@@ -53,34 +53,34 @@
   }
 
   .ac-tag {
-    @apply inline-block rounded-full border border-border-subtle px-2 py-0.5 font-mono text-[10px] text-text-tertiary;
-    background-color: rgba(19, 26, 36, 0.7);
+    @apply inline-block rounded-full border border-border-subtle px-2.5 py-1 font-mono text-[11px] text-text-secondary;
+    background-color: rgba(19, 26, 36, 0.75);
   }
 
   .ac-label {
-    @apply mb-1.5 block font-mono text-[10px] uppercase tracking-[0.18em] text-accent-teal;
+    @apply mb-1.5 block font-mono text-[11px] uppercase tracking-[0.18em] text-accent-teal;
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-1.5 rounded-md bg-accent-teal px-4 py-2 font-body text-xs font-medium text-bg-primary transition-all duration-200;
+    @apply inline-flex items-center gap-1.5 rounded-md bg-accent-teal px-4 py-2.5 font-body text-[13px] font-semibold text-bg-primary transition-all duration-200;
   }
 
   .btn-primary:hover {
-    background-color: rgba(30, 158, 138, 0.9);
-    box-shadow: 0 0 24px rgba(30, 158, 138, 0.35);
+    background-color: rgba(30, 158, 138, 0.92);
+    box-shadow: 0 0 24px rgba(30, 158, 138, 0.45);
   }
 
   .btn-outline {
-    @apply inline-flex items-center gap-1.5 rounded-md border border-border bg-transparent px-4 py-2 font-body text-xs font-medium text-text-tertiary transition-all duration-200;
+    @apply inline-flex items-center gap-1.5 rounded-md border border-border bg-transparent px-4 py-2.5 font-body text-[13px] font-medium text-text-secondary transition-all duration-200;
   }
 
   .btn-outline:hover {
-    @apply border-accent-teal/40 text-accent-teal;
-    box-shadow: 0 0 18px rgba(30, 158, 138, 0.15);
+    @apply border-accent-teal/50 text-accent-teal;
+    box-shadow: 0 0 18px rgba(30, 158, 138, 0.18);
   }
 
   .status-pill {
-    @apply inline-block whitespace-nowrap rounded-[10px] px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.04em];
+    @apply inline-block whitespace-nowrap rounded-[10px] px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.04em];
   }
 
   .status-shipped {
@@ -98,7 +98,7 @@
   /* Display tagline used above the name on home */
   .display-tagline {
     @apply font-display font-bold tracking-tight;
-    background: linear-gradient(180deg, #E8ECF1 0%, #B5BFCD 100%);
+    background: linear-gradient(180deg, #FFFFFF 0%, #CCD3DC 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

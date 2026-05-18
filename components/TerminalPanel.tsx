@@ -6,11 +6,11 @@ export default function TerminalPanel() {
         <span className="inline-block h-2 w-2 rounded-full" style={{ backgroundColor: '#E24B4A' }} />
         <span className="inline-block h-2 w-2 rounded-full" style={{ backgroundColor: '#EF9F27' }} />
         <span className="inline-block h-2 w-2 rounded-full bg-accent-teal" />
-        <span className="ml-2 font-mono text-[10px] text-text-muted">andrew@castor:~</span>
+        <span className="ml-2 font-mono text-[11px] text-text-tertiary">andrew@castor:~</span>
       </div>
 
       {/* Body */}
-      <div className="px-3.5 py-4 font-mono text-[11px] leading-relaxed">
+      <div className="px-3.5 py-4 font-mono text-[12px] leading-relaxed">
         <div>
           <span className="text-accent-teal">$</span>{' '}
           <span className="text-text-secondary">whoami</span>

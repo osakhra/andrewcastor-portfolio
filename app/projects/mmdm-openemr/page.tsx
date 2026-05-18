@@ -21,7 +21,7 @@ export default function MmdmCaseStudyPage() {
       <div className="section-container max-w-4xl">
         <Link
           href="/projects"
-          className="mb-6 inline-flex items-center gap-1 font-mono text-[11px] text-text-muted transition-colors hover:text-accent-teal"
+          className="mb-6 inline-flex items-center gap-1 font-mono text-[12px] text-text-tertiary transition-colors hover:text-accent-teal"
         >
           ← All Projects
         </Link>
@@ -33,9 +33,9 @@ export default function MmdmCaseStudyPage() {
             <span className="status-pill status-progress">{project.statusLabel}</span>
           </div>
           {project.context && (
-            <p className="mb-6 font-mono text-xs text-text-muted">{project.context}</p>
+            <p className="mb-6 font-mono text-[13px] text-text-tertiary">{project.context}</p>
           )}
-          <p className="mb-8 max-w-3xl font-body text-[15px] leading-relaxed text-text-tertiary">
+          <p className="mb-8 max-w-3xl font-body text-base leading-relaxed text-text-secondary sm:text-[17px]">
             {project.description}
           </p>
         </FadeUp>
@@ -58,10 +58,10 @@ export default function MmdmCaseStudyPage() {
               { label: 'Impact', body: mmdmCaseStudy.impact },
             ].map((box) => (
               <div key={box.label} className="ac-card">
-                <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-text-muted">
+                <p className="mb-2 font-mono text-[11px] uppercase tracking-wider text-text-tertiary">
                   {box.label}
                 </p>
-                <p className="font-body text-sm leading-relaxed text-text-secondary">{box.body}</p>
+                <p className="font-body text-[15px] leading-relaxed text-text-secondary">{box.body}</p>
               </div>
             ))}
           </div>
@@ -69,10 +69,10 @@ export default function MmdmCaseStudyPage() {
 
         {/* Interactive architecture toggle */}
         <FadeUp>
-          <h2 className="mb-3 font-display text-base font-semibold text-text-primary">
+          <h2 className="mb-3 font-display text-lg font-semibold text-text-primary">
             System Architecture
           </h2>
-          <p className="mb-4 font-body text-xs text-text-tertiary">
+          <p className="mb-4 font-body text-[14px] text-text-secondary">
             Toggle between the EMR application stack and the field network it runs on.
           </p>
           <div className="mb-10">
@@ -84,20 +84,20 @@ export default function MmdmCaseStudyPage() {
         <FadeUp>
           <div className="mb-10 grid grid-cols-1 gap-3 sm:grid-cols-2">
             <div className="ac-card">
-              <p className="mb-2.5 font-mono text-[10px] uppercase tracking-wider text-accent-teal">
+              <p className="mb-2.5 font-mono text-[11px] uppercase tracking-wider text-accent-teal">
                 Shipped
               </p>
-              <ul className="space-y-1.5 font-body text-sm text-text-secondary">
+              <ul className="space-y-2 font-body text-[14px] text-text-secondary">
                 {mmdmCaseStudy.shipped.map((item) => (
                   <li key={item}>✓ {item}</li>
                 ))}
               </ul>
             </div>
             <div className="ac-card">
-              <p className="mb-2.5 font-mono text-[10px] uppercase tracking-wider text-accent-purple-bright">
+              <p className="mb-2.5 font-mono text-[11px] uppercase tracking-wider text-accent-purple-bright">
                 Roadmap → 2027 Field Deploy
               </p>
-              <ul className="space-y-1.5 font-body text-sm text-text-secondary">
+              <ul className="space-y-2 font-body text-[14px] text-text-secondary">
                 {mmdmCaseStudy.roadmap.map((item) => (
                   <li key={item}>→ {item}</li>
                 ))}
@@ -108,17 +108,17 @@ export default function MmdmCaseStudyPage() {
 
         {/* Principles */}
         <FadeUp>
-          <h2 className="mb-3 font-display text-base font-semibold text-text-primary">
+          <h2 className="mb-3 font-display text-lg font-semibold text-text-primary">
             Guiding Principles
           </h2>
           <div className="mb-10 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {mmdmCaseStudy.principles.map((p, i) => (
               <FadeUp key={p.title} delay={i * 80}>
                 <div className="ac-card h-full">
-                  <h3 className="mb-1 font-display text-sm font-semibold text-accent-teal">
+                  <h3 className="mb-1.5 font-display text-[15px] font-semibold text-accent-teal">
                     {p.title}
                   </h3>
-                  <p className="font-body text-[13px] leading-relaxed text-text-tertiary">
+                  <p className="font-body text-[14px] leading-relaxed text-text-secondary">
                     {p.desc}
                   </p>
                 </div>
@@ -129,7 +129,7 @@ export default function MmdmCaseStudyPage() {
 
         {/* Tech stack */}
         <FadeUp>
-          <h2 className="mb-3 font-display text-base font-semibold text-text-primary">
+          <h2 className="mb-3 font-display text-lg font-semibold text-text-primary">
             Technology Stack
           </h2>
           <div className="mb-10 flex flex-wrap gap-1.5">

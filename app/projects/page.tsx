@@ -38,18 +38,18 @@ export default function ProjectsPage() {
               >
                 <div className="ac-card">
                   <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
-                    <p className="font-mono text-[10px] uppercase tracking-wider text-accent-teal">
+                    <p className="font-mono text-[11px] uppercase tracking-wider text-accent-teal">
                       {flagship.category}
                     </p>
                     <span className="status-pill status-progress">{flagship.statusLabel}</span>
                   </div>
-                  <h2 className="mb-1 font-display text-xl font-semibold text-text-primary">
+                  <h2 className="mb-1 font-display text-2xl font-semibold text-text-primary">
                     {flagship.title}
                   </h2>
                   {flagship.context && (
-                    <p className="mb-3 font-mono text-[10px] text-text-muted">{flagship.context}</p>
+                    <p className="mb-3 font-mono text-[12px] text-text-tertiary">{flagship.context}</p>
                   )}
-                  <p className="mb-4 font-body text-sm leading-relaxed text-text-tertiary">
+                  <p className="mb-4 font-body text-base leading-relaxed text-text-secondary">
                     {flagship.description}
                   </p>
                   <div className="mb-4 flex flex-wrap gap-1.5">
@@ -59,7 +59,7 @@ export default function ProjectsPage() {
                       </span>
                     ))}
                   </div>
-                  <span className="inline-flex items-center gap-1 font-mono text-xs text-accent-teal">
+                  <span className="inline-flex items-center gap-1 font-mono text-[13px] text-accent-teal">
                     Read case study <ArrowRightIcon size={12} />
                   </span>
                 </div>
@@ -70,7 +70,7 @@ export default function ProjectsPage() {
 
         {/* Other projects */}
         <FadeUp delay={180}>
-          <h2 className="mb-4 font-display text-base font-semibold text-text-primary">
+          <h2 className="mb-4 font-display text-lg font-semibold text-text-primary">
             Other Projects
           </h2>
         </FadeUp>

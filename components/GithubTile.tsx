@@ -13,14 +13,14 @@ export default function GithubTile() {
           'linear-gradient(135deg, #0D1117 0%, #0A1418 100%)',
       }}
     >
-      <GithubIcon className="mb-2.5 text-accent-teal opacity-70" size={28} />
-      <h3 className="mb-1.5 font-display text-sm font-semibold text-text-primary">
+      <GithubIcon className="mb-2.5 text-accent-teal opacity-80" size={32} />
+      <h3 className="mb-1.5 font-display text-base font-semibold text-text-primary">
         More on GitHub
       </h3>
-      <p className="mb-3 font-body text-xs leading-relaxed text-text-tertiary">
+      <p className="mb-3 font-body text-[13px] leading-relaxed text-text-secondary">
         Coursework, lab repos, automation scripts, and works-in-progress.
       </p>
-      <span className="font-mono text-[11px] text-accent-teal">github.com/osakhra →</span>
+      <span className="font-mono text-[12px] text-accent-teal">github.com/osakhra →</span>
     </a>
   );
 }

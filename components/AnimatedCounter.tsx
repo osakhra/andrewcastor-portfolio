@@ -87,10 +87,10 @@ export default function AnimatedCounter({ value, label, duration = 2200 }: Props
         transition: 'opacity 0.6s ease-out',
       }}
     >
-      <p className="font-mono text-xl font-semibold text-accent-teal sm:text-2xl tabular-nums">
+      <p className="font-mono text-2xl font-semibold text-accent-teal sm:text-3xl tabular-nums">
         {hasAnimated ? finalDisplay : '\u00A0'}
       </p>
-      <p className="mt-1 font-mono text-[9px] uppercase tracking-wider text-text-tertiary">
+      <p className="mt-1.5 font-mono text-[11px] uppercase tracking-wider text-text-secondary">
         {label}
       </p>
     </div>

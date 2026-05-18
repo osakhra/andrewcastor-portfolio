@@ -108,9 +108,9 @@ export default function NetworkGrid() {
     const render = (now: number) => {
       ctx.clearRect(0, 0, width, height);
 
-      // Draw edges (very faint)
-      ctx.strokeStyle = 'rgba(30, 158, 138, 0.06)';
-      ctx.lineWidth = 0.5;
+      // Draw edges (more visible)
+      ctx.strokeStyle = 'rgba(30, 158, 138, 0.12)';
+      ctx.lineWidth = 0.6;
       for (const edge of edges) {
         const na = nodes[edge.a];
         const nb = nodes[edge.b];
@@ -120,12 +120,12 @@ export default function NetworkGrid() {
         ctx.stroke();
       }
 
-      // Draw nodes (subtle dots)
-      ctx.fillStyle = 'rgba(30, 158, 138, 0.18)';
+      // Draw nodes (visible dots)
+      ctx.fillStyle = 'rgba(30, 158, 138, 0.32)';
       for (const node of nodes) {
         if (node.x < -10 || node.x > width + 10 || node.y < -10 || node.y > height + 10) continue;
         ctx.beginPath();
-        ctx.arc(node.x, node.y, 1.1, 0, Math.PI * 2);
+        ctx.arc(node.x, node.y, 1.3, 0, Math.PI * 2);
         ctx.fill();
       }
 
@@ -221,7 +221,7 @@ export default function NetworkGrid() {
     <canvas
       ref={canvasRef}
       className="pointer-events-none fixed inset-0 z-0"
-      style={{ opacity: 0.9 }}
+      style={{ opacity: 1 }}
       aria-hidden="true"
     />
   );

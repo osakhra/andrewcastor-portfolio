@@ -29,7 +29,7 @@ export const siteConfig = {
   },
 };
 
-export const summary = `Cybersecurity student heading into UCF's NSA-designated cyber program with two years of hands-on infrastructure and healthcare IT work behind me. I've built hardened Linux deployments, multi-site networks, and offline-first clinical systems for a volunteer medical mission — the kind of constrained, high-stakes environments that translate directly to cloud security and cleared work.`;
+export const summary = `Cybersecurity student heading into UCF's NSA-designated cybersecurity program with 2 years of hands-on infrastructure and healthcare IT work experience. Having built hardened Linux deployments, multi-site networks, and offline-first clinical systems for volunteer medical missions — the kind of constrained, high-stakes environments that translate directly to cloud security and cleared work opportunities.`;
 
 export const capabilities = [
   {

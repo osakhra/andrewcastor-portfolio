@@ -49,33 +49,33 @@ export default function ResumePage() {
               <p className="mb-3 font-display text-base font-medium text-accent-teal">
                 {siteConfig.title}
               </p>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-text-muted">
-                <span className="flex items-center gap-1.5 font-body text-xs">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-text-secondary">
+                <span className="flex items-center gap-1.5 font-body text-[13px]">
                   <MapPinIcon /> {siteConfig.location}
                 </span>
                 <a
                   href={`mailto:${siteConfig.email}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 font-body text-xs transition-colors hover:text-accent-teal"
+                  className="flex items-center gap-1.5 font-body text-[13px] transition-colors hover:text-accent-teal"
                 >
-                  <MailIcon size={12} /> {siteConfig.email}
+                  <MailIcon size={13} /> {siteConfig.email}
                 </a>
                 <a
                   href={siteConfig.links.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 font-body text-xs transition-colors hover:text-accent-teal"
+                  className="flex items-center gap-1.5 font-body text-[13px] transition-colors hover:text-accent-teal"
                 >
-                  <LinkedinIcon size={12} /> LinkedIn
+                  <LinkedinIcon size={13} /> LinkedIn
                 </a>
                 <a
                   href={siteConfig.links.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 font-body text-xs transition-colors hover:text-accent-teal"
+                  className="flex items-center gap-1.5 font-body text-[13px] transition-colors hover:text-accent-teal"
                 >
-                  <GithubIcon size={12} /> GitHub
+                  <GithubIcon size={13} /> GitHub
                 </a>
               </div>
             </div>
@@ -94,10 +94,10 @@ export default function ResumePage() {
         {/* Summary */}
         <FadeUp>
           <div id="summary" className="mb-10 scroll-mt-24">
-            <h2 className="mb-3 font-mono text-[11px] font-semibold uppercase tracking-widest text-text-muted">
+            <h2 className="mb-3 font-mono text-[12px] font-semibold uppercase tracking-widest text-text-tertiary">
               Summary
             </h2>
-            <p className="max-w-3xl font-body text-sm leading-relaxed text-text-tertiary">
+            <p className="max-w-3xl font-body text-base leading-relaxed text-text-secondary">
               {summary}
             </p>
           </div>
@@ -106,27 +106,27 @@ export default function ResumePage() {
         {/* Experience */}
         <FadeUp>
           <div id="experience" className="mb-10 scroll-mt-24">
-            <h2 className="mb-5 font-mono text-[11px] font-semibold uppercase tracking-widest text-text-muted">
+            <h2 className="mb-5 font-mono text-[12px] font-semibold uppercase tracking-widest text-text-tertiary">
               Experience
             </h2>
             {experience.map((job) => (
               <div key={job.company} className="ac-card mb-3 last:mb-0">
                 <div className="mb-1 flex flex-col justify-between gap-1 sm:flex-row sm:items-baseline">
-                  <h3 className="font-display text-base font-semibold text-text-primary">
+                  <h3 className="font-display text-lg font-semibold text-text-primary">
                     {job.role}
                   </h3>
-                  <span className="font-mono text-[11px] text-text-muted">{job.dates}</span>
+                  <span className="font-mono text-[12px] text-text-tertiary">{job.dates}</span>
                 </div>
-                <p className="mb-3 flex flex-wrap items-center gap-1.5 font-body text-xs text-accent-teal/90">
+                <p className="mb-3 flex flex-wrap items-center gap-1.5 font-body text-[13px] text-accent-teal">
                   <span>{job.company}</span>
-                  <span className="text-text-muted">·</span>
-                  <span className="text-text-muted">{job.location}</span>
+                  <span className="text-text-tertiary">·</span>
+                  <span className="text-text-tertiary">{job.location}</span>
                 </p>
-                <ul className="space-y-1.5">
+                <ul className="space-y-2">
                   {job.bullets.map((bullet, i) => (
                     <li
                       key={i}
-                      className="relative pl-3 font-body text-[13px] leading-relaxed text-text-tertiary before:absolute before:left-0 before:top-2 before:h-1 before:w-1 before:rounded-full before:bg-accent-teal/60"
+                      className="relative pl-3 font-body text-[14px] leading-relaxed text-text-secondary before:absolute before:left-0 before:top-2 before:h-1 before:w-1 before:rounded-full before:bg-accent-teal/70"
                     >
                       {bullet}
                     </li>
@@ -140,16 +140,16 @@ export default function ResumePage() {
         {/* Skills */}
         <FadeUp>
           <div id="skills" className="mb-10 scroll-mt-24">
-            <h2 className="mb-5 font-mono text-[11px] font-semibold uppercase tracking-widest text-text-muted">
+            <h2 className="mb-5 font-mono text-[12px] font-semibold uppercase tracking-widest text-text-tertiary">
               Technical Skills
             </h2>
             <div className="ac-card space-y-3">
               {capabilities.map((c) => (
                 <div key={c.category} className="flex flex-col gap-1 sm:flex-row sm:gap-4">
-                  <span className="w-40 shrink-0 font-mono text-[11px] font-medium uppercase tracking-wide text-accent-teal">
+                  <span className="w-44 shrink-0 font-mono text-[12px] font-semibold uppercase tracking-wide text-accent-teal">
                     {c.category}
                   </span>
-                  <p className="font-body text-[13px] text-text-tertiary">
+                  <p className="font-body text-[14px] text-text-secondary">
                     {c.items.join(' · ')}
                   </p>
                 </div>
@@ -161,21 +161,21 @@ export default function ResumePage() {
         {/* Certs */}
         <FadeUp>
           <div id="certifications" className="mb-10 scroll-mt-24">
-            <h2 className="mb-3 font-mono text-[11px] font-semibold uppercase tracking-widest text-text-muted">
+            <h2 className="mb-3 font-mono text-[12px] font-semibold uppercase tracking-widest text-text-tertiary">
               Certifications
             </h2>
             <div className="flex flex-wrap gap-2">
               {certifications.map((cert) => (
                 <span
                   key={cert.name}
-                  className="inline-flex items-center gap-1.5 rounded-md border border-border-subtle bg-bg-secondary/70 px-2.5 py-1.5 font-mono text-[11px] text-text-secondary backdrop-blur"
+                  className="inline-flex items-center gap-1.5 rounded-md border border-border-subtle bg-bg-secondary/70 px-3 py-1.5 font-mono text-[12px] text-text-secondary backdrop-blur"
                 >
                   <ShieldIcon
                     className={cert.status === 'earned' ? 'text-accent-teal' : 'text-accent-purple-bright'}
                   />
                   {cert.name}
                   {cert.status === 'progress' && (
-                    <span className="text-text-muted">(in study)</span>
+                    <span className="text-text-tertiary">(in study)</span>
                   )}
                 </span>
               ))}
@@ -186,21 +186,21 @@ export default function ResumePage() {
         {/* Education */}
         <FadeUp>
           <div id="education" className="mb-10 scroll-mt-24">
-            <h2 className="mb-5 font-mono text-[11px] font-semibold uppercase tracking-widest text-text-muted">
+            <h2 className="mb-5 font-mono text-[12px] font-semibold uppercase tracking-widest text-text-tertiary">
               Education
             </h2>
             <div className="space-y-3">
               {education.map((edu) => (
                 <div key={edu.institution} className="ac-card">
                   <div className="mb-0.5 flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="font-display text-sm font-semibold text-text-primary">
+                    <h3 className="font-display text-base font-semibold text-text-primary">
                       {edu.institution}
                     </h3>
-                    <span className="font-mono text-[11px] text-text-muted">{edu.dates}</span>
+                    <span className="font-mono text-[12px] text-text-tertiary">{edu.dates}</span>
                   </div>
-                  <p className="font-body text-[13px] text-text-tertiary">{edu.degree}</p>
+                  <p className="font-body text-[14px] text-text-secondary">{edu.degree}</p>
                   {edu.gpa && (
-                    <p className="font-mono text-[11px] text-text-muted">GPA: {edu.gpa}</p>
+                    <p className="font-mono text-[12px] text-text-tertiary">GPA: {edu.gpa}</p>
                   )}
                 </div>
               ))}
@@ -210,11 +210,11 @@ export default function ResumePage() {
 
         {/* Availability footer */}
         <FadeUp>
-          <div className="rounded-lg border border-accent-teal/20 bg-accent-teal/[0.04] p-5 text-center backdrop-blur">
-            <p className="mb-1 font-display text-sm font-semibold text-text-primary">
+          <div className="rounded-lg border border-accent-teal/25 bg-accent-teal/[0.06] p-5 text-center backdrop-blur">
+            <p className="mb-1 font-display text-base font-semibold text-text-primary">
               Open to Opportunities
             </p>
-            <p className="font-body text-xs text-text-tertiary">
+            <p className="font-body text-[14px] text-text-secondary">
               {siteConfig.availability}
             </p>
             <a
@@ -223,7 +223,7 @@ export default function ResumePage() {
               rel="noopener noreferrer"
               className="btn-primary mt-3 inline-flex"
             >
-              <MailIcon size={13} /> Reach Out
+              <MailIcon size={14} /> Reach Out
             </a>
           </div>
         </FadeUp>

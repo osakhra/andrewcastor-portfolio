@@ -23,10 +23,10 @@ const config: Config = {
           'purple-bright': '#C9B0EA',
         },
         text: {
-          primary: '#E8ECF1',
-          secondary: '#B5BFCD',
-          tertiary: '#8B95A5',
-          muted: '#5A6577',
+          primary: '#F0F3F8',
+          secondary: '#CCD3DC',
+          tertiary: '#A8B2BF',
+          muted: '#7E8898',
         },
         border: {
           subtle: '#1E2737',

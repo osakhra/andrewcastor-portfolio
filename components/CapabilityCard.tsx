@@ -19,7 +19,7 @@ export default function CapabilityCard({ category, icon, items }: Props) {
     <div className="ac-card">
       <div className="mb-3 flex items-center gap-2">
         {iconMap[icon] ?? iconMap.server}
-        <span className="font-display text-[11px] font-semibold uppercase tracking-wider text-text-primary">
+        <span className="font-display text-[13px] font-semibold uppercase tracking-wider text-text-primary">
           {category}
         </span>
       </div>

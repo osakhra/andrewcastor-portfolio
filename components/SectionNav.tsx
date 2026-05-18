@@ -46,15 +46,15 @@ export default function SectionNav({ sections }: Props) {
             <li key={s.id}>
               <a
                 href={`#${s.id}`}
-                className={`group flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider transition-colors ${
-                  active ? 'text-accent-teal' : 'text-text-muted hover:text-text-secondary'
+                className={`group flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider transition-colors ${
+                  active ? 'text-accent-teal' : 'text-text-tertiary hover:text-text-primary'
                 }`}
               >
                 <span
                   className={`block h-[1px] transition-all duration-300 ${
                     active
                       ? 'w-6 bg-accent-teal'
-                      : 'w-2 bg-text-muted group-hover:w-4 group-hover:bg-text-secondary'
+                      : 'w-2 bg-text-tertiary group-hover:w-4 group-hover:bg-text-primary'
                   }`}
                 />
                 {s.label}
