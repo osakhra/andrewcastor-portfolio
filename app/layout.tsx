@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { siteConfig } from '@/data/content';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
+import StarField from '@/components/StarField';
+import ScrollProgress from '@/components/ScrollProgress';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -33,7 +35,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="dark">
       <body className="flex min-h-screen flex-col bg-bg-primary text-text-primary">
+        <StarField />
         <Nav />
+        <ScrollProgress />
         <main className="flex-1 pt-14">{children}</main>
         <Footer />
       </body>

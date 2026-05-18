@@ -19,6 +19,18 @@ import TerminalPanel from '@/components/TerminalPanel';
 import CapabilityCard from '@/components/CapabilityCard';
 import ProjectCard from '@/components/ProjectCard';
 import GithubTile from '@/components/GithubTile';
+import FadeUp from '@/components/FadeUp';
+import SectionHeader from '@/components/SectionHeader';
+import AnimatedCounter from '@/components/AnimatedCounter';
+import SectionNav from '@/components/SectionNav';
+
+const sectionLinks = [
+  { id: 'hero', label: 'Top' },
+  { id: 'flagship', label: 'Flagship' },
+  { id: 'capabilities', label: 'Capabilities' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'contact', label: 'Contact' },
+];
 
 export default function HomePage() {
   const flagship = projects.find((p) => p.featured);
@@ -26,39 +38,47 @@ export default function HomePage() {
 
   return (
     <>
+      <SectionNav sections={sectionLinks} />
+
       {/* ═══════ HERO ═══════ */}
-      <section className="relative overflow-hidden">
+      <section id="hero" className="relative scroll-mt-24">
         <div
           className="pointer-events-none absolute -right-10 -top-20 h-[400px] w-[400px] rounded-full"
-          style={{
-            background:
-              'radial-gradient(circle, rgba(30,158,138,0.07), transparent 70%)',
-          }}
+          style={{ background: 'radial-gradient(circle, rgba(30,158,138,0.10), transparent 70%)' }}
         />
         <div
           className="pointer-events-none absolute -left-5 bottom-0 h-[280px] w-[280px] rounded-full"
-          style={{
-            background:
-              'radial-gradient(circle, rgba(91,45,142,0.05), transparent 70%)',
-          }}
+          style={{ background: 'radial-gradient(circle, rgba(91,45,142,0.08), transparent 70%)' }}
         />
-        <div className="section-container relative grid grid-cols-1 items-center gap-10 py-16 sm:py-20 lg:grid-cols-[1.4fr_1fr] lg:gap-12 lg:py-24">
-          <div>
+        <div className="section-container relative grid grid-cols-1 items-center gap-10 py-16 sm:py-20 lg:grid-cols-[1.4fr_1fr] lg:gap-12 lg:py-28">
+          <FadeUp>
             <div className="mb-4 flex items-center gap-2">
               <span className="inline-block h-1.5 w-1.5 animate-pulse-slow rounded-full bg-accent-teal" />
               <span className="font-mono text-[11px] text-text-muted">
                 {siteConfig.availability}
               </span>
             </div>
-            <h1 className="mb-2 font-display text-4xl font-bold tracking-tight text-text-primary sm:text-5xl">
+
+            {/* Display tagline — Brady-style bold headline */}
+            <p className="display-tagline mb-1 text-3xl leading-none sm:text-4xl lg:text-5xl">
+              Built for the Field.
+            </p>
+            <p className="mb-6 font-display text-xl font-light text-text-tertiary sm:text-2xl">
+              <span className="text-accent-teal">Hardened.</span>{' '}
+              <span className="text-accent-purple-soft">Recoverable.</span>{' '}
+              Offline-first.
+            </p>
+
+            <h1 className="mb-1 font-display text-xl font-semibold tracking-tight text-text-primary sm:text-2xl">
               {siteConfig.name}
             </h1>
-            <p className="mb-4 font-display text-base font-medium text-accent-teal sm:text-lg">
+            <p className="mb-4 font-display text-sm font-medium text-accent-teal">
               {siteConfig.title}
             </p>
             <p className="mb-6 max-w-xl font-body text-sm leading-relaxed text-text-tertiary sm:text-[15px]">
               {summary}
             </p>
+
             <div className="mb-6 flex flex-wrap gap-2.5">
               <a href={`mailto:${siteConfig.email}`} className="btn-primary">
                 <MailIcon size={14} /> Get in Touch
@@ -90,170 +110,175 @@ export default function HomePage() {
                 <LinkedinIcon size={18} />
               </a>
             </div>
-          </div>
+          </FadeUp>
+
           <div className="hidden lg:block">
-            <TerminalPanel />
+            <FadeUp delay={200}>
+              <TerminalPanel />
+            </FadeUp>
           </div>
         </div>
       </section>
 
       {/* ═══════ FLAGSHIP TEASER ═══════ */}
       {flagship && (
-        <section className="border-t border-border-subtle py-14">
+        <section id="flagship" className="border-t border-border-subtle py-16 scroll-mt-24">
           <div className="section-container">
-            <div className="flex items-baseline justify-between gap-2">
-              <span className="ac-label">{flagship.category}</span>
-              <Link
-                href={`/projects/${flagship.slug}`}
-                className="font-mono text-[10px] text-text-muted transition-colors hover:text-accent-teal"
-              >
-                /projects/{flagship.slug} →
-              </Link>
-            </div>
-            <div className="mb-1 flex flex-wrap items-baseline justify-between gap-2">
-              <h2 className="font-display text-xl font-semibold text-text-primary sm:text-2xl">
-                {flagship.title}
-              </h2>
-              <span className="status-pill status-progress">{flagship.statusLabel}</span>
-            </div>
-            {flagship.context && (
-              <p className="mb-5 font-mono text-xs text-text-muted">{flagship.context}</p>
-            )}
-            <p className="mb-6 max-w-3xl font-body text-sm leading-relaxed text-text-tertiary sm:text-[15px]">
-              {flagship.description}
-            </p>
+            <FadeUp>
+              <SectionHeader label={flagship.category} />
+              <div className="mb-1 flex flex-wrap items-baseline justify-between gap-2">
+                <h2 className="font-display text-xl font-semibold text-text-primary sm:text-2xl">
+                  {flagship.title}
+                </h2>
+                <span className="status-pill status-progress">{flagship.statusLabel}</span>
+              </div>
+              {flagship.context && (
+                <p className="mb-5 font-mono text-xs text-text-muted">{flagship.context}</p>
+              )}
+              <p className="mb-7 max-w-3xl font-body text-sm leading-relaxed text-text-tertiary sm:text-[15px]">
+                {flagship.description}
+              </p>
+            </FadeUp>
 
-            {/* Metric strip */}
-            <div className="mb-6 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
-              {mmdmCaseStudy.metrics.map((m) => (
-                <div key={m.label} className="ac-card text-center">
-                  <p className="font-mono text-xl font-semibold text-accent-teal sm:text-2xl">
-                    {m.value}
-                  </p>
-                  <p className="mt-1 font-mono text-[9px] uppercase tracking-wider text-text-tertiary">
-                    {m.label}
-                  </p>
-                </div>
-              ))}
-            </div>
+            {/* Animated metric strip */}
+            <FadeUp delay={120}>
+              <div className="mb-6 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+                {mmdmCaseStudy.metrics.map((m) => (
+                  <AnimatedCounter key={m.label} value={m.value} label={m.label} />
+                ))}
+              </div>
+            </FadeUp>
 
             {/* Problem / Solution / Impact */}
-            <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
-              {[
-                { label: 'Problem', body: mmdmCaseStudy.problem },
-                { label: 'Solution', body: mmdmCaseStudy.solution },
-                { label: 'Impact', body: mmdmCaseStudy.impact },
-              ].map((box) => (
-                <div key={box.label} className="ac-card">
-                  <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-text-muted">
-                    {box.label}
-                  </p>
-                  <p className="font-body text-[13px] leading-relaxed text-text-secondary">
-                    {box.body}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <FadeUp delay={200}>
+              <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                {[
+                  { label: 'Problem', body: mmdmCaseStudy.problem },
+                  { label: 'Solution', body: mmdmCaseStudy.solution },
+                  { label: 'Impact', body: mmdmCaseStudy.impact },
+                ].map((box) => (
+                  <div key={box.label} className="ac-card">
+                    <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-text-muted">
+                      {box.label}
+                    </p>
+                    <p className="font-body text-[13px] leading-relaxed text-text-secondary">
+                      {box.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </FadeUp>
 
-            <div className="mb-5 flex flex-wrap gap-1.5">
-              {flagship.technologies.map((tech) => (
-                <span key={tech} className="ac-tag">
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            <Link href={`/projects/${flagship.slug}`} className="btn-outline">
-              Read full case study <ArrowRightIcon size={12} />
-            </Link>
+            <FadeUp delay={280}>
+              <div className="mb-5 flex flex-wrap gap-1.5">
+                {flagship.technologies.map((tech) => (
+                  <span key={tech} className="ac-tag">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <Link href={`/projects/${flagship.slug}`} className="btn-outline">
+                Read full case study <ArrowRightIcon size={12} />
+              </Link>
+            </FadeUp>
           </div>
         </section>
       )}
 
       {/* ═══════ CAPABILITIES ═══════ */}
-      <section className="border-t border-border-subtle py-14">
+      <section id="capabilities" className="border-t border-border-subtle py-16 scroll-mt-24">
         <div className="section-container">
-          <span className="ac-label">Technical Capabilities</span>
-          <h2 className="mb-5 font-display text-xl font-semibold text-text-primary sm:text-2xl">
-            What I Work With
-          </h2>
+          <FadeUp>
+            <SectionHeader label="Technical Capabilities" title="What I Work With" />
+          </FadeUp>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {capabilities.map((c) => (
-              <CapabilityCard key={c.category} {...c} />
+            {capabilities.map((c, i) => (
+              <FadeUp key={c.category} delay={i * 80}>
+                <CapabilityCard {...c} />
+              </FadeUp>
             ))}
           </div>
 
-          <div className="mt-5">
-            <p className="mb-2.5 font-mono text-[10px] uppercase tracking-widest text-text-muted">
-              Certifications
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {certifications.map((cert) => (
-                <span
-                  key={cert.name}
-                  className="inline-flex items-center gap-1.5 rounded-md border border-border-subtle bg-bg-secondary px-2.5 py-1.5 font-mono text-[11px] text-text-secondary"
-                >
-                  <ShieldIcon
-                    className={cert.status === 'earned' ? 'text-accent-teal' : 'text-accent-purple'}
-                  />
-                  {cert.name}
-                  {cert.status === 'progress' && (
-                    <span className="text-text-muted">(in study)</span>
-                  )}
-                </span>
-              ))}
+          <FadeUp delay={200}>
+            <div className="mt-5">
+              <p className="mb-2.5 font-mono text-[10px] uppercase tracking-widest text-text-muted">
+                Certifications
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {certifications.map((cert) => (
+                  <span
+                    key={cert.name}
+                    className="inline-flex items-center gap-1.5 rounded-md border border-border-subtle bg-bg-secondary/70 px-2.5 py-1.5 font-mono text-[11px] text-text-secondary backdrop-blur"
+                  >
+                    <ShieldIcon
+                      className={
+                        cert.status === 'earned' ? 'text-accent-teal' : 'text-accent-purple'
+                      }
+                    />
+                    {cert.name}
+                    {cert.status === 'progress' && (
+                      <span className="text-text-muted">(in study)</span>
+                    )}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
+          </FadeUp>
         </div>
       </section>
 
       {/* ═══════ OTHER PROJECTS ═══════ */}
-      <section className="border-t border-border-subtle py-14">
+      <section id="projects" className="border-t border-border-subtle py-16 scroll-mt-24">
         <div className="section-container">
-          <span className="ac-label">Other Work</span>
-          <h2 className="mb-5 font-display text-xl font-semibold text-text-primary sm:text-2xl">
-            Additional Projects
-          </h2>
+          <FadeUp>
+            <SectionHeader label="Other Work" title="Additional Projects" />
+          </FadeUp>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {otherProjects.map((project) => (
-              <ProjectCard key={project.slug} {...project} />
+            {otherProjects.map((project, i) => (
+              <FadeUp key={project.slug} delay={i * 60}>
+                <ProjectCard {...project} />
+              </FadeUp>
             ))}
-            <GithubTile />
+            <FadeUp delay={otherProjects.length * 60}>
+              <GithubTile />
+            </FadeUp>
           </div>
         </div>
       </section>
 
       {/* ═══════ CONTACT ═══════ */}
-      <section className="border-t border-border-subtle py-14">
+      <section id="contact" className="border-t border-border-subtle py-16 scroll-mt-24">
         <div className="section-container text-center">
-          <span className="ac-label">Contact</span>
-          <h2 className="mb-2.5 font-display text-2xl font-semibold text-text-primary">
-            Build systems that hold up.
-          </h2>
-          <p className="mx-auto mb-5 max-w-md font-body text-sm leading-relaxed text-text-tertiary">
-            I&apos;m open to infrastructure, security, and field deployment roles — full-time, contract, or co-op. Relocating to Orlando, FL in August 2026 for UCF.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-2.5">
-            <a href={`mailto:${siteConfig.email}`} className="btn-primary">
-              {siteConfig.email}
-            </a>
-            <a
-              href={siteConfig.links.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline"
-            >
-              <LinkedinIcon size={14} /> LinkedIn
-            </a>
-            <a
-              href={siteConfig.links.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline"
-            >
-              <GithubIcon size={14} /> GitHub
-            </a>
-          </div>
+          <FadeUp>
+            <SectionHeader label="Contact" />
+            <h2 className="mb-2.5 font-display text-2xl font-semibold text-text-primary">
+              Build systems that hold up.
+            </h2>
+            <p className="mx-auto mb-5 max-w-md font-body text-sm leading-relaxed text-text-tertiary">
+              I&apos;m open to infrastructure, security, and field deployment roles — full-time, contract, or co-op. Relocating to Orlando, FL in August 2026 for UCF.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-2.5">
+              <a href={`mailto:${siteConfig.email}`} className="btn-primary">
+                {siteConfig.email}
+              </a>
+              <a
+                href={siteConfig.links.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline"
+              >
+                <LinkedinIcon size={14} /> LinkedIn
+              </a>
+              <a
+                href={siteConfig.links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline"
+              >
+                <GithubIcon size={14} /> GitHub
+              </a>
+            </div>
+          </FadeUp>
         </div>
       </section>
     </>
