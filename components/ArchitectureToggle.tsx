@@ -72,10 +72,10 @@ function EmrDiagram() {
       <text x="665" y="110" textAnchor="middle" fill="#8B95A5" fontFamily="JetBrains Mono" fontSize="8">MariaDB</text>
 
       <rect x="220" y="170" width="120" height="22" rx="4" fill="#0D1117" stroke="#5B2D8E" strokeWidth="1" />
-      <text x="280" y="184" textAnchor="middle" fill="#9d7bc7" fontFamily="JetBrains Mono" fontSize="9">RBAC · 6 roles</text>
+      <text x="280" y="184" textAnchor="middle" fill="#B89CE0" fontFamily="JetBrains Mono" fontSize="9">RBAC · 6 roles</text>
 
       <rect x="440" y="170" width="120" height="22" rx="4" fill="#0D1117" stroke="#5B2D8E" strokeWidth="1" />
-      <text x="500" y="184" textAnchor="middle" fill="#9d7bc7" fontFamily="JetBrains Mono" fontSize="9">Daily backup · cron</text>
+      <text x="500" y="184" textAnchor="middle" fill="#B89CE0" fontFamily="JetBrains Mono" fontSize="9">Daily backup · cron</text>
     </svg>
   );
 }

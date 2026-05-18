@@ -19,23 +19,23 @@ export default function TerminalPanel() {
 
         <div className="mt-2.5">
           <span className="text-accent-teal">$</span>{' '}
-          <span className="text-text-secondary">cat ./status.json</span>
+          <span className="text-text-secondary">cat ./profile.json</span>
         </div>
         <div className="pl-2 text-text-tertiary">
-          <span className="text-accent-purple-soft">role</span>:{' '}
-          <span className="text-text-secondary">&quot;Tech Operations Lead&quot;</span>
+          <span className="text-accent-purple-bright">focus</span>:{' '}
+          <span className="text-text-secondary">&quot;infrastructure security&quot;</span>
           <br />
-          <span className="text-accent-purple-soft">org</span>:{' '}
-          <span className="text-text-secondary">&quot;MMDM (volunteer)&quot;</span>
+          <span className="text-accent-purple-bright">location</span>:{' '}
+          <span className="text-text-secondary">&quot;Orlando, FL&quot;</span>
           <br />
-          <span className="text-accent-purple-soft">stack</span>:{' '}
-          <span className="text-text-secondary">[linux, tls, rbac]</span>
+          <span className="text-accent-purple-bright">school</span>:{' '}
+          <span className="text-text-secondary">&quot;UCF · Fall 2026&quot;</span>
           <br />
-          <span className="text-accent-purple-soft">clearance</span>:{' '}
+          <span className="text-accent-purple-bright">stack</span>:{' '}
+          <span className="text-text-secondary">[linux, tls, rbac, azure]</span>
+          <br />
+          <span className="text-accent-purple-bright">clearance</span>:{' '}
           <span className="text-accent-teal">&quot;eligible&quot;</span>
-          <br />
-          <span className="text-accent-purple-soft">travel</span>:{' '}
-          <span className="text-accent-teal">&quot;50–80% ok&quot;</span>
         </div>
 
         <div className="mt-2.5">

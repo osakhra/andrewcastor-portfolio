@@ -19,7 +19,8 @@ const config: Config = {
           'teal-dim': '#17796A',
           'teal-glow': 'rgba(30,158,138,0.4)',
           purple: '#5B2D8E',
-          'purple-soft': '#9d7bc7',
+          'purple-soft': '#B89CE0',
+          'purple-bright': '#C9B0EA',
         },
         text: {
           primary: '#E8ECF1',

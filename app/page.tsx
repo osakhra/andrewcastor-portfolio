@@ -44,11 +44,11 @@ export default function HomePage() {
       <section id="hero" className="relative scroll-mt-24">
         <div
           className="pointer-events-none absolute -right-10 -top-20 h-[400px] w-[400px] rounded-full"
-          style={{ background: 'radial-gradient(circle, rgba(30,158,138,0.10), transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, rgba(30,158,138,0.12), transparent 70%)' }}
         />
         <div
           className="pointer-events-none absolute -left-5 bottom-0 h-[280px] w-[280px] rounded-full"
-          style={{ background: 'radial-gradient(circle, rgba(91,45,142,0.08), transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, rgba(184,156,224,0.10), transparent 70%)' }}
         />
         <div className="section-container relative grid grid-cols-1 items-center gap-10 py-16 sm:py-20 lg:grid-cols-[1.4fr_1fr] lg:gap-12 lg:py-28">
           <FadeUp>
@@ -59,14 +59,14 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* Display tagline — Brady-style bold headline */}
+            {/* Display tagline */}
             <p className="display-tagline mb-1 text-3xl leading-none sm:text-4xl lg:text-5xl">
               Built for the Field.
             </p>
-            <p className="mb-6 font-display text-xl font-light text-text-tertiary sm:text-2xl">
+            <p className="mb-6 font-display text-xl font-medium text-text-secondary sm:text-2xl">
               <span className="text-accent-teal">Hardened.</span>{' '}
-              <span className="text-accent-purple-soft">Recoverable.</span>{' '}
-              Offline-first.
+              <span className="text-accent-purple-bright">Recoverable.</span>{' '}
+              <span style={{ color: '#D0D8E2' }}>Offline-first.</span>
             </p>
 
             <h1 className="mb-1 font-display text-xl font-semibold tracking-tight text-text-primary sm:text-2xl">
@@ -80,7 +80,12 @@ export default function HomePage() {
             </p>
 
             <div className="mb-6 flex flex-wrap gap-2.5">
-              <a href={`mailto:${siteConfig.email}`} className="btn-primary">
+              <a
+                href={`mailto:${siteConfig.email}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
                 <MailIcon size={14} /> Get in Touch
               </a>
               <Link href="/projects" className="btn-outline">
@@ -140,7 +145,6 @@ export default function HomePage() {
               </p>
             </FadeUp>
 
-            {/* Animated metric strip */}
             <FadeUp delay={120}>
               <div className="mb-6 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
                 {mmdmCaseStudy.metrics.map((m) => (
@@ -149,7 +153,6 @@ export default function HomePage() {
               </div>
             </FadeUp>
 
-            {/* Problem / Solution / Impact */}
             <FadeUp delay={200}>
               <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
                 {[
@@ -212,7 +215,7 @@ export default function HomePage() {
                   >
                     <ShieldIcon
                       className={
-                        cert.status === 'earned' ? 'text-accent-teal' : 'text-accent-purple'
+                        cert.status === 'earned' ? 'text-accent-teal' : 'text-accent-purple-bright'
                       }
                     />
                     {cert.name}
@@ -255,10 +258,15 @@ export default function HomePage() {
               Build systems that hold up.
             </h2>
             <p className="mx-auto mb-5 max-w-md font-body text-sm leading-relaxed text-text-tertiary">
-              I&apos;m open to infrastructure, security, and field deployment roles — full-time, contract, or co-op. Relocating to Orlando, FL in August 2026 for UCF.
+              I&apos;m open to infrastructure, security, and field deployment roles — internships, co-op, contract, or full-time. Based in Orlando, FL.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2.5">
-              <a href={`mailto:${siteConfig.email}`} className="btn-primary">
+              <a
+                href={`mailto:${siteConfig.email}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
                 {siteConfig.email}
               </a>
               <a

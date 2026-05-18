@@ -12,11 +12,11 @@ export default function SectionHeader({ label, title, subtitle, id, children }: 
   return (
     <div id={id} className="mb-6 scroll-mt-24">
       <div className="mb-2 inline-flex items-center gap-2">
-        <span className="font-mono text-[10px] text-accent-teal/50">[</span>
+        <span className="font-mono text-[10px] text-accent-purple-bright/60">[</span>
         <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-accent-teal">
           {label}
         </span>
-        <span className="font-mono text-[10px] text-accent-teal/50">]</span>
+        <span className="font-mono text-[10px] text-accent-purple-bright/60">]</span>
       </div>
       {title && (
         <h2 className="font-display text-xl font-semibold text-text-primary sm:text-2xl">

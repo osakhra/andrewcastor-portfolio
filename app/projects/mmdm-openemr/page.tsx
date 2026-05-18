@@ -94,7 +94,7 @@ export default function MmdmCaseStudyPage() {
               </ul>
             </div>
             <div className="ac-card">
-              <p className="mb-2.5 font-mono text-[10px] uppercase tracking-wider text-accent-purple-soft">
+              <p className="mb-2.5 font-mono text-[10px] uppercase tracking-wider text-accent-purple-bright">
                 Roadmap → 2027 Field Deploy
               </p>
               <ul className="space-y-1.5 font-body text-sm text-text-secondary">

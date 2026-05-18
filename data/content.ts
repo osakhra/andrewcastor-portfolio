@@ -3,9 +3,9 @@ export const siteConfig = {
   legalName: 'John Andrew Castor',
   title: 'Infrastructure & Cloud Security Engineer',
   domain: 'andrewcastor.dev',
-  email: 'JCastorwrk@gmail.com',
-  location: 'Houston, TX Metro',
-  availability: 'Open to relocation · Fall 2026 → Orlando, FL',
+  email: 'JohnAndrewCastor@gmail.com',
+  location: 'Orlando, FL',
+  availability: 'Available for co-op, internships & infrastructure roles',
   resumeFilename: 'John_Andrew_Castor_Resume.pdf',
   links: {
     github: 'https://github.com/osakhra',
@@ -29,7 +29,7 @@ export const siteConfig = {
   },
 };
 
-export const summary = `I build secure, offline-first systems for environments where reliability isn't optional — healthcare clinics in austere field conditions, multi-site networks, and hardened Linux deployments. Currently shipping a self-hosted EMR for a Costa Rica medical mission and preparing for cleared defense work.`;
+export const summary = `Cybersecurity student heading into UCF's NSA-designated cyber program with two years of hands-on infrastructure and healthcare IT work behind me. I've built hardened Linux deployments, multi-site networks, and offline-first clinical systems for a volunteer medical mission — the kind of constrained, high-stakes environments that translate directly to cloud security and cleared work.`;
 
 export const capabilities = [
   {
@@ -143,10 +143,10 @@ export const projects: Project[] = [
     title: 'MMDM OpenEMR — Offline-First Clinical Platform',
     category: 'Flagship Project',
     status: 'progress',
-    statusLabel: 'In Production · Field Deploy 2027',
+    statusLabel: 'Deployed 2026 · Ongoing',
     context: 'Medical Missionaries of Divine Mercy · Houston → Costa Rica · 2024–Present',
     description:
-      'Self-hosted EMR built to run a six-station volunteer clinic in a Costa Rican parish hall with no internet, no cloud, and no public DNS. Migrated off a corrupted XAMPP environment to a hardened Ubuntu / Apache / MariaDB / PHP stack with a private certificate authority, daily backups, and bilingual Spanish/English clinical forms.',
+      'Self-hosted EMR built to run a six-station volunteer clinic in a Costa Rican parish hall with no internet, no cloud, and no public DNS. Migrated off a corrupted XAMPP environment to a hardened Ubuntu / Apache / MariaDB / PHP stack with a private certificate authority, daily backups, and bilingual Spanish/English clinical forms. Deployed at the April 2026 Costa Rica mission; next field deployment 2027.',
     technologies: [
       'Ubuntu 22.04',
       'Apache',
@@ -235,7 +235,7 @@ export const mmdmCaseStudy = {
     { value: '6', label: 'Clinical Stations' },
     { value: '30–40%', label: 'Intake Delay ↓' },
     { value: '50+', label: 'Users Trained' },
-    { value: '0', label: 'Internet Required' },
+    { value: 'Offline', label: 'Operations Posture' },
   ],
   problem:
     'Corrupted Windows XAMPP stack with Aria storage engine failure. Paper forms across six clinical stations. No backups, no encryption, no recovery path. Mission-critical with zero connectivity guarantee.',

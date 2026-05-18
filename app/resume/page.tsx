@@ -55,6 +55,8 @@ export default function ResumePage() {
                 </span>
                 <a
                   href={`mailto:${siteConfig.email}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-1.5 font-body text-xs transition-colors hover:text-accent-teal"
                 >
                   <MailIcon size={12} /> {siteConfig.email}
@@ -169,7 +171,7 @@ export default function ResumePage() {
                   className="inline-flex items-center gap-1.5 rounded-md border border-border-subtle bg-bg-secondary/70 px-2.5 py-1.5 font-mono text-[11px] text-text-secondary backdrop-blur"
                 >
                   <ShieldIcon
-                    className={cert.status === 'earned' ? 'text-accent-teal' : 'text-accent-purple'}
+                    className={cert.status === 'earned' ? 'text-accent-teal' : 'text-accent-purple-bright'}
                   />
                   {cert.name}
                   {cert.status === 'progress' && (
@@ -215,7 +217,12 @@ export default function ResumePage() {
             <p className="font-body text-xs text-text-tertiary">
               {siteConfig.availability}
             </p>
-            <a href={`mailto:${siteConfig.email}`} className="btn-primary mt-3 inline-flex">
+            <a
+              href={`mailto:${siteConfig.email}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary mt-3 inline-flex"
+            >
               <MailIcon size={13} /> Reach Out
             </a>
           </div>

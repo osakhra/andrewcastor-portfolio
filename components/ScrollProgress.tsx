@@ -24,9 +24,10 @@ export default function ScrollProgress() {
       aria-hidden="true"
     >
       <div
-        className="h-full bg-accent-teal transition-[width] duration-100"
+        className="h-full transition-[width] duration-100"
         style={{
           width: `${progress}%`,
+          background: 'linear-gradient(90deg, #1E9E8A 0%, #B89CE0 100%)',
           boxShadow:
             progress > 0
               ? '0 0 10px rgba(30, 158, 138, 0.6)'
