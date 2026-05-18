@@ -78,7 +78,7 @@ export default function NetworkGrid() {
 
     const spawnPacket = () => {
       if (edges.length === 0) return;
-      if (packets.filter((p) => p.alive).length >= 4) return; // cap at 4 simultaneous packets
+      if (packets.filter((p) => p.alive).length >= 7) return; // cap at 7 simultaneous packets
 
       // Pick a random edge that's at least partially on-screen
       let tries = 0;
@@ -130,7 +130,7 @@ export default function NetworkGrid() {
       }
 
       // Spawn new packets occasionally
-      if (now - lastPacketSpawn > 1800) {
+      if (now - lastPacketSpawn > 600) {
         spawnPacket();
         lastPacketSpawn = now;
       }

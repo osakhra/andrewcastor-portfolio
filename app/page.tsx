@@ -61,7 +61,7 @@ export default function HomePage() {
 
             {/* Display tagline */}
             <p className="display-tagline mb-1 text-3xl leading-none sm:text-4xl lg:text-5xl">
-              Built for the Field.
+              Built for the Field
             </p>
             <p className="mb-6 font-display text-xl font-medium text-text-secondary sm:text-2xl">
               <span className="text-accent-teal">Hardened.</span>{' '}
