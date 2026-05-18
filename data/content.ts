@@ -233,7 +233,7 @@ export const navLinks = [
 export const mmdmCaseStudy = {
   metrics: [
     { value: '6', label: 'Clinical Stations' },
-    { value: '30–40%', label: 'Intake Delay ↓' },
+    { value: '~40%', label: 'Intake Delay ↓' },
     { value: '50+', label: 'Users Trained' },
     { value: 'Offline', label: 'Operations Posture' },
   ],
