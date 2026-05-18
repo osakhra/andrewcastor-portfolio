@@ -6,6 +6,7 @@ import ArchitectureToggle from '@/components/ArchitectureToggle';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import FadeUp from '@/components/FadeUp';
 import SectionHeader from '@/components/SectionHeader';
+import PatientFlowDiagram from '@/components/PatientFlowDiagram';
 
 export const metadata: Metadata = {
   title: 'MMDM OpenEMR — Case Study',
@@ -77,6 +78,13 @@ export default function MmdmCaseStudyPage() {
           </p>
           <div className="mb-10">
             <ArchitectureToggle />
+          </div>
+        </FadeUp>
+
+        {/* Patient flow diagram */}
+        <FadeUp>
+          <div className="mb-10">
+            <PatientFlowDiagram />
           </div>
         </FadeUp>
 

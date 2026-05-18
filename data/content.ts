@@ -212,6 +212,25 @@ export const projects: Project[] = [
     technologies: ['NLP', 'Sentiment', 'Translation'],
   },
   {
+    slug: 'oasis',
+    title: 'OASIS — Competitive Playtesting & Esports Events',
+    category: 'Founder · Operations',
+    status: 'shipped',
+    statusLabel: 'Concluded',
+    context: '2022–2024 · Discord-based community of 500+ competitive players',
+    description:
+      'Founded and operated a competitive playtesting organization partnering with indie PvP game developers to run structured pre-release events using experienced esports participants. Started by building the first competitive scene for Shatterline (Frag Lab Studio, Ukraine) during the Russia-Ukraine war to sustain the game\'s player base, then expanded into a generalized dev-support model for early-access PvP titles.',
+    technologies: [
+      'Community Management',
+      'Sponsor Negotiation',
+      'Ruleset Design',
+      'Server Infrastructure',
+      'Event Operations',
+      'Grant Writing',
+      'Discord · Media',
+    ],
+  },
+  {
     slug: 'splunk-lab',
     title: 'Splunk SOC Home Lab',
     category: 'Security Lab',
@@ -227,13 +246,14 @@ export const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Projects', href: '/projects' },
   { label: 'Resume', href: '/resume' },
+  { label: 'About', href: '/about' },
 ];
 
 // Flagship case study — full deep-dive content for /projects/mmdm-openemr
 export const mmdmCaseStudy = {
   metrics: [
     { value: '6', label: 'Clinical Stations' },
-    { value: '~40%', label: 'Intake Delay ↓' },
+    { value: '40%', label: 'Intake Delay ↓' },
     { value: '50+', label: 'Users Trained' },
     { value: 'Offline', label: 'Operations Posture' },
   ],

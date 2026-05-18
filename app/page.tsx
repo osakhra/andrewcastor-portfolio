@@ -26,6 +26,7 @@ import SectionNav from '@/components/SectionNav';
 
 const sectionLinks = [
   { id: 'hero', label: 'Top' },
+  { id: 'status', label: 'Status' },
   { id: 'flagship', label: 'Flagship' },
   { id: 'capabilities', label: 'Capabilities' },
   { id: 'projects', label: 'Projects' },
@@ -61,7 +62,7 @@ export default function HomePage() {
 
             {/* Display tagline */}
             <p className="display-tagline mb-1 text-3xl leading-none sm:text-4xl lg:text-5xl">
-              Built for the Field
+              Built for the Field.
             </p>
             <p className="mb-6 font-display text-xl font-medium text-text-secondary sm:text-2xl">
               <span className="text-accent-teal">Hardened.</span>{' '}
@@ -122,6 +123,37 @@ export default function HomePage() {
               <TerminalPanel />
             </FadeUp>
           </div>
+        </div>
+      </section>
+
+      {/* ═══════ LIVE STATUS ═══════ */}
+      <section id="status" className="border-t border-border-subtle py-8">
+        <div className="section-container">
+          <FadeUp>
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="font-mono text-[11px] uppercase tracking-widest text-text-tertiary">
+                [ Currently ]
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { text: 'Studying AZ-500 — Azure Security Engineer', dot: 'teal' },
+                  { text: 'Building Splunk detection lab', dot: 'teal' },
+                  { text: 'Developing bilingual EMR forms for MMDM 2027', dot: 'purple' },
+                  { text: 'UCF Fall 2026 — NSA CAE-CD Cybersecurity', dot: 'purple' },
+                ].map((item) => (
+                  <span
+                    key={item.text}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-border-subtle bg-bg-secondary/60 px-3 py-1 font-mono text-[11px] text-text-secondary backdrop-blur"
+                  >
+                    <span
+                      className={`inline-block h-1.5 w-1.5 rounded-full ${item.dot === 'teal' ? 'bg-accent-teal animate-pulse-slow' : 'bg-accent-purple-bright'}`}
+                    />
+                    {item.text}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
