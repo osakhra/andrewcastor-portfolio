@@ -328,15 +328,15 @@ export default function AboutPage() {
             {[
               {
                 title: 'Hiking & the Outdoors',
-                body: "I hike to get offline. There's no better debugging environment than a trail where the only variable is your own pace. I'm drawn to elevation and distance over comfort.",
+                body: "I hike to get offline. There's no better debugging environment than a trail where the only variable is your own pace. I'm drawn to elevation and distance over comfort, searching for the perfect view.",
               },
               {
                 title: 'Ocean Swimming & Offshore Fishing',
-                body: "I swim out as far as whistled in — and fish 5+ miles offshore for the kind of catch that requires patience and real equipment. If you can do it in 10 minutes, it's not interesting to me.",
+                body: "I like to swim out twice as far as the surfers, finding a calm wave to float on — and fish 5+ miles offshore for the kind of catch that will feed me and the neighbors.",
               },
               {
                 title: 'Competitive Gaming',
-                body: "I play games the same way I work — to understand them completely. Top rank across multiple titles not as bragging rights, but because I don't start something I'm not willing to master.",
+                body: "I play games the same way I work — to understand them completely and master them fully. I play with competitive friends who together bring out the best in each of us as we climb to the top rank of every game we touch. ",
               },
               {
                 title: 'Travel as Default',

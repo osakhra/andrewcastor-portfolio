@@ -26,7 +26,7 @@ import SectionNav from '@/components/SectionNav';
 
 const sectionLinks = [
   { id: 'hero', label: 'Top' },
-  { id: 'status', label: 'Status' },
+  // { id: 'status', label: 'Status' },
   { id: 'flagship', label: 'Flagship' },
   { id: 'capabilities', label: 'Capabilities' },
   { id: 'projects', label: 'Projects' },
@@ -126,7 +126,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══════ LIVE STATUS ═══════ */}
+      {/* ═══════ LIVE STATUS ═══════
       <section id="status" className="border-t border-border-subtle py-8">
         <div className="section-container">
           <FadeUp>
@@ -155,7 +155,7 @@ export default function HomePage() {
             </div>
           </FadeUp>
         </div>
-      </section>
+      </section>  */}
 
       {/* ═══════ FLAGSHIP TEASER ═══════ */}
       {flagship && (
