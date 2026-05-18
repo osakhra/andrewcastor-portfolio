@@ -1,12 +1,15 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import FadeUp from '@/components/FadeUp';
 import SectionHeader from '@/components/SectionHeader';
 import SectionNav from '@/components/SectionNav';
+import { ArrowRightIcon, DownloadIcon } from '@/components/Icons';
+import { siteConfig } from '@/data/content';
 
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Beyond the résumé — military background, competitive esports career, OASIS founding, and personal story of Andrew Castor.',
+    'Beyond the résumé — military family background, competitive esports career, OASIS founding, and personal story of Andrew Castor.',
 };
 
 const aboutSections = [
@@ -17,21 +20,23 @@ const aboutSections = [
   { id: 'personal', label: 'Personal' },
 ];
 
+// Timeline of where I've lived — US-born, military family moves
 const locations = [
-  { place: 'Germany',            note: 'Born. First home.' },
-  { place: 'Tampa, FL',          note: 'Age 5' },
-  { place: 'Virginia',           note: 'Age 8' },
-  { place: 'Abu Dhabi, UAE',     note: 'Age 9 — first international life' },
-  { place: 'Florida',            note: 'Age 12 — multiple schools across the state' },
-  { place: 'Houston, TX',        note: 'Age 16 — stayed through college' },
-  { place: 'Orlando, FL',        note: 'Now — UCF, Fall 2026' },
+  { place: 'United States',     note: 'Born' },
+  { place: 'Germany',           note: 'Age ~3 — first overseas posting' },
+  { place: 'Tampa, FL',         note: 'Age ~5' },
+  { place: 'Virginia',          note: 'Age ~8' },
+  { place: 'Abu Dhabi, UAE',    note: 'Age ~9' },
+  { place: 'Florida (statewide)', note: 'Age ~12 — multiple schools' },
+  { place: 'Houston, TX',       note: 'Age ~16 — stayed through college' },
+  { place: 'Orlando, FL',       note: 'Now — UCF Fall 2026' },
 ];
 
 const transferableSkills = [
   {
     skill: 'Adversarial Pattern Recognition',
     detail:
-      'Spent hundreds of hours weekly analyzing international tournament footage, cataloguing team tendencies, agent compositions, economic patterns, and map-specific behaviors. The same systematic approach to opponent modeling applies directly to threat intelligence.',
+      'Hundreds of hours weekly analyzing international tournament footage — cataloguing team tendencies, agent compositions, economic patterns, and map-specific behaviors. The same systematic approach to opponent modeling applies directly to threat intelligence.',
   },
   {
     skill: 'High-Stakes Briefing Under Pressure',
@@ -46,18 +51,62 @@ const transferableSkills = [
   {
     skill: 'Structured Decision-Making',
     detail:
-      'Chose the analyst role over the IGL (captain) role — deliberately trading visibility for effectiveness. The decision reflected prioritizing team outcome over personal advancement, a judgment pattern that translates to professional leadership.',
+      'Chose the analyst role over the IGL (captain) role — deliberately trading visibility for effectiveness. The decision reflected prioritizing team outcome over personal advancement, a judgment pattern that translates directly to professional leadership.',
   },
 ];
 
 const oasisSkills = [
-  'Community governance — drafted and enforced ruleset covering bug exploitation, behavioral standards, and exploit patches for a live-updating game with active vulnerabilities',
-  'Stakeholder negotiation — convinced skeptical Ukrainian devs during wartime to provision dedicated practice servers; required iterative persuasion, data, and trust-building across language and time-zone barriers',
+  'Community governance — drafted and enforced rulesets covering bug exploitation, behavioral standards, and exploit patches for live-updating games with active vulnerabilities',
+  'Stakeholder negotiation — convinced skeptical Ukrainian developers during wartime to provision dedicated practice servers; required iterative persuasion, data, and trust-building across language and time-zone barriers',
   'Sponsorship and grant acquisition — sourced prize pools up to $600 through external grants and brand sponsors with no prior fundraising experience',
   'Operations management — coordinated media teams, tournament brackets, broadcast logistics, and community communications simultaneously',
   'Early-access product intelligence — evaluated new PvP titles at alpha/beta stage for competitive viability; provided structured feedback to development teams before public release',
-  'Business development — attended gaming conventions, cold-pitched development studios, negotiated in-person and remote partnerships, and nearly secured a Stockholm studio residency',
-  'Crisis operations — maintained community trust and event continuity during a developer bankruptcy (Alara Prime), demonstrating organizational resilience under external failure',
+  'Business development — attended gaming conventions, cold-pitched development studios, negotiated in-person and remote partnerships, and nearly secured a Stockholm studio residency with Alara Prime',
+  'Crisis operations — maintained community trust and event continuity through the Alara Prime bankruptcy, demonstrating organizational resilience under external failure',
+];
+
+// Verified competitive rankings — accurate per user
+const gamingRanks = [
+  {
+    game: 'Valorant',
+    rank: 'Radiant',
+    note: 'Act 1 · Top 50 NA · 10M+ player base',
+  },
+  {
+    game: 'CS2 — Premier',
+    rank: 'Red Rank · 26K ELO',
+    note: 'Top 1% (second highest tier)',
+  },
+  {
+    game: 'CS2 — Faceit',
+    rank: 'Level 10',
+    note: 'Highest competitive matchmaking level',
+  },
+  {
+    game: 'CS2 — Wingman',
+    rank: 'Global Elite',
+    note: '2v2 competitive ranked',
+  },
+  {
+    game: 'Rainbow Six Siege X',
+    rank: 'Champion',
+    note: '2025 launch season · Top 4000 after a 7-year hiatus',
+  },
+  {
+    game: 'FragPunk',
+    rank: '#5 Broker · Punkmaster Top 200',
+    note: 'Reached within ~1 month of game launch',
+  },
+  {
+    game: 'Spectre Divide',
+    rank: 'Champion',
+    note: 'Top tier before sunset',
+  },
+  {
+    game: 'Aimlab',
+    rank: 'Master III',
+    note: 'Precision · Perception · Cognition: Top 0%',
+  },
 ];
 
 export default function AboutPage() {
@@ -72,18 +121,17 @@ export default function AboutPage() {
             id="intro"
             label="Background"
             title="Beyond the Résumé"
-            subtitle="Military family. Ten schools. Four countries. Always the new kid — which turns out to be excellent training for operating in environments where you have to build trust quickly and figure things out fast."
+            subtitle="Military family. Ten schools. Always the new kid — which turns out to be excellent training for operating in environments where you have to build trust quickly and figure things out fast."
           />
         </FadeUp>
 
-        {/* Military background */}
         <FadeUp delay={100}>
-          <div className="ac-card mb-6">
+          <div className="ac-card mb-10">
             <p className="mb-3 font-mono text-[11px] uppercase tracking-wider text-accent-teal">
               Military Brat · USAF Family
             </p>
             <p className="mb-4 font-body text-[15px] leading-relaxed text-text-secondary">
-              Both parents served in the United States Air Force. My mother retired as a Lieutenant Colonel, my father as a Colonel. Growing up meant moving every few years — 10 schools across 4 countries, starting from first grade. I learned early how to adapt to new environments, read new social structures, and build trust with strangers. It wasn&apos;t always easy, but it&apos;s a background that translates directly into how I work.
+              I&apos;m a US citizen, born in the United States. Both parents served in the United States Air Force — my mother retired as a Lieutenant Colonel, my father as a Colonel. Growing up meant moving every few years across postings: about 10 schools by the time I graduated high school. I learned early how to adapt to new environments, read new social structures, and build trust with strangers. It wasn&apos;t always easy, but it&apos;s a background that translates directly into how I work.
             </p>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
               {locations.map((loc) => (
@@ -118,19 +166,19 @@ export default function AboutPage() {
               <span className="status-pill status-shipped">Tier 1 Org</span>
             </div>
             <p className="mb-4 font-body text-[15px] leading-relaxed text-text-secondary">
-              XSET was one of the top NA Valorant organizations during the game&apos;s early competitive era — the same roster that won the VCT 2022 NA Stage 2 Challengers and represented North America internationally at Masters Copenhagen. My involvement began when I was recruited following strong performance in the open circuit. I was offered the IGL (captain) role but chose to stay as an analyst — a deliberate decision to have more impact behind the scenes.
+              XSET was one of the top NA Valorant organizations during the game&apos;s early competitive era — the same roster that won the VCT 2022 NA Stage 2 Challengers and represented North America internationally at Masters Copenhagen. I was offered the IGL (captain) role following strong performance in the open circuit, but chose to stay as an analyst — a deliberate decision to have more impact behind the scenes than at the mic.
             </p>
             <p className="mb-4 font-body text-[15px] leading-relaxed text-text-secondary">
-              The job was 12-hour days, mostly self-structured. Up at 5:30 AM watching international tournament VODs before the NA market woke up. By 4 PM I was building per-player performance spreadsheets — round-by-round statistics, behavioral patterns, performance curves plotted over time. By 7 PM the roster was in practice; I&apos;d watch live, flag in-round events, and then spend the post-session reviewing every angle. At peak I was rated among the better analysts in the NA scene.
+              The job was structured 12-hour days. Up at 5:30 AM watching international tournament VODs before the NA market woke up. By afternoon I was building per-player performance spreadsheets — round-by-round statistics, behavioral patterns, performance curves plotted over time. Evenings the roster was in scrims; I&apos;d watch live, flag in-round events, then spend the post-session reviewing every angle. At peak I was rated among the better analysts in the NA scene.
             </p>
             <p className="font-body text-[15px] leading-relaxed text-text-secondary">
-              I left the scene by choice. I&apos;d hit my ceiling for what the role could teach me, and I could see more important work ahead. The discipline, pattern recognition, and analytical habits it built stayed with me and show up directly in the way I approach infrastructure and security work today.
+              I left the scene by choice. I&apos;d hit my ceiling for what the role could teach me, and I could see more important work ahead. The discipline, pattern recognition, and analytical habits it built stayed with me — and they show up directly in how I approach infrastructure and security work today.
             </p>
           </div>
         </FadeUp>
 
         <FadeUp delay={120}>
-          <div className="mb-6">
+          <div className="mb-10">
             <p className="mb-3 font-mono text-[11px] uppercase tracking-wider text-text-tertiary">
               Transferable Skills
             </p>
@@ -149,28 +197,26 @@ export default function AboutPage() {
           </div>
         </FadeUp>
 
+        {/* Verified competitive ranks */}
         <FadeUp delay={80}>
-          <div className="ac-card mb-6">
+          <div className="mb-10">
             <p className="mb-2 font-mono text-[11px] uppercase tracking-wider text-text-tertiary">
-              Competitive Rankings · Selected Games
+              Competitive Rankings · Verified
             </p>
-            <p className="mb-3 font-body text-[13px] text-text-tertiary">
-              Competitive performance across multiple titles — used as structured skill-building environments, not casual play.
+            <p className="mb-4 font-body text-[13px] text-text-tertiary">
+              I play competitive games the same way I work — to understand them completely. Pattern: rapid mastery across new titles, including games less than a month old.
             </p>
-            <div className="flex flex-wrap gap-2">
-              {[
-                { game: 'Valorant',          rank: 'Radiant · Top 50 NA',         note: '10M+ player base' },
-                { game: 'CS2',               rank: 'Supreme Master First Class',   note: 'Season 1' },
-                { game: 'Rainbow Six Siege', rank: 'Champions',                    note: 'PC rank' },
-                { game: 'Aimlab',            rank: 'Master III',                   note: 'Precision, Perception, Cognition: Top 0%' },
-              ].map((r) => (
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+              {gamingRanks.map((r) => (
                 <div
                   key={r.game}
-                  className="rounded-md border border-border-subtle bg-bg-secondary/60 px-3 py-2"
+                  className="rounded-md border border-border-subtle bg-bg-secondary/60 px-3 py-2.5"
                 >
-                  <p className="font-display text-[13px] font-semibold text-text-primary">{r.game}</p>
-                  <p className="font-mono text-[11px] text-accent-teal">{r.rank}</p>
-                  <p className="font-mono text-[10px] text-text-tertiary">{r.note}</p>
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <p className="font-display text-[13px] font-semibold text-text-primary">{r.game}</p>
+                    <p className="font-mono text-[11px] text-accent-teal">{r.rank}</p>
+                  </div>
+                  <p className="mt-0.5 font-mono text-[10px] text-text-tertiary">{r.note}</p>
                 </div>
               ))}
             </div>
@@ -193,7 +239,7 @@ export default function AboutPage() {
                 <p className="font-display text-base font-semibold text-text-primary">Founder & Operations Lead</p>
                 <p className="font-mono text-[12px] text-accent-teal">OASIS · 2022–2024</p>
               </div>
-              <span className="status-pill status-shipped">Concluded</span>
+              <span className="status-pill status-shipped">Concluded 2024</span>
             </div>
             <p className="mb-4 font-body text-[15px] leading-relaxed text-text-secondary">
               After leaving the Valorant scene I discovered Shatterline, a tactical shooter developed by Frag Lab Studio in Ukraine — during the height of the Russia-Ukraine war. I wanted to help keep the game viable. I reached out to the developers and built their first competitive scene from scratch, founding OASIS as the organization behind it.
@@ -202,10 +248,10 @@ export default function AboutPage() {
               The initial work with Shatterline required convincing skeptical developers under wartime stress to provision practice servers they had no interest in running. It took months of iterative persuasion, data-backed proposals, and trust-building across language and time-zone barriers. When I finally got server access, I built a full tournament infrastructure: rules, brackets, broadcast logistics, community moderation, and prize-pool funding secured through grants and sponsorships — the highest payout reached $600.
             </p>
             <p className="mb-4 font-body text-[15px] leading-relaxed text-text-secondary">
-              When Shatterline&apos;s developers failed to focus on the right priorities, OASIS pivoted. We expanded into a generalized model: identify promising early-access PvP titles, partner with their development teams, and run structured competitive events using experienced esports participants to generate media, feedback, and community momentum for games that needed it. I attended gaming conventions, cold-pitched studios, and nearly secured a residency with the Alara Prime team in Stockholm before their funding collapsed. When Alara filed for bankruptcy, I managed the community transition without losing the trust we&apos;d built.
+              When Shatterline&apos;s developers couldn&apos;t focus on the right priorities, OASIS pivoted. We expanded into a generalized model: identify promising early-access PvP titles, partner with their development teams, and run structured competitive events using experienced esports participants to generate media, feedback, and community momentum for games that needed it. I attended gaming conventions, cold-pitched studios, and nearly secured a Stockholm residency with the Alara Prime team before their funding collapsed. When Alara filed for bankruptcy, I managed the community transition without losing the trust we&apos;d built.
             </p>
             <p className="font-body text-[15px] leading-relaxed text-text-secondary">
-              OASIS ran until the early-access PvP market contracted and the community couldn&apos;t sustain momentum without a strong anchor title. I shut it down deliberately rather than let it decay. The organization had a real website, a team, a Discord community of hundreds of competitive players, and real developer partnerships. It was a startup. It taught me more about operations, negotiation, and resilience than anything else I could have done in that window.
+              OASIS ran until the early-access PvP market contracted and the community couldn&apos;t sustain momentum without a strong anchor title. I shut it down deliberately rather than let it decay. The organization had a real website, a small team, a competitive Discord community, and real developer partnerships. It was a startup. It taught me more about operations, negotiation, and resilience than anything else I could have done in that window.
             </p>
           </div>
         </FadeUp>
@@ -233,49 +279,28 @@ export default function AboutPage() {
           <SectionHeader
             id="travel"
             label="Travel"
-            title="20+ Countries · 10+ States"
+            title="Travel as Default"
           />
         </FadeUp>
 
         <FadeUp delay={80}>
           <div className="ac-card mb-4">
-            <p className="mb-3 font-body text-[15px] leading-relaxed text-text-secondary">
-              Travel has been a constant since before I could choose it. Between a military family that moved across continents and my own adult life, I&apos;ve lived in or traveled through 20+ countries and 10+ US states. International exposure isn&apos;t a bullet point for me — it&apos;s the baseline. Abu Dhabi at age 9. Medical missions to Costa Rica as an adult. The common thread is operating in unfamiliar environments without losing effectiveness.
-            </p>
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-              {[
-                'Germany', 'United Arab Emirates', 'Costa Rica',
-                'Japan', 'South Korea', 'France',
-                'United Kingdom', 'Italy', 'Spain',
-                'Portugal', 'Netherlands', 'Belgium',
-                'Greece', 'Turkey', 'Morocco',
-                'Canada', 'Mexico', 'Dominican Republic',
-                'Panama', 'Colombia',
-              ].map((country) => (
-                <div
-                  key={country}
-                  className="rounded border border-border-subtle bg-bg-secondary/40 px-2.5 py-1.5 font-mono text-[11px] text-text-secondary"
-                >
-                  {country}
-                </div>
-              ))}
-            </div>
-            <p className="mt-3 font-mono text-[11px] text-text-tertiary">
-              + 10+ US states including Texas, Florida, Virginia, and the Pacific Northwest. This list is from memory — likely incomplete.
+            <p className="mb-4 font-body text-[15px] leading-relaxed text-text-secondary">
+              Travel has been a constant since before I could choose it. Between a military family that moved across continents and my own adult life, I&apos;ve lived in or traveled through 20+ countries and 10+ US states. International exposure isn&apos;t a bullet point — it&apos;s the baseline. The common thread is operating in unfamiliar environments without losing effectiveness. I want to keep working in environments that require travel, ideally internationally. The medical mission work is where this instinct is most useful right now.
             </p>
           </div>
         </FadeUp>
 
         <FadeUp delay={80}>
           <div className="mb-10 ac-card">
-            <p className="mb-2 font-mono text-[11px] uppercase tracking-wider text-accent-teal">
+            <p className="mb-3 font-mono text-[11px] uppercase tracking-wider text-accent-teal">
               Medical Mission Deployments
             </p>
-            <div className="space-y-2">
+            <div className="space-y-3">
               {[
-                { location: 'Costa Rica', date: 'April 2026', note: 'First full EMR field deployment — live production use across 6 clinical stations' },
-                { location: 'Laredo, TX', date: 'Recurring',  note: 'Domestic mission operations, ongoing' },
-                { location: 'Costa Rica', date: '2027 (planned)', note: 'Next international field deployment' },
+                { location: 'Costa Rica',  date: 'April 2026',     note: 'First full EMR field deployment — live production use across 6 clinical stations' },
+                { location: 'Laredo, TX',  date: 'Recurring',      note: 'Domestic mission operations, ongoing' },
+                { location: 'Costa Rica',  date: '2027 (planned)', note: 'Next international field deployment' },
               ].map((dep) => (
                 <div key={dep.location + dep.date} className="flex flex-col gap-0.5 border-l-2 border-accent-teal/30 pl-3">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -299,37 +324,53 @@ export default function AboutPage() {
         </FadeUp>
 
         <FadeUp delay={80}>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div className="mb-10 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {[
               {
                 title: 'Hiking & the Outdoors',
                 body: "I hike to get offline. There's no better debugging environment than a trail where the only variable is your own pace. I'm drawn to elevation and distance over comfort.",
-                icon: '⛰',
               },
               {
                 title: 'Ocean Swimming & Offshore Fishing',
                 body: "I swim out as far as whistled in — and fish 5+ miles offshore for the kind of catch that requires patience and real equipment. If you can do it in 10 minutes, it's not interesting to me.",
-                icon: '🎣',
               },
               {
                 title: 'Competitive Gaming',
-                body: 'I play games the same way I work — to understand them completely. Top rank across multiple titles not as bragging rights, but because I don\'t start something I\'m not willing to master.',
-                icon: '🎮',
+                body: "I play games the same way I work — to understand them completely. Top rank across multiple titles not as bragging rights, but because I don't start something I'm not willing to master.",
               },
               {
                 title: 'Travel as Default',
-                body: 'I grew up without a permanent home city and never felt the need for one. I want to keep working in environments that require travel, ideally internationally. The medical mission work is where this instinct is most useful.',
-                icon: '✈',
+                body: 'I grew up without a permanent home city and never felt the need for one. I want to keep working in environments that require travel, ideally internationally.',
               },
             ].map((item) => (
               <div key={item.title} className="ac-card">
-                <div className="mb-2 flex items-center gap-2">
-                  <span className="text-xl">{item.icon}</span>
-                  <h3 className="font-display text-[15px] font-semibold text-text-primary">{item.title}</h3>
-                </div>
+                <h3 className="mb-1.5 font-display text-[15px] font-semibold text-text-primary">{item.title}</h3>
                 <p className="font-body text-[14px] leading-relaxed text-text-secondary">{item.body}</p>
               </div>
             ))}
+          </div>
+        </FadeUp>
+
+        {/* Bottom CTA */}
+        <FadeUp>
+          <div className="rounded-lg border border-accent-teal/25 bg-accent-teal/[0.06] p-5 text-center backdrop-blur">
+            <p className="mb-1 font-display text-base font-semibold text-text-primary">
+              Ready to talk about the technical side?
+            </p>
+            <p className="mb-4 font-body text-[14px] text-text-secondary">
+              The professional case is on the Resume and Projects pages.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-2.5">
+              <Link href="/resume" className="btn-primary">
+                <ArrowRightIcon size={13} /> View Resume
+              </Link>
+              <Link href="/projects" className="btn-outline">
+                View Projects <ArrowRightIcon size={13} />
+              </Link>
+              <a href={`/${siteConfig.resumeFilename}`} download className="btn-outline">
+                <DownloadIcon size={13} /> Download PDF
+              </a>
+            </div>
           </div>
         </FadeUp>
 

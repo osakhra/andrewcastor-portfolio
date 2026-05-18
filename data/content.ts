@@ -13,7 +13,7 @@ export const siteConfig = {
   },
   meta: {
     description:
-      'Andrew Castor — Infrastructure & Cloud Security Engineer. Building secure, offline-first systems for environments where reliability isn\'t optional.',
+      'Andrew Castor — Infrastructure & Cloud Security Engineer. Cybersecurity student at UCF building hardened Linux deployments, multi-site networks, and offline-first clinical systems.',
     keywords: [
       'infrastructure engineer',
       'cloud security',
@@ -202,22 +202,12 @@ export const projects: Project[] = [
     technologies: ['TF Lite', 'Raspberry Pi', 'Python'],
   },
   {
-    slug: 'newsbot',
-    title: 'NewsBot 2.0',
-    category: 'NLP / ML',
-    status: 'shipped',
-    statusLabel: 'Complete',
-    description:
-      'NLP pipeline for news article classification, sentiment analysis, and multilingual translation.',
-    technologies: ['NLP', 'Sentiment', 'Translation'],
-  },
-  {
     slug: 'oasis',
     title: 'OASIS — Competitive Playtesting & Esports Events',
     category: 'Founder · Operations',
     status: 'shipped',
-    statusLabel: 'Concluded',
-    context: '2022–2024 · Discord-based community of 500+ competitive players',
+    statusLabel: 'Concluded 2024',
+    context: '2022–2024 · Indie PvP developer partnerships',
     description:
       'Founded and operated a competitive playtesting organization partnering with indie PvP game developers to run structured pre-release events using experienced esports participants. Started by building the first competitive scene for Shatterline (Frag Lab Studio, Ukraine) during the Russia-Ukraine war to sustain the game\'s player base, then expanded into a generalized dev-support model for early-access PvP titles.',
     technologies: [
