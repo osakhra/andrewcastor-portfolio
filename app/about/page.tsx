@@ -259,7 +259,7 @@ export default function AboutPage() {
         <FadeUp delay={80}>
           <div className="mb-10">
             <p className="mb-3 font-mono text-[11px] uppercase tracking-wider text-text-tertiary">
-              What I Actually Learned
+              What I Learned
             </p>
             <ul className="space-y-2.5">
               {oasisSkills.map((skill, i) => (
@@ -274,7 +274,7 @@ export default function AboutPage() {
           </div>
         </FadeUp>
 
-        {/* Travel */}
+        {/* Travel
         <FadeUp>
           <SectionHeader
             id="travel"
@@ -312,7 +312,7 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
-        </FadeUp>
+        </FadeUp> */}
 
         {/* Personal */}
         <FadeUp>
