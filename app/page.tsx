@@ -79,7 +79,7 @@ export default function HomePage() {
               {summary}
             </p>
 
-            <div className="mb-6 flex flex-wrap gap-2.5">
+            <div className="mb-6 flex flex-wrap items-center gap-2.5">
               <a
                 href={`mailto:${siteConfig.email}`}
                 target="_blank"
@@ -94,34 +94,33 @@ export default function HomePage() {
               <a href={`/${siteConfig.resumeFilename}`} download className="btn-outline">
                 <DownloadIcon size={12} /> Resume
               </a>
-            </div>
 
-            <div className="mb-2 flex flex-wrap items-center gap-2.5">
-              <span className="font-mono text-[11px] uppercase tracking-wider text-text-tertiary mr-1">Find me on:</span>
-              
+              {/* Vertical divider separating CTAs from social icons */}
+              <span className="mx-1 h-5 w-px bg-border-subtle" aria-hidden="true" />
+
               <a
                 href={siteConfig.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="social-icon group inline-flex items-center justify-center rounded-md border border-border-subtle p-2 text-text-tertiary transition-all duration-300 hover:-translate-y-0.5 hover:border-accent-teal/50 hover:text-accent-teal"
+                className="social-icon inline-flex items-center justify-center rounded-md border border-border-subtle p-2 text-text-tertiary"
               >
-                <GithubIcon size={16} className="transition-transform duration-300 group-hover:scale-110" />
+                <GithubIcon size={16} />
               </a>
-              
+
               <a
                 href={siteConfig.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="social-icon group inline-flex items-center justify-center rounded-md border border-border-subtle p-2 text-text-tertiary transition-all duration-300 hover:-translate-y-0.5 hover:border-accent-teal/50 hover:text-accent-teal"
+                className="social-icon inline-flex items-center justify-center rounded-md border border-border-subtle p-2 text-text-tertiary"
               >
-                <LinkedinIcon size={16} className="transition-transform duration-300 group-hover:scale-110" />
+                <LinkedinIcon size={16} />
               </a>
             </div>
           </FadeUp>
         </div>
-      </section> {/* <--- This missing tag was the culprit! */}
+      </section>
 
       {/* ═══════ LIVE STATUS ═══════
       <section id="status" className="border-t border-border-subtle py-8">
