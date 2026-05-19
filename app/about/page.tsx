@@ -90,7 +90,7 @@ const gamingRanks = [
   {
     game: 'Spectre Divide',
     rank: 'Champion · Top 20',
-    note: 'Top tier before game sunset',
+    note: 'Reached within weeks of game launch',
   },
   {
     game: 'Aimlab',

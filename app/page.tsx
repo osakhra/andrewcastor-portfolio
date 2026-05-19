@@ -119,6 +119,12 @@ export default function HomePage() {
               </a>
             </div>
           </FadeUp>
+          
+          <div className="hidden lg:block">
+            <FadeUp delay={200}>
+              <TerminalPanel />
+            </FadeUp>
+          </div>
         </div>
       </section>
 

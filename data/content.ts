@@ -177,7 +177,7 @@ export const projects: Project[] = [
     category: 'Embedded / IoT',
     status: 'shipped',
     statusLabel: 'Shipped',
-    context: 'ENGR 1201 · University of Houston · Spring 2026',
+    context: 'ENGR 1201 · Houston City College · Spring 2026',
     description:
       'Handheld device that computes real-time evacuation routes via Dijkstra\'s algorithm, rerouting users away from heat sources detected by distributed DS18B20 probes. Raspberry Pi 4 + ESP32 sensor hub over USB-serial.',
     technologies: [
@@ -185,8 +185,6 @@ export const projects: Project[] = [
       'ESP32',
       'Python · Pygame',
       'NetworkX',
-      'DS18B20',
-      '1-Wire',
       'USB-Serial',
       'Systemd',
     ],
@@ -199,7 +197,7 @@ export const projects: Project[] = [
     statusLabel: 'Prototype',
     description:
       'Real-time emergency detection model on TensorFlow Lite + Raspberry Pi with mobile alert integration. Edge inference, no cloud round-trip.',
-    technologies: ['TF Lite', 'Raspberry Pi', 'Python'],
+    technologies: ['LiteRT', 'Raspberry Pi', 'Python', 'Flutter'],
   },
   {
     slug: 'oasis',
