@@ -39,7 +39,10 @@
 @layer components {
   .section-container {
     @apply mx-auto max-w-6xl px-6 sm:px-8;
-    .social-icon {
+  }
+
+  /* Social icon button wrapper — lift + glow on hover */
+  .social-icon {
     transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
                 border-color 0.25s ease,
                 color 0.25s ease,
@@ -56,13 +59,56 @@
                 0 0 0 1px rgba(30, 158, 138, 0.15);
   }
 
-  .social-icon-svg {
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* GitHub icon wiggle + scale pulse on parent hover
+     Replicates Bark's motion sequence: scale [1, 1.1, 1] + rotate [0, -5, 5, 0]
+     using pure CSS keyframes — no library needed. */
+  .gh-glyph {
+    transform-origin: 50% 50%;
+    transition: transform 0.2s ease-out;
   }
 
-  .social-icon:hover .social-icon-svg {
-    transform: scale(1.15) rotate(-4deg);
+  .social-icon:hover .gh-glyph {
+    animation: gh-wiggle 0.5s ease-in-out;
   }
+
+  @keyframes gh-wiggle {
+    0%   { transform: scale(1)   rotate(0deg);  }
+    25%  { transform: scale(1.1) rotate(-5deg); }
+    50%  { transform: scale(1.1) rotate(0deg);  }
+    75%  { transform: scale(1.1) rotate(5deg);  }
+    100% { transform: scale(1)   rotate(0deg);  }
+  }
+
+  /* LinkedIn icon path-draw + border pulse on parent hover
+     Replicates Bark's motion sequence: border scale [1, 1.05, 1] +
+     lines pathLength [0, 1] using SVG stroke-dasharray. */
+  .li-line {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.2s ease;
+  }
+
+  .social-icon:hover .li-line {
+    animation: li-draw 0.5s ease-out;
+  }
+
+  @keyframes li-draw {
+    0%   { stroke-dashoffset: 1; }
+    100% { stroke-dashoffset: 0; }
+  }
+
+  .li-border {
+    transform-origin: 50% 50%;
+  }
+
+  .social-icon:hover .li-border {
+    animation: li-pulse 0.4s ease-in-out;
+  }
+
+  @keyframes li-pulse {
+    0%   { transform: scale(1);    }
+    50%  { transform: scale(1.05); }
+    100% { transform: scale(1);    }
   }
 
   .ac-card {
