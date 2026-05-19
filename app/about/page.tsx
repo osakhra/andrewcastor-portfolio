@@ -9,7 +9,7 @@ import { siteConfig } from '@/data/content';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Beyond the résumé — military family background, competitive esports career, OASIS founding, and personal story of Andrew Castor.',
+    'Beyond the resume — military family background, competitive esports career, OASIS founding, and personal story of Andrew Castor.',
 };
 
 const aboutSections = [
@@ -131,7 +131,7 @@ export default function AboutPage() {
               Military Brat · USAF Family
             </p>
             <p className="mb-4 font-body text-[15px] leading-relaxed text-text-secondary">
-              I&apos;m a US citizen, born in the United States. Both parents served in the United States Air Force — my mother retired as a Lieutenant Colonel, my father as a Colonel. Growing up meant moving every few years across postings: about 10 schools by the time I graduated high school. I learned early how to adapt to new environments, read new social structures, and build trust with strangers. It wasn&apos;t always easy, but it&apos;s a background that translates directly into how I work.
+              Born at Eglin Air Force Base. Both parents served in the United States Air Force — my mother retired as a Lieutenant Colonel, my father as a Colonel. Growing up meant moving every few years across postings: about 10 schools by the time I graduated high school. I learned early how to adapt to new environments, read new social structures, and build trust with strangers. It wasn&apos;t always easy, but it&apos;s a background that translates directly into how I work.
             </p>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
               {locations.map((loc) => (
