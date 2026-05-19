@@ -39,6 +39,30 @@
 @layer components {
   .section-container {
     @apply mx-auto max-w-6xl px-6 sm:px-8;
+    .social-icon {
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                border-color 0.25s ease,
+                color 0.25s ease,
+                box-shadow 0.35s ease,
+                background-color 0.25s ease;
+  }
+
+  .social-icon:hover {
+    transform: translateY(-3px);
+    border-color: rgba(30, 158, 138, 0.6);
+    color: #1E9E8A;
+    background-color: rgba(30, 158, 138, 0.06);
+    box-shadow: 0 6px 20px rgba(30, 158, 138, 0.25),
+                0 0 0 1px rgba(30, 158, 138, 0.15);
+  }
+
+  .social-icon-svg {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .social-icon:hover .social-icon-svg {
+    transform: scale(1.15) rotate(-4deg);
+  }
   }
 
   .ac-card {

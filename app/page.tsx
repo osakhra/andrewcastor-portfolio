@@ -60,7 +60,6 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* Display tagline */}
             <p className="display-tagline mb-1 text-3xl leading-none sm:text-4xl lg:text-5xl">
               Built for the Field
             </p>
@@ -96,35 +95,33 @@ export default function HomePage() {
                 <DownloadIcon size={12} /> Resume
               </a>
             </div>
-            <div className="flex items-center gap-4">
+
+            <div className="mb-2 flex flex-wrap items-center gap-2.5">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-text-tertiary mr-1">Find me on:</span>
+              
               <a
                 href={siteConfig.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="text-text-tertiary transition-colors hover:text-accent-teal"
+                className="social-icon group inline-flex items-center justify-center rounded-md border border-border-subtle p-2 text-text-tertiary transition-all duration-300 hover:-translate-y-0.5 hover:border-accent-teal/50 hover:text-accent-teal"
               >
-                <GithubIcon size={20} />
+                <GithubIcon size={16} className="transition-transform duration-300 group-hover:scale-110" />
               </a>
+              
               <a
                 href={siteConfig.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="text-text-tertiary transition-colors hover:text-accent-teal"
+                className="social-icon group inline-flex items-center justify-center rounded-md border border-border-subtle p-2 text-text-tertiary transition-all duration-300 hover:-translate-y-0.5 hover:border-accent-teal/50 hover:text-accent-teal"
               >
-                <LinkedinIcon size={20} />
+                <LinkedinIcon size={16} className="transition-transform duration-300 group-hover:scale-110" />
               </a>
             </div>
           </FadeUp>
-
-          <div className="hidden lg:block">
-            <FadeUp delay={200}>
-              <TerminalPanel />
-            </FadeUp>
-          </div>
         </div>
-      </section>
+      </section> {/* <--- This missing tag was the culprit! */}
 
       {/* ═══════ LIVE STATUS ═══════
       <section id="status" className="border-t border-border-subtle py-8">

@@ -55,37 +55,27 @@ const transferableSkills = [
   },
 ];
 
-const oasisSkills = [
-  'Community governance — drafted and enforced rulesets covering bug exploitation, behavioral standards, and exploit patches for live-updating games with active vulnerabilities',
-  'Stakeholder negotiation — convinced skeptical Ukrainian developers during wartime to provision dedicated practice servers; required iterative persuasion, data, and trust-building across language and time-zone barriers',
-  'Sponsorship and grant acquisition — sourced prize pools up to $600 through external grants and brand sponsors with no prior fundraising experience',
-  'Operations management — coordinated media teams, tournament brackets, broadcast logistics, and community communications simultaneously',
-  'Early-access product intelligence — evaluated new PvP titles at alpha/beta stage for competitive viability; provided structured feedback to development teams before public release',
-  'Business development — attended gaming conventions, cold-pitched development studios, negotiated in-person and remote partnerships, and nearly secured a Stockholm studio residency with Alara Prime',
-  'Crisis operations — maintained community trust and event continuity through the Alara Prime bankruptcy, demonstrating organizational resilience under external failure',
-];
+// const oasisSkills = [
+//   'Community governance — drafted and enforced rulesets covering bug exploitation, behavioral standards, and exploit patches for live-updating games with active vulnerabilities',
+//   'Stakeholder negotiation — convinced skeptical Ukrainian developers during wartime to provision dedicated practice servers; required iterative persuasion, data, and trust-building across language and time-zone barriers',
+//   'Sponsorship and grant acquisition — sourced prize pools up to $600 through external grants and brand sponsors with no prior fundraising experience',
+//   'Operations management — coordinated media teams, tournament brackets, broadcast logistics, and community communications simultaneously',
+//   'Early-access product intelligence — evaluated new PvP titles at alpha/beta stage for competitive viability; provided structured feedback to development teams before public release',
+//   'Business development — attended gaming conventions, cold-pitched development studios, negotiated in-person and remote partnerships, and nearly secured a Stockholm studio residency with Alara Prime',
+//   'Crisis operations — maintained community trust and event continuity through the Alara Prime bankruptcy, demonstrating organizational resilience under external failure',
+// ];
 
 // Verified competitive rankings — accurate per user
 const gamingRanks = [
   {
     game: 'Valorant',
-    rank: 'Radiant',
-    note: 'Act 1 · Top 50 NA · 10M+ player base',
+    rank: 'Radiant · Top 50',
+    note: 'Act 1 · 10M+ player base',
   },
   {
-    game: 'CS2 — Premier',
+    game: 'Counter-Strike 2',
     rank: 'Red Rank · 26K ELO',
-    note: 'Top 1% (second highest tier)',
-  },
-  {
-    game: 'CS2 — Faceit',
-    rank: 'Level 10',
-    note: 'Highest competitive matchmaking level',
-  },
-  {
-    game: 'CS2 — Wingman',
-    rank: 'Global Elite',
-    note: '2v2 competitive ranked',
+    note: 'Premier Top 1% · Faceit Level 10 · Wingman Global Elite',
   },
   {
     game: 'Rainbow Six Siege X',
@@ -94,18 +84,18 @@ const gamingRanks = [
   },
   {
     game: 'FragPunk',
-    rank: '#5 Broker · Punkmaster Top 200',
-    note: 'Reached within ~1 month of game launch',
+    rank: '#5 Broker · #5 Dual Master · Punkmaster Top 200',
+    note: 'Reached within weeks of game launch',
   },
   {
     game: 'Spectre Divide',
-    rank: 'Champion',
-    note: 'Top tier before sunset',
+    rank: 'Champion · Top 20',
+    note: 'Top tier before game sunset',
   },
   {
     game: 'Aimlab',
     rank: 'Master III',
-    note: 'Precision · Perception · Cognition: Top 0%',
+    note: 'Precision · Perception · Cognition: Top 0.1%',
   },
 ];
 
@@ -120,7 +110,7 @@ export default function AboutPage() {
           <SectionHeader
             id="intro"
             label="Background"
-            title="Beyond the Résumé"
+            title="Beyond the Resume"
             subtitle="Military family. Ten schools. Always the new kid — which turns out to be excellent training for operating in environments where you have to build trust quickly and figure things out fast."
           />
         </FadeUp>
@@ -131,7 +121,7 @@ export default function AboutPage() {
               Military Brat · USAF Family
             </p>
             <p className="mb-4 font-body text-[15px] leading-relaxed text-text-secondary">
-              Born at Eglin Air Force Base. Both parents served in the United States Air Force — my mother retired as a Lieutenant Colonel, my father as a Colonel. Growing up meant moving every few years across postings: about 10 schools by the time I graduated high school. I learned early how to adapt to new environments, read new social structures, and build trust with strangers. It wasn&apos;t always easy, but it&apos;s a background that translates directly into how I work.
+              Born at Eglin Air Force Base in Fort Walton Beach, Florida. Both parents served in the United States Air Force — my mother retired as a Lieutenant Colonel, my father as a Colonel. Growing up meant packing your things and moving every few years: transitioned through 10 schools by the time I graduated high school. I learned early how to adapt to new environments, read new social structures, and build trust with strangers. It wasn&apos;t always easy, but it&apos;s a background that translates directly into how I work.
             </p>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
               {locations.map((loc) => (
@@ -172,7 +162,7 @@ export default function AboutPage() {
               The job was structured 12-hour days. Up at 5:30 AM watching international tournament VODs before the NA market woke up. By afternoon I was building per-player performance spreadsheets — round-by-round statistics, behavioral patterns, performance curves plotted over time. Evenings the roster was in scrims; I&apos;d watch live, flag in-round events, then spend the post-session reviewing every angle. At peak I was rated among the better analysts in the NA scene.
             </p>
             <p className="font-body text-[15px] leading-relaxed text-text-secondary">
-              I left the scene by choice. I&apos;d hit my ceiling for what the role could teach me, and I could see more important work ahead. The discipline, pattern recognition, and analytical habits it built stayed with me — and they show up directly in how I approach infrastructure and security work today.
+              I left the scene by choice. I'd hit my ceiling for what the role could teach me, and I could see more important work ahead. The discipline, pattern recognition, and analytical habits built stayed with me — and they show up directly in how I approach infrastructure and security work today.
             </p>
           </div>
         </FadeUp>
@@ -242,21 +232,21 @@ export default function AboutPage() {
               <span className="status-pill status-shipped">Concluded 2024</span>
             </div>
             <p className="mb-4 font-body text-[15px] leading-relaxed text-text-secondary">
-              After leaving the Valorant scene I discovered Shatterline, a tactical shooter developed by Frag Lab Studio in Ukraine — during the height of the Russia-Ukraine war. I wanted to help keep the game viable. I reached out to the developers and built their first competitive scene from scratch, founding OASIS as the organization behind it.
+              After leaving the Valorant scene I discovered Shatterline, a tactical shooter developed by Frag Lab Studio in Ukraine — during the start of the Russia-Ukraine war. I wanted to help keep the game viable. I reached out to the developers and built their first competitive scene from scratch, founding OASIS as the organization behind it.
             </p>
             <p className="mb-4 font-body text-[15px] leading-relaxed text-text-secondary">
-              The initial work with Shatterline required convincing skeptical developers under wartime stress to provision practice servers they had no interest in running. It took months of iterative persuasion, data-backed proposals, and trust-building across language and time-zone barriers. When I finally got server access, I built a full tournament infrastructure: rules, brackets, broadcast logistics, community moderation, and prize-pool funding secured through grants and sponsorships — the highest payout reached $600.
+              The initial work with Shatterline required convincing skeptical developers under wartime stress to provision practice servers they had no interest in running. It took a couple weeks of iterative persuasion, data-backed proposals, and trust-building across language and time-zone barriers. When I finally aquired server access, I built a full tournament infrastructure: rules, brackets, broadcast logistics, community moderation, and prize-pool funding secured through grants and sponsorships — the highest payout reached $600.
             </p>
             <p className="mb-4 font-body text-[15px] leading-relaxed text-text-secondary">
-              When Shatterline&apos;s developers couldn&apos;t focus on the right priorities, OASIS pivoted. We expanded into a generalized model: identify promising early-access PvP titles, partner with their development teams, and run structured competitive events using experienced esports participants to generate media, feedback, and community momentum for games that needed it. I attended gaming conventions, cold-pitched studios, and nearly secured a Stockholm residency with the Alara Prime team before their funding collapsed. When Alara filed for bankruptcy, I managed the community transition without losing the trust we&apos;d built.
+              When Shatterline&apos;s developers shifted their focus from PvP to PvE, OASIS pivoted. We expanded into a generalized model: identify promising early-access PvP titles, partnered with their development teams, and ran structured competitive events using experienced esports participants to generate media, feedback, and community momentum for games that needed it. I attended gaming conventions, cold-pitched studios, and nearly secured a Stockholm residency with the Alara Prime team before their funding collapsed. When Alara filed for bankruptcy, I managed the community transition without losing the trust we&apos;d built.
             </p>
             <p className="font-body text-[15px] leading-relaxed text-text-secondary">
-              OASIS ran until the early-access PvP market contracted and the community couldn&apos;t sustain momentum without a strong anchor title. I shut it down deliberately rather than let it decay. The organization had a real website, a small team, a competitive Discord community, and real developer partnerships. It was a startup. It taught me more about operations, negotiation, and resilience than anything else I could have done in that window.
+              OASIS ran until the early-access PvP market contracted and the community could not sustain momentum without a strong anchor title. I shut it down deliberately rather than let it decay. The organization had a real website, a small team, a competitive Discord community, and real developer partnerships. It was a startup. It taught me more about operations, negotiation, and resilience than anything else I could have done in that window.
             </p>
           </div>
         </FadeUp>
 
-        <FadeUp delay={80}>
+        {/* <FadeUp delay={80}>
           <div className="mb-10">
             <p className="mb-3 font-mono text-[11px] uppercase tracking-wider text-text-tertiary">
               What I Learned
@@ -272,7 +262,7 @@ export default function AboutPage() {
               ))}
             </ul>
           </div>
-        </FadeUp>
+        </FadeUp> */}
 
         {/* Travel
         <FadeUp>
@@ -332,7 +322,7 @@ export default function AboutPage() {
               },
               {
                 title: 'Ocean Swimming & Offshore Fishing',
-                body: "I like to swim out twice as far as the surfers, finding a calm wave to float on — and fish 5+ miles offshore for the kind of catch that will feed me and the neighbors.",
+                body: "I like to swim out twice as far as the surfers, finding a calm wave to float on — and fish 5+ miles offshore for the kind of catch that will feed the neighbors.",
               },
               {
                 title: 'Competitive Gaming',
