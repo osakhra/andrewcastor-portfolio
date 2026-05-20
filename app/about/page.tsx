@@ -70,22 +70,22 @@ const gamingRanks = [
   {
     game: 'Valorant',
     rank: 'Radiant · Top 50',
-    note: 'Act 1 · 10M+ player base',
+    note: 'Act 1 · 15M+ player base',
   },
   {
     game: 'Counter-Strike 2',
-    rank: 'Red Rank · 26K ELO',
-    note: 'Premier Top 1% · Faceit Level 10 · Wingman Global Elite',
+    rank: 'Faceit Level 10 · 27K ELO · Global ELite',
+    note: 'Currently Premier rating Top 1% · 31M+ player base',
   },
   {
     game: 'Rainbow Six Siege X',
     rank: 'Champion',
-    note: '2025 launch season · Top 4000 after a 7-year hiatus',
+    note: '2025 launch season · Top 4000 after 7-year hiatus',
   },
   {
     game: 'FragPunk',
-    rank: '#5 Broker · #5 Dual Master · Punkmaster Top 200',
-    note: 'Reached within weeks of game launch',
+    rank: '#5 Broker · #5 Dual Master · Punkmaster',
+    note: 'Secured top 200 in ranked for season one',
   },
   {
     game: 'Spectre Divide',
@@ -95,7 +95,7 @@ const gamingRanks = [
   {
     game: 'Aimlab',
     rank: 'Master III',
-    note: 'Precision · Perception · Cognition: Top 0.1%',
+    note: 'Precision · Perception · Cognition: Top 0.07%',
   },
 ];
 
