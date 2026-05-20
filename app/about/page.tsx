@@ -70,27 +70,27 @@ const gamingRanks = [
   {
     game: 'Valorant',
     rank: 'Radiant · Top 50',
-    note: 'Act 1 · 15M+ player base',
+    note: 'Act 1 · 15M+ Player Base',
   },
   {
     game: 'Counter-Strike 2',
     rank: 'Faceit Level 10 · 27K ELO · Global ELite',
-    note: 'Current Premier rating Top 1% · 31M+ player base',
+    note: 'Current Premier Rating Top 1% · 31M+ Player Base',
   },
   {
     game: 'Rainbow Six Siege X',
     rank: 'Champion',
-    note: 'Top 4000 · 5M+ player base',
+    note: 'Top 4000 · 5M+ Player Base',
   },
   {
     game: 'FragPunk',
     rank: '#5 Broker · #5 Dual Master · Punkmaster',
-    note: 'Secured top 200 in ranked for season one',
+    note: 'Top 200 Season One Leaderboard',
   },
   {
     game: 'Spectre Divide',
     rank: 'Champion · Top 20',
-    note: 'Reached within weeks of game launch',
+    note: 'Reached During Peak Hours',
   },
   {
     game: 'Aimlab',
