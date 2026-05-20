@@ -75,12 +75,12 @@ const gamingRanks = [
   {
     game: 'Counter-Strike 2',
     rank: 'Faceit Level 10 · 27K ELO · Global ELite',
-    note: 'Currently Premier rating Top 1% · 31M+ player base',
+    note: 'Current Premier rating Top 1% · 31M+ player base',
   },
   {
     game: 'Rainbow Six Siege X',
     rank: 'Champion',
-    note: '2025 launch season · Top 4000 after 7-year hiatus',
+    note: 'Top 4000 · 5M+ player base',
   },
   {
     game: 'FragPunk',
