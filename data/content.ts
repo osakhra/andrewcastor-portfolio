@@ -91,19 +91,93 @@ export const certifications = [
   { name: 'Azure AZ-500', status: 'progress' as const },
 ];
 
-export const experience = [
+type ExperienceBulletGroup = {
+  heading?: string;
+  items: string[];
+};
+
+type ExperienceLink = {
+  url: string;
+  label: string;
+};
+
+type ExperienceMetric = {
+  value: string;
+  label: string;
+};
+
+type ExperienceEntry = {
+  role: string;
+  company: string;
+  location: string;
+  dates: string;
+  link?: ExperienceLink;
+  metrics?: ExperienceMetric[];
+  bulletGroups?: ExperienceBulletGroup[];
+  bullets?: string[];
+  closingNote?: string;
+};
+
+export const experience: ExperienceEntry[] = [
   {
     role: 'Tech Operations Lead',
     company: 'Medical Missionaries of Divine Mercy',
     location: 'Houston, TX',
     dates: '2023 – Present',
+    metrics: [
+      { value: '6', label: 'Clinical Stations' },
+      { value: '~40%', label: 'Intake Delay ↓' },
+      { value: '50+', label: 'Users Trained' },
+      { value: 'Offline', label: 'Operations Posture' },
+    ],
+    bulletGroups: [
+      {
+        heading: 'Security & Infrastructure',
+        items: [
+          'Rebuilt OpenEMR 7.0.x on Ubuntu 22.04 / Apache / MariaDB 10.6 / PHP 8.1 after diagnosing an AJAX/JSON failure rooted in globals.php; chose full rebuild over patch to eliminate latent config drift.',
+          'Built private Certificate Authority and signed server certificate with OpenSSL; deployed the full chain to /etc/ssl/openemr/ and enforced HTTP → HTTPS 301 redirect for offline TLS coverage.',
+          'Hardened OS for austere field conditions — UFW firewall scoped to ports 80/22, disabled snapd and unattended-upgrades to eliminate unplanned reboots, and configured daily cron-driven encrypted backups with 30-day rotation.',
+          'Designed HIPAA-aligned RBAC across 8 station-specific service accounts with documented post-pilot tightening plan; provisioned VirtualBox snapshot rollback strategy for rapid recovery.',
+          'Designed and deployed a 50,000 sq ft Wi-Fi 6 mesh network spanning five buildings with segmented VLANs, DHCP/DNS, and offline-tolerant routing.',
+        ],
+      },
+      {
+        heading: 'Clinical Systems & Operations',
+        items: [
+          'Mapped bilingual paper-based workflow (Spanish patient-facing, English provider-facing) to OpenEMR schema across 6 stations; selected native modules where possible and scoped custom Layout-Based Forms only for gaps.',
+          'Built Spanish-language Registration LBF (Registro de Pacientes y la Forma de Examen) mirroring 2026 paper form: demographics, vitals, allergy/medication intake, routing checkboxes, and treatment/referral sections.',
+          'Built specialized Vision and Dental LBFs with structured medical history alerts, bilateral acuity grids, 32-tooth charting, anesthesia selection, and Rx dispensing tracking; specified autorefractor CSV ingest as next-phase integration.',
+          'Conducted workflow discovery interviews with 8+ station leads (including providers with 26–32 mission tenure); designed paper-shadow-then-collaborative-entry training protocol that onboarded 50+ users.',
+          'Engineered secure cloud archival pipeline via Microsoft Entra ID and SharePoint for post-mission data continuity.',
+        ],
+      },
+    ],
+    closingNote:
+      'Costa Rica Field Deployment (April 2026): deployed offline LAN running OpenEMR in austere, no-internet environment supporting full-cycle traveling clinic operations. Roadmap: Laredo (Nov 2026) HIPAA-compliant pre-deployment testing track; full incorporation targeted Costa Rica April 2027.',
+  },
+  {
+    role: 'Bartender · Event Operations',
+    company: 'J. Martini Hospitality Group',
+    location: 'Houston, TX',
+    dates: 'Apr 2023 – Apr 2025',
+    link: {
+      url: 'https://jmartiniservices.com/',
+      label: 'View Company',
+    },
     bullets: [
-      'Led end-to-end EMR modernization using OpenEMR on a hardened Linux/Apache/MariaDB/PHP stack, replacing 20+ years of paper-based workflow across six clinical stations.',
-      'Migrated a corrupted Windows XAMPP environment to Ubuntu 22.04 on VirtualBox with private CA-issued TLS certificates, UFW firewall, and daily cron-based backups with 30-day rotation.',
-      'Designed and deployed a 50,000 sq ft Wi-Fi 6 mesh network spanning five buildings with segmented VLANs, DHCP/DNS, and offline-tolerant routing.',
-      'Implemented RBAC, ACLs, TLS/HTTPS encryption, and least-privilege access controls; engineered secure cloud archival pipeline via Microsoft Entra ID and SharePoint.',
-      'Conducted workflow discovery across Registration, Triage, Medical, Dental, Vision, and Pharmacy departments; trained 50+ end users.',
-      'Costa Rica Field Deployment (April 2026): deployed offline LAN running OpenEMR + OpenMRS in austere, no-internet environment supporting full-cycle traveling clinic operations.',
+      'Worked client-facing event operations across the Houston metro area — corporate gatherings, weddings, and private events for a hospitality firm specializing in premium service delivery (high-end bar service, cigar service, full-event waitstaff coordination).',
+      'Trusted by the company owner with multi-venue supply logistics across Houston, transporting setup and inventory between sites on schedules often extending past 2 AM; supported onboarding for new event staff and on-site setup verification. Averaged ~30 hours/week over 2 years.',
+    ],
+  },
+  {
+    role: 'Founder & Operations Lead',
+    company: 'OASIS',
+    location: 'Remote · US / Ukraine / EU',
+    dates: '2022 – 2024',
+    bullets: [
+      'Founded and operated a competitive playtesting organization partnering with indie PvP developers to run structured pre-release events using experienced esports participants for media, feedback, and community momentum.',
+      'Built the first competitive scene for Shatterline (Frag Lab Studio, Ukraine) from scratch near the start of the Russia-Ukraine war — negotiated dedicated practice server access across language and time-zone barriers, drafted competitive rulesets, and operated tournament brackets with grant-funded prize pools up to $600.',
+      'Expanded to a generalized dev-partnership model after Shatterline — pitched studios at gaming conventions, nearly secured a Stockholm residency with Alara Prime before their funding collapse, and managed community transition through the bankruptcy without losing partner trust.',
     ],
   },
 ];

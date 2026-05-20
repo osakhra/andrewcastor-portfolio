@@ -14,10 +14,12 @@ import {
   GithubIcon,
   LinkedinIcon,
   ShieldIcon,
+  ExternalLinkIcon,
 } from '@/components/Icons';
 import FadeUp from '@/components/FadeUp';
 import SectionHeader from '@/components/SectionHeader';
 import SectionNav from '@/components/SectionNav';
+import AnimatedCounter from '@/components/AnimatedCounter';
 
 export const metadata: Metadata = {
   title: 'Resume',
@@ -103,7 +105,7 @@ export default function ResumePage() {
           </div>
         </FadeUp>
 
-        {/* Experience */}
+{/* Experience */}
         <FadeUp>
           <div id="experience" className="mb-10 scroll-mt-24">
             <h2 className="mb-5 font-mono text-[12px] font-semibold uppercase tracking-widest text-text-tertiary">
@@ -121,17 +123,72 @@ export default function ResumePage() {
                   <span>{job.company}</span>
                   <span className="text-text-tertiary">·</span>
                   <span className="text-text-tertiary">{job.location}</span>
+                  {job.link && (
+                    <>
+                      <span className="text-text-tertiary">·</span>
+                      <a
+                        href={job.link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 rounded-md border border-border-subtle bg-bg-secondary/60 px-2 py-0.5 font-mono text-[11px] text-text-tertiary transition-colors hover:border-accent-teal/50 hover:text-accent-teal"
+                      >
+                        {job.link.label} <ExternalLinkIcon size={11} />
+                      </a>
+                    </>
+                  )}
                 </p>
-                <ul className="space-y-2">
-                  {job.bullets.map((bullet, i) => (
-                    <li
-                      key={i}
-                      className="relative pl-3 font-body text-[14px] leading-relaxed text-text-secondary before:absolute before:left-0 before:top-2 before:h-1 before:w-1 before:rounded-full before:bg-accent-teal/70"
-                    >
-                      {bullet}
-                    </li>
+
+                {/* Optional metrics strip */}
+                {job.metrics && (
+                  <div className="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                    {job.metrics.map((m) => (
+                      <AnimatedCounter key={m.label} value={m.value} label={m.label} />
+                    ))}
+                  </div>
+                )}
+
+                {/* Grouped bullets (with sub-headings) */}
+                {job.bulletGroups &&
+                  job.bulletGroups.map((group, gi) => (
+                    <div key={gi} className={gi > 0 ? 'mt-4' : ''}>
+                      {group.heading && (
+                        <h4 className="mb-2 font-mono text-[11px] font-semibold uppercase tracking-wider text-accent-purple-bright">
+                          {group.heading}
+                        </h4>
+                      )}
+                      <ul className="space-y-2">
+                        {group.items.map((bullet, bi) => (
+                          <li
+                            key={bi}
+                            className="relative pl-3 font-body text-[14px] leading-relaxed text-text-secondary before:absolute before:left-0 before:top-2 before:h-1 before:w-1 before:rounded-full before:bg-accent-teal/70"
+                          >
+                            {bullet}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
+
+                {/* Flat bullets (fallback for simpler entries) */}
+                {job.bullets && (
+                  <ul className="space-y-2">
+                    {job.bullets.map((bullet, i) => (
+                      <li
+                        key={i}
+                        className="relative pl-3 font-body text-[14px] leading-relaxed text-text-secondary before:absolute before:left-0 before:top-2 before:h-1 before:w-1 before:rounded-full before:bg-accent-teal/70"
+                      >
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {/* Optional closing note */}
+                {job.closingNote && (
+                  <p className="mt-4 rounded-md border-l-2 border-accent-teal/40 bg-accent-teal/[0.04] py-2 pl-3 font-body text-[13px] leading-relaxed text-text-secondary">
+                    {job.closingNote}
+                  </p>
+                )}
               </div>
             ))}
           </div>
