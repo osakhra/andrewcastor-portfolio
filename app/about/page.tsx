@@ -191,10 +191,10 @@ export default function AboutPage() {
         <FadeUp delay={80}>
           <div className="mb-10">
             <p className="mb-2 font-mono text-[11px] uppercase tracking-wider text-text-tertiary">
-              Competitive Rankings · Verified
+              Competitive Achievements · Ranks
             </p>
             <p className="mb-4 font-body text-[13px] text-text-tertiary">
-              I play competitive games the same way I work — to understand them completely. Pattern: rapid mastery across new titles, including games less than a month old.
+              After two years in competitive esports, I've shifted to treating it as a hobby. I still push myself due to an unrelenting competitive mindset; however, I now get to enjoy being competitive alongside friends.
             </p>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
               {gamingRanks.map((r) => (
@@ -218,7 +218,7 @@ export default function AboutPage() {
           <SectionHeader
             id="oasis"
             label="Founder"
-            title="OASIS — Esports Events & Dev Partnerships"
+            title="O Λ S I S — Esports Events & Dev Partnerships"
           />
         </FadeUp>
 
@@ -227,7 +227,7 @@ export default function AboutPage() {
             <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
               <div>
                 <p className="font-display text-base font-semibold text-text-primary">Founder & Operations Lead</p>
-                <p className="font-mono text-[12px] text-accent-teal">OASIS · 2022–2024</p>
+                <p className="font-mono text-[12px] text-accent-teal">O Λ S I S · 2022–2024</p>
               </div>
               <span className="status-pill status-shipped">Concluded 2024</span>
             </div>
