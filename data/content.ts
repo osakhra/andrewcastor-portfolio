@@ -171,7 +171,7 @@ export const experience: ExperienceEntry[] = [
   },
   {
     role: 'Founder & Operations Lead',
-    company: 'OASIS',
+    company: 'O Λ S I S',
     location: 'Remote · US / Ukraine / EU',
     dates: '2022 – 2024',
     bullets: [
@@ -275,7 +275,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'oasis',
-    title: 'OASIS — Competitive Playtesting & Esports Events',
+    title: 'O Λ S I S — Competitive Playtesting & Esports Events',
     category: 'Founder · Operations',
     status: 'shipped',
     statusLabel: 'Concluded 2024',
