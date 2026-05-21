@@ -74,7 +74,7 @@ const gamingRanks = [
   },
   {
     game: 'Counter-Strike 2',
-    rank: 'Faceit Level 10 · 27K ELO · Global ELite',
+    rank: 'Faceit 10 · 27K ELO · Global ELite',
     note: 'Current Premier Rating Top 1% · 31M+ Player Base',
   },
   {
