@@ -185,7 +185,7 @@ export default function ResumePage() {
 
                 {/* Optional closing note */}
                 {job.closingNote && (
-                  <p className="mt-4 rounded-md border-l-2 border-accent-teal/40 bg-accent-teal/[0.04] py-2 pl-3 font-body text-[13px] leading-relaxed text-text-secondary">
+                  <p className="mt-4 rounded-md border-l-2 border-accent-purple-bright/40 bg-accent-purple-bright/[0.04] py-2 pl-3 font-body text-[13px] leading-relaxed text-text-secondary">
                     {job.closingNote}
                   </p>
                 )}
