@@ -21,26 +21,49 @@ export default function TerminalPanel() {
           <span className="text-accent-teal">$</span>{' '}
           <span className="text-text-secondary">cat ./profile.json</span>
         </div>
-        <div className="pl-2 text-text-tertiary">
-          <span className="text-accent-purple-bright">focus</span>:{' '}
-          <span className="text-text-secondary">&quot;infrastructure security&quot;</span>
-          <br />
-          <span className="text-accent-purple-bright">location</span>:{' '}
-          <span className="text-text-secondary">&quot;Orlando, FL&quot;</span>
-          <br />
-          <span className="text-accent-purple-bright">school</span>:{' '}
-          <span className="text-text-secondary">&quot;UCF · Fall 2026&quot;</span>
-          <br />
-          <span className="text-accent-purple-bright">stack</span>:{' '}
-          <span className="text-text-secondary">[linux, tls, rbac, azure]</span>
-          <br />
-          <span className="text-accent-purple-bright">clearance</span>:{' '}
-          <span className="text-accent-teal">&quot;eligible&quot;</span>
+        <div className="text-text-tertiary">
+          <div>{'{'}</div>
+          <div className="pl-3">
+            <span className="text-accent-purple-bright">&quot;focus&quot;</span>
+            <span className="text-text-tertiary">: </span>
+            <span className="text-text-secondary">&quot;infrastructure security&quot;</span>
+            <span className="text-text-tertiary">,</span>
+          </div>
+          <div className="pl-3">
+            <span className="text-accent-purple-bright">&quot;location&quot;</span>
+            <span className="text-text-tertiary">: </span>
+            <span className="text-text-secondary">&quot;Orlando, FL&quot;</span>
+            <span className="text-text-tertiary">,</span>
+          </div>
+          <div className="pl-3">
+            <span className="text-accent-purple-bright">&quot;school&quot;</span>
+            <span className="text-text-tertiary">: </span>
+            <span className="text-text-secondary">&quot;UCF · Fall 2026&quot;</span>
+            <span className="text-text-tertiary">,</span>
+          </div>
+          <div className="pl-3">
+            <span className="text-accent-purple-bright">&quot;stack&quot;</span>
+            <span className="text-text-tertiary">: [</span>
+            <span className="text-text-secondary">&quot;linux&quot;</span>
+            <span className="text-text-tertiary">, </span>
+            <span className="text-text-secondary">&quot;tls&quot;</span>
+            <span className="text-text-tertiary">, </span>
+            <span className="text-text-secondary">&quot;rbac&quot;</span>
+            <span className="text-text-tertiary">, </span>
+            <span className="text-text-secondary">&quot;azure&quot;</span>
+            <span className="text-text-tertiary">],</span>
+          </div>
+          <div className="pl-3">
+            <span className="text-accent-purple-bright">&quot;clearance&quot;</span>
+            <span className="text-text-tertiary">: </span>
+            <span className="text-accent-teal">&quot;eligible&quot;</span>
+          </div>
+          <div>{'}'}</div>
         </div>
 
         <div className="mt-2.5">
           <span className="text-accent-teal">$</span>{' '}
-          <span className="text-text-secondary">systemctl status work-ready</span>
+          <span className="text-text-secondary">systemctl enable --now andrew.service</span>
         </div>
         <div className="text-accent-teal">
           ● active (running)
