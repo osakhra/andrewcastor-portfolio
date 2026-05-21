@@ -326,7 +326,7 @@ export default function AboutPage() {
               },
               {
                 title: 'Competitive Gaming',
-                body: "I play games the same way I enjoy work, with the goal to understand the task at hand completely and master it fully. I play with highly competitive friends who together, bring out the best in each of us as we climb to the ranked ladder. ",
+                body: "I play games the same way I enjoy work, with the goal to understand the task at hand completely and master it fully. I play with highly competitive friends who together, bring out the best in each of us as we climb the ranked ladders. ",
               },
               {
                 title: 'Travel as Default',
