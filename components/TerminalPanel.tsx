@@ -40,7 +40,7 @@ export default function TerminalPanel() {
 
         <div className="mt-2.5">
           <span className="text-accent-teal">$</span>{' '}
-          <span className="text-text-secondary">systemctl status hire-me</span>
+          <span className="text-text-secondary">systemctl status work-ready</span>
         </div>
         <div className="text-accent-teal">
           ● active (running)

@@ -36,12 +36,12 @@ const transferableSkills = [
   {
     skill: 'Adversarial Pattern Recognition',
     detail:
-      'Hundreds of hours weekly analyzing international tournament footage — cataloguing team tendencies, agent compositions, economic patterns, and map-specific behaviors. The same systematic approach to opponent modeling applies directly to threat intelligence.',
+      'Hundreds of hours weekly analyzing international tournament footage, cataloguing team tendencies, agent compositions, economic patterns, and map-specific behaviors. The same systematic approach to opponent modeling applies directly to threat intelligence.',
   },
   {
     skill: 'High-Stakes Briefing Under Pressure',
     detail:
-      'Delivered pre-match intelligence briefs to an active roster before tournament matches. Communication had to be concise, accurate, and actionable under time pressure — same constraints as defense-sector operational briefing.',
+      'Delivered pre-match intelligence briefs to an active roster before tournament matches. Communication had to be concise, accurate, and actionable under time pressure. These are the same constraints as defense-sector operational briefing.',
   },
   {
     skill: 'Statistical Performance Analysis',
@@ -51,7 +51,7 @@ const transferableSkills = [
   {
     skill: 'Structured Decision-Making',
     detail:
-      'Chose the analyst role over the IGL (captain) role — deliberately trading visibility for effectiveness. The decision reflected prioritizing team outcome over personal advancement, a judgment pattern that translates directly to professional leadership.',
+      'Chose the analyst role over the IGL (captain) role, deliberately trading visibility for effectiveness. The decision reflected prioritizing team outcome over personal advancement, a judgment pattern that translates directly to professional leadership.',
   },
 ];
 
@@ -121,7 +121,7 @@ export default function AboutPage() {
               Military Brat · USAF Family
             </p>
             <p className="mb-4 font-body text-[15px] leading-relaxed text-text-secondary">
-              Born at Eglin Air Force Base in Fort Walton Beach, Florida. Both parents served in the United States Air Force — my mother retired as a Lieutenant Colonel, my father as a Colonel. Growing up meant packing your things and moving every few years: transitioned through 10 schools by the time I graduated high school. I learned early how to adapt to new environments, read new social structures, and build trust with strangers. It wasn&apos;t always easy, but it&apos;s a background that translates directly into how I work.
+              Born at Eglin Air Force Base in Fort Walton Beach, Florida. Both parents served in the United States Air Force; my mother retired as a Lieutenant Colonel, my father as a Colonel. Growing up meant packing your things and moving every few years: transitioned through 10 schools by the time I graduated high school. I learned early how to adapt to new environments, read new social structures, and build trust with strangers. It wasn&apos;t always easy, but it&apos;s a background that translates directly into how I work.
             </p>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
               {locations.map((loc) => (
@@ -156,13 +156,13 @@ export default function AboutPage() {
               <span className="status-pill status-shipped">Tier 1 Org</span>
             </div>
             <p className="mb-4 font-body text-[15px] leading-relaxed text-text-secondary">
-              XSET was one of the top NA Valorant organizations during the game&apos;s early competitive era — the same roster that won the VCT 2022 NA Stage 2 Challengers and represented North America internationally at Masters Copenhagen. I was offered the IGL (captain) role following strong performance in the open circuit, but chose to stay as an analyst — a deliberate decision to have more impact behind the scenes than at the mic.
+              XSET was one of the top NA Valorant organizations during the game&apos;s early competitive era. The same roster that won the VCT 2022 NA Stage 2 Challengers and represented North America internationally at Masters Copenhagen. I was offered the IGL (captain) role following strong performance in the open circuit, but chose to stay as an analyst, a deliberate decision to have more impact behind the scenes than at the mic.
             </p>
             <p className="mb-4 font-body text-[15px] leading-relaxed text-text-secondary">
-              The job was structured 12-hour days. Up at 5:30 AM watching international tournament VODs before the NA market woke up. By afternoon I was building per-player performance spreadsheets — round-by-round statistics, behavioral patterns, performance curves plotted over time. Evenings the roster was in scrims; I&apos;d watch live, flag in-round events, then spend the post-session reviewing every angle. At peak I was rated among the better analysts in the NA scene.
+              The job was structured 12-hour days. Up at 5:30 AM watching international tournament VODs before the NA market woke up. By afternoon I was building per-player performance spreadsheets: round-by-round statistics, behavioral patterns, performance curves plotted over time. Evenings the roster was in scrims; I&apos;d watch live, flag in-round events, then spend the post-session reviewing every angle. At peak I was rated among the better analysts in the NA scene.
             </p>
             <p className="font-body text-[15px] leading-relaxed text-text-secondary">
-              I left the scene by choice. I'd hit my ceiling for what the role could teach me, and I could see more important work ahead. The discipline, pattern recognition, and analytical habits built stayed with me — and they show up directly in how I approach infrastructure and security work today.
+              I left the scene by choice. I'd hit my ceiling for what the role could teach me, and I could see more important work ahead. The discipline, pattern recognition, and analytical habits I built have stayed with me. They now show up directly in how I approach infrastructure and security work today.
             </p>
           </div>
         </FadeUp>
@@ -232,10 +232,10 @@ export default function AboutPage() {
               <span className="status-pill status-shipped">Concluded 2024</span>
             </div>
             <p className="mb-4 font-body text-[15px] leading-relaxed text-text-secondary">
-              After leaving the Valorant scene I discovered Shatterline, a tactical shooter developed by Frag Lab Studio in Ukraine — during the start of the Russia-Ukraine war. I wanted to help keep the game viable. I reached out to the developers and built their first competitive scene from scratch, founding OASIS as the organization behind it.
+              After leaving the Valorant scene I discovered Shatterline, a tactical shooter developed by Frag Lab Studio in Ukraine during the start of the Russia-Ukraine war. I wanted to help keep the game viable. I reached out to the developers and built their first competitive scene from scratch, founding OASIS as the organization behind it.
             </p>
             <p className="mb-4 font-body text-[15px] leading-relaxed text-text-secondary">
-              The initial work with Shatterline required convincing skeptical developers under wartime stress to provision practice servers they had no interest in running. It took a couple weeks of iterative persuasion, data-backed proposals, and trust-building across language and time-zone barriers. When I finally aquired server access, I built a full tournament infrastructure: rules, brackets, broadcast logistics, community moderation, and prize-pool funding secured through grants and sponsorships — the highest payout reached $600.
+              The initial work with Shatterline required convincing skeptical developers under wartime stress to provision practice servers they had no interest in running. It took a couple weeks of iterative persuasion, data-backed proposals, and trust-building across language and time-zone barriers. When I finally aquired server access, I built a full tournament infrastructure: rules, brackets, broadcast logistics, community moderation, and prize-pool funding secured through grants and sponsorships with our highest payout reaching $600.
             </p>
             <p className="mb-4 font-body text-[15px] leading-relaxed text-text-secondary">
               When Shatterline&apos;s developers shifted their focus from PvP to PvE, OASIS pivoted. We expanded into a generalized model: identify promising early-access PvP titles, partnered with their development teams, and ran structured competitive events using experienced esports participants to generate media, feedback, and community momentum for games that needed it. I attended gaming conventions, cold-pitched studios, and nearly secured a Stockholm residency with the Alara Prime team before their funding collapsed. When Alara filed for bankruptcy, I managed the community transition without losing the trust we&apos;d built.
@@ -322,11 +322,11 @@ export default function AboutPage() {
               },
               {
                 title: 'Ocean Swimming & Offshore Fishing',
-                body: "I like to swim out twice as far as the surfers, finding a calm wave to float on — and fish 5+ miles offshore for the kind of catch that will feed the neighbors.",
+                body: "I like to swim out twice as far as the surfers, finding a calm wave to float on, and fish 5+ miles offshore for the kind of catch that will feed the neighbors.",
               },
               {
                 title: 'Competitive Gaming',
-                body: "I play games the same way I work — to understand them completely and master them fully. I play with competitive friends who together bring out the best in each of us as we climb to the top rank of every game we touch. ",
+                body: "I play games the same way I enjoy work, with the goal to understand the task at hand completely and master it fully. I play with highly competitive friends and together we bring out the best in each of us as we climb to the top rank of every game we touch. ",
               },
               {
                 title: 'Travel as Default',

@@ -9,8 +9,8 @@ import './globals.css';
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${siteConfig.domain}`),
   title: {
-    default: `${siteConfig.name} — ${siteConfig.title}`,
-    template: `%s — ${siteConfig.name}`,
+    default: `${siteConfig.name} · ${siteConfig.title}`,
+    template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.meta.description,
   keywords: siteConfig.meta.keywords,
@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: `https://${siteConfig.domain}`,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — ${siteConfig.title}`,
+    title: `${siteConfig.name} · ${siteConfig.title}`,
     description: siteConfig.meta.description,
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${siteConfig.name} — ${siteConfig.title}`,
+    title: `${siteConfig.name} · ${siteConfig.title}`,
     description: siteConfig.meta.description,
   },
   robots: { index: true, follow: true },

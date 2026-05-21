@@ -23,8 +23,8 @@ export default function ProjectsPage() {
         <FadeUp>
           <SectionHeader
             label="Projects"
-            title="What I've Built & Deployed"
-            subtitle="From field infrastructure to embedded systems and AI prototypes — systems designed to work in production."
+            title="What I have Built & Deployed"
+            subtitle="From field infrastructure to embedded systems and AI prototypes, I make systems designed to work in production."
           />
         </FadeUp>
 

@@ -292,7 +292,7 @@ export default function HomePage() {
               Build systems that hold up.
             </h2>
             <p className="mx-auto mb-5 max-w-md font-body text-base leading-relaxed text-text-secondary">
-              I&apos;m open to infrastructure, security, and field deployment roles — internships, co-op, contract, or full-time.
+              I am open to infrastructure, security, and field deployment roles — internships, co-op, contract, or full-time.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2.5">
               <a
