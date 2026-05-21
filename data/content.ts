@@ -30,6 +30,7 @@ export const siteConfig = {
 };
 
 export const summary = `Cybersecurity student heading into UCF's NSA-designated cybersecurity program with 2 years of hands-on infrastructure and healthcare IT work experience. Having built hardened Linux deployments, multi-site networks, and offline-first clinical systems for volunteer medical missions — the kind of constrained, high-stakes environments that translate directly to cloud security and cleared work opportunities.`;
+export const resumeSummary = `Infrastructure and security engineer with 2 years of hands-on production work across healthcare IT, austere field deployments, and high-pressure event operations. CompTIA Security+ and Network+ certified, with active AZ-500 study underway. Currently leading offline-first EMR and network infrastructure for a Houston-based volunteer medical mission, with successful field deployment in Costa Rica (April 2026). Background includes founding a competitive esports organization with international developer partnerships, and 2 years in client-facing event operations. Heading into UCF's NSA-designated cybersecurity program (Fall 2026) on an accelerated B.S. to M.S. track. Targeting cloud security, infrastructure, and cleared defense roles.`;
 
 export const capabilities = [
   {

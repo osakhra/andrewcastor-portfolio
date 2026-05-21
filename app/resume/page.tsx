@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import {
   siteConfig,
-  summary,
+  resumeSummary,
   experience,
   education,
   capabilities,
@@ -100,7 +100,7 @@ export default function ResumePage() {
               Summary
             </h2>
             <p className="max-w-3xl font-body text-base leading-relaxed text-text-secondary">
-              {summary}
+              {resumeSummary}
             </p>
           </div>
         </FadeUp>
