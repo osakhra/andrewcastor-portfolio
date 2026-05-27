@@ -66,7 +66,7 @@ export default function HomePage() {
             <p className="mb-6 font-display text-xl font-medium text-text-secondary sm:text-2xl">
               <span className="text-accent-teal">Hardened.</span>{' '}
               <span className="text-accent-purple-bright">Recoverable.</span>{' '}
-              <span style={{ color: '#DDE3EB' }}>Offline-first.</span>
+              <span className="text-text-secondary">Offline-first.</span>
             </p>
 
             <h1 className="mb-1 font-display text-2xl font-semibold tracking-tight text-text-primary sm:text-[26px]">
