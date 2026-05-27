@@ -241,19 +241,20 @@
 
   .ac-card {
     @apply rounded-lg border border-border-subtle p-4 transition-all duration-300;
-    /* Replaced hardcoded dark values with dynamic RGB vars */
+    /* This connects the card to your dynamic Tailwind variables */
     background-color: rgb(var(--bg-secondary-rgb) / 0.7); 
     backdrop-filter: blur(8px);
   }
 
   .ac-card:hover {
     border-color: var(--border-accent);
+    /* This ensures hover stays light in light mode, and dark in dark mode */
     background-color: rgb(var(--bg-secondary-rgb) / 0.85); 
   }
 
   .ac-tag {
     @apply inline-block rounded-full border border-border-subtle px-2.5 py-1 font-mono text-[11px] text-text-secondary;
-    /* Replaced hardcoded dark values with dynamic RGB vars */
+    /* Connects the inner tags to the dynamic tertiary background */
     background-color: rgb(var(--bg-tertiary-rgb) / 0.75); 
   }
 
