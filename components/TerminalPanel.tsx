@@ -1,6 +1,6 @@
 export default function TerminalPanel() {
   return (
-    <div className="overflow-hidden rounded-lg border border-border-subtle" style={{ backgroundColor: '#0A0E18' }}>
+    <div className="overflow-hidden rounded-lg border border-border-subtle bg-bg-terminal">
       {/* Title bar */}
       <div className="flex items-center gap-1.5 border-b border-border-subtle bg-bg-secondary px-3 py-2">
         <span className="inline-block h-2 w-2 rounded-full" style={{ backgroundColor: '#E24B4A' }} />

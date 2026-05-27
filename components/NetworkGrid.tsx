@@ -13,6 +13,14 @@ type Packet = {
   alive: boolean;
 };
 
+/** Convert a hex color string (#RRGGBB) to an "r, g, b" string for rgba() usage. */
+function hexToRgb(hex: string): string {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex.trim());
+  return result
+    ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`
+    : '30, 158, 138';
+}
+
 export default function NetworkGrid() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>();
@@ -30,6 +38,34 @@ export default function NetworkGrid() {
     let height = 0;
     let lastPacketSpawn = 0;
 
+    // ── Theme-aware color reads ──────────────────────────────────────────────
+    // Called on mount and whenever data-theme changes on <html>.
+    const getThemeColors = () => {
+      const style = getComputedStyle(document.documentElement);
+      return {
+        teal:   style.getPropertyValue('--accent-teal').trim() || '#1E9E8A',
+        purple: style.getPropertyValue('--accent-purple-bright').trim() || '#9B6FD4',
+        edge:   style.getPropertyValue('--border-subtle').trim() || '#1E2737',
+        node:   style.getPropertyValue('--accent-teal').trim() || '#1E9E8A',
+      };
+    };
+
+    let colors = getThemeColors();
+    let tealRgb   = hexToRgb(colors.teal);
+    let purpleRgb = hexToRgb(colors.purple);
+
+    // Re-read colors whenever the theme attribute changes on <html>
+    const themeObserver = new MutationObserver(() => {
+      colors    = getThemeColors();
+      tealRgb   = hexToRgb(colors.teal);
+      purpleRgb = hexToRgb(colors.purple);
+    });
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
+
+    // ── Canvas sizing ────────────────────────────────────────────────────────
     const setSize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       width = window.innerWidth;
@@ -41,6 +77,7 @@ export default function NetworkGrid() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
+    // ── Grid construction ────────────────────────────────────────────────────
     const buildGrid = () => {
       // Triangulated point grid with slight jitter — looks like a network topology, not a regular grid
       const spacing = 110;
@@ -76,6 +113,7 @@ export default function NetworkGrid() {
       }
     };
 
+    // ── Packet spawning ──────────────────────────────────────────────────────
     const spawnPacket = () => {
       if (edges.length === 0) return;
       if (packets.filter((p) => p.alive).length >= 4) return; // cap at 4 simultaneous packets
@@ -105,11 +143,12 @@ export default function NetworkGrid() {
       }
     };
 
+    // ── Render loop ──────────────────────────────────────────────────────────
     const render = (now: number) => {
       ctx.clearRect(0, 0, width, height);
 
-      // Draw edges (more visible)
-      ctx.strokeStyle = 'rgba(30, 158, 138, 0.12)';
+      // Draw edges (static grid lines — use teal at low opacity)
+      ctx.strokeStyle = `rgba(${tealRgb}, 0.12)`;
       ctx.lineWidth = 0.6;
       for (const edge of edges) {
         const na = nodes[edge.a];
@@ -121,7 +160,7 @@ export default function NetworkGrid() {
       }
 
       // Draw nodes (visible dots)
-      ctx.fillStyle = 'rgba(30, 158, 138, 0.32)';
+      ctx.fillStyle = `rgba(${tealRgb}, 0.32)`;
       for (const node of nodes) {
         if (node.x < -10 || node.x > width + 10 || node.y < -10 || node.y > height + 10) continue;
         ctx.beginPath();
@@ -153,11 +192,11 @@ export default function NetworkGrid() {
         // Fade in and out at edge endpoints
         const fade = Math.sin(p.t * Math.PI); // 0 at endpoints, 1 in middle
 
+        // Pick RGB channels from theme-aware color read
+        const packetRgb = p.color === 'teal' ? tealRgb : purpleRgb;
+
         // Highlight the edge the packet is traveling on
-        ctx.strokeStyle =
-          p.color === 'teal'
-            ? `rgba(30, 158, 138, ${0.25 * fade})`
-            : `rgba(184, 156, 224, ${0.25 * fade})`;
+        ctx.strokeStyle = `rgba(${packetRgb}, ${0.25 * fade})`;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(na.x, na.y);
@@ -170,9 +209,8 @@ export default function NetworkGrid() {
         const tx = na.x + (nb.x - na.x) * trailT;
         const ty = na.y + (nb.y - na.y) * trailT;
         const gradient = ctx.createLinearGradient(tx, ty, x, y);
-        const trailColor = p.color === 'teal' ? '30, 158, 138' : '184, 156, 224';
-        gradient.addColorStop(0, `rgba(${trailColor}, 0)`);
-        gradient.addColorStop(1, `rgba(${trailColor}, ${0.7 * fade})`);
+        gradient.addColorStop(0, `rgba(${packetRgb}, 0)`);
+        gradient.addColorStop(1, `rgba(${packetRgb}, ${0.7 * fade})`);
         ctx.strokeStyle = gradient;
         ctx.lineWidth = 1.5;
         ctx.beginPath();
@@ -181,10 +219,9 @@ export default function NetworkGrid() {
         ctx.stroke();
 
         // Packet head — bright dot with subtle glow
-        const headColor = p.color === 'teal' ? '30, 158, 138' : '184, 156, 224';
         ctx.shadowBlur = 8;
-        ctx.shadowColor = `rgba(${headColor}, ${0.8 * fade})`;
-        ctx.fillStyle = `rgba(${headColor}, ${0.95 * fade})`;
+        ctx.shadowColor = `rgba(${packetRgb}, ${0.8 * fade})`;
+        ctx.fillStyle   = `rgba(${packetRgb}, ${0.95 * fade})`;
         ctx.beginPath();
         ctx.arc(x, y, 2, 0, Math.PI * 2);
         ctx.fill();
@@ -214,6 +251,7 @@ export default function NetworkGrid() {
     return () => {
       window.removeEventListener('resize', handleResize);
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      themeObserver.disconnect();
     };
   }, []);
 

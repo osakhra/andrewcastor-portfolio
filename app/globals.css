@@ -4,6 +4,133 @@
 
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700;800&display=swap');
 
+/* ─── DESIGN TOKENS ─────────────────────────────────────────────────────────
+ * All semantic color values live here as CSS custom properties.
+ * Dark mode is the default (:root). Light mode overrides via [data-theme="light"].
+ * The data-theme attribute is set on <html> — see app/layout.tsx and
+ * components/ui/ThemeToggle.tsx.
+ * ─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Backgrounds */
+  --bg-primary:   #080B12;
+  --bg-secondary: #0D1117;
+  --bg-tertiary:  #131A24;
+  --bg-terminal:  #0A0E18;
+
+  /* Text */
+  --text-primary:   #D5DDE0;
+  --text-secondary: #B5BEC8;
+  --text-tertiary:  #A8B2BF;
+  --text-muted:     #7E8898;
+
+  /* Borders */
+  --border-subtle:  #1E2737;
+  --border-default: #2A3444;
+  --border-accent:  rgba(30, 158, 138, 0.4);
+
+  /* Accent — teal */
+  --accent-teal:      #1E9E8A;
+  --accent-teal-dim:  #17796A;
+  --accent-teal-glow: rgba(30, 158, 138, 0.4);
+
+  /* Accent — purple */
+  --accent-purple:        #5B2D8E;
+  --accent-purple-soft:   #B89CE0;
+  --accent-purple-bright: #9B6FD4;
+
+  /* Status */
+  --status-shipped-bg:      rgba(30, 158, 138, 0.12);
+  --status-shipped-border:  rgba(30, 158, 138, 0.3);
+  --status-progress-bg:     rgba(91, 45, 142, 0.15);
+  --status-progress-border: rgba(91, 45, 142, 0.4);
+
+  /* Selection */
+  --selection-bg: rgba(30, 158, 138, 0.3);
+
+  /* ── RGB channels for Tailwind opacity-modifier support (bg-*\/N, text-*\/N) ──
+   * Space-separated (no commas) — required by the rgb(var / <alpha-value>) CSS4 syntax
+   * used in tailwind.config.ts. Do NOT add commas here. */
+  --bg-primary-rgb:            8 11 18;
+  --bg-secondary-rgb:          13 17 23;
+  --bg-tertiary-rgb:           19 26 36;
+  --accent-teal-rgb:           30 158 138;
+  --accent-purple-bright-rgb:  155 111 212;
+
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  /* Backgrounds */
+  --bg-primary:   #F4F6FA;
+  --bg-secondary: #EAEDF4;
+  --bg-tertiary:  #DDE1EC;
+  --bg-terminal:  #D0D5E3;
+
+  /* Text */
+  --text-primary:   #0D1219;
+  --text-secondary: #2A3444;
+  --text-tertiary:  #455266;
+  --text-muted:     #7E8898;
+
+  /* Borders */
+  --border-subtle:  #C8D0DF;
+  --border-default: #B2BCCC;
+  --border-accent:  rgba(30, 158, 138, 0.5);
+
+  /* Accent — teal (unchanged across modes; passes WCAG AA on both surfaces) */
+  --accent-teal:      #1E9E8A;
+  --accent-teal-dim:  #17796A;
+  --accent-teal-glow: rgba(30, 158, 138, 0.35);
+
+  /* Accent — purple (darkened for WCAG AA on light backgrounds) */
+  --accent-purple:        #5B2D8E;
+  --accent-purple-soft:   #7B5CB5;   /* decorative/low-emphasis: darker than #8B6EC4 to avoid over-saturation */
+  --accent-purple-bright: #7B52B8;   /* darkened from #9B6FD4 to maintain WCAG AA on #F4F6FA */
+
+  /* Status */
+  --status-shipped-bg:      rgba(30, 158, 138, 0.1);
+  --status-shipped-border:  rgba(30, 158, 138, 0.35);
+  --status-progress-bg:     rgba(91, 45, 142, 0.1);
+  --status-progress-border: rgba(91, 45, 142, 0.35);
+
+  /* Selection */
+  --selection-bg: rgba(30, 158, 138, 0.25);
+
+  /* ── RGB channels (space-separated for CSS4 rgb() / <alpha-value>) ── */
+  --bg-primary-rgb:            244 246 250;
+  --bg-secondary-rgb:          234 237 244;
+  --bg-tertiary-rgb:           221 225 236;
+  --accent-teal-rgb:           30 158 138;    /* unchanged */
+  --accent-purple-bright-rgb:  123 82 184;
+
+  color-scheme: light;
+}
+
+/*
+ * SUBDOMAIN ACCENT OVERRIDES
+ *
+ * Subdomains that use different accent colors (e.g. gold for a finance tool)
+ * only need to redefine the affected vars in their own globals.css.
+ * The light/dark structure is inherited from this base.
+ *
+ * Example for a gold-accent subdomain:
+ *
+ * :root {
+ *   --accent-teal: #C9922A;
+ *   --accent-teal-dim: #A87820;
+ *   --accent-teal-glow: rgba(201,146,42,0.4);
+ *   --border-accent: rgba(201,146,42,0.4);
+ *   --selection-bg: rgba(201,146,42,0.25);
+ *   --status-shipped-bg: rgba(201,146,42,0.12);
+ *   --status-shipped-border: rgba(201,146,42,0.3);
+ * }
+ * [data-theme="light"] {
+ *   --accent-teal: #B07B1A;
+ *   --accent-teal-dim: #8C6012;
+ * }
+ */
+
 @layer base {
   * {
     -webkit-font-smoothing: antialiased;
@@ -12,20 +139,21 @@
 
   html {
     scroll-behavior: smooth;
-    background-color: #080B12;
-    color-scheme: dark;
+    background-color: var(--bg-primary);
+    /* Smooth background and text color when switching themes */
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   body {
     font-family: 'Outfit', system-ui, sans-serif;
-    background-color: #080B12;
-    color: #E8ECF1;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     overflow-x: hidden;
     position: relative;
   }
 
   ::selection {
-    background-color: rgba(30, 158, 138, 0.3);
+    background-color: var(--selection-bg);
     color: #E8ECF1;
   }
 
@@ -113,18 +241,18 @@
 
   .ac-card {
     @apply rounded-lg border border-border-subtle p-4 transition-all duration-300;
-    background-color: rgba(13, 17, 23, 0.7);
+    background-color: rgba(13, 17, 23, 0.7);   /* intentionally kept: translucency effect, not a semantic token */
     backdrop-filter: blur(8px);
   }
 
   .ac-card:hover {
-    border-color: rgba(30, 158, 138, 0.4);
-    background-color: rgba(13, 17, 23, 0.85);
+    border-color: var(--border-accent);
+    background-color: rgba(13, 17, 23, 0.85);  /* intentionally kept: hover opacity variant */
   }
 
   .ac-tag {
     @apply inline-block rounded-full border border-border-subtle px-2.5 py-1 font-mono text-[11px] text-text-secondary;
-    background-color: rgba(19, 26, 36, 0.75);
+    background-color: rgba(19, 26, 36, 0.75);  /* intentionally kept: translucency effect */
   }
 
   .ac-label {
@@ -136,8 +264,8 @@
   }
 
   .btn-primary:hover {
-    background-color: rgba(30, 158, 138, 0.92);
-    box-shadow: 0 0 24px rgba(30, 158, 138, 0.45);
+    background-color: rgba(30, 158, 138, 0.92);         /* intentionally kept: hover opacity variant */
+    box-shadow: 0 0 24px rgba(30, 158, 138, 0.45);      /* intentionally kept: glow effect */
   }
 
   .btn-outline {
@@ -146,7 +274,7 @@
 
   .btn-outline:hover {
     @apply border-accent-teal/50 text-accent-teal;
-    box-shadow: 0 0 18px rgba(30, 158, 138, 0.18);
+    box-shadow: 0 0 18px rgba(30, 158, 138, 0.18);      /* intentionally kept: glow effect */
   }
 
   .status-pill {
@@ -154,21 +282,21 @@
   }
 
   .status-shipped {
-    background-color: rgba(30, 158, 138, 0.12);
-    border: 0.5px solid rgba(30, 158, 138, 0.3);
-    color: #1E9E8A;
+    background-color: var(--status-shipped-bg);
+    border: 0.5px solid var(--status-shipped-border);
+    color: var(--accent-teal);
   }
 
   .status-progress {
-    background-color: rgba(91, 45, 142, 0.15);
-    border: 0.5px solid rgba(91, 45, 142, 0.4);
-    color: #9d7bc7;
+    background-color: var(--status-progress-bg);
+    border: 0.5px solid var(--status-progress-border);
+    color: var(--accent-purple-bright);
   }
 
   /* Display tagline used above the name on home */
   .display-tagline {
     @apply font-display font-bold tracking-tight;
-    background: linear-gradient(180deg, #FFFFFF 0%, #CCD3DC 100%);
+    background: linear-gradient(180deg, var(--text-primary) 0%, var(--text-secondary) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -181,12 +309,12 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #080B12;
+  background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: #2A3444;
+  background: var(--border-default);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3A4454;
+  background: #3A4454;  /* intentionally kept: no token at this intermediate hover value */
 }

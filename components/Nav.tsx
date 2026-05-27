@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { navLinks, siteConfig } from '@/data/content';
 import { MenuIcon, XIcon } from './Icons';
+import ThemeToggle from '@/components/ui/ThemeToggle';
 
 export default function Nav() {
   const pathname = usePathname();
@@ -45,6 +46,9 @@ export default function Nav() {
               Get in Touch
             </a>
           </li>
+          <li>
+            <ThemeToggle />
+          </li>
         </ul>
 
         <button
@@ -84,6 +88,12 @@ export default function Nav() {
               >
                 Get in Touch
               </a>
+            </li>
+            <li className="border-t border-border-subtle pt-3 mt-1">
+              <div className="flex items-center gap-2 px-3">
+                <span className="font-mono text-[11px] text-text-tertiary">Theme</span>
+                <ThemeToggle />
+              </div>
             </li>
           </ul>
         </div>

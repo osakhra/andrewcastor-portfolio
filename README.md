@@ -1,84 +1,66 @@
-# andrewcastor.dev
+<div align="center">
 
-Personal portfolio for Andrew Castor — Infrastructure & Cloud Security Engineer.
+# CastorUI
 
-## Stack
+### Design system starter for [andrewcastor.dev](https://andrewcastor.dev) and its subdomains
 
-- **Next.js 14** (App Router) with static export
-- **TypeScript**
-- **Tailwind CSS**
-- **Fonts:** Sora (display), Outfit (body), JetBrains Mono (code)
-- **Deployment:** Cloudflare Pages (static)
+![Next.js](https://img.shields.io/badge/Next.js_14-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![React](https://img.shields.io/badge/React_18-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Cloudflare Pages](https://img.shields.io/badge/Cloudflare_Pages-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)
 
-## Local Development
+A clonable Next.js 14 starter with the full **Castor branding pre-wired**: color tokens, typography, animated background, reusable components, and design rules baked in. Clone it to spin up any subdomain on `*.andrewcastor.dev` without rebuilding the foundation each time.
+
+</div>
+
+---
+
+## Quick start
 
 ```bash
+git clone https://github.com/osakhra/castor-ui my-new-subdomain
+cd my-new-subdomain
+rm -rf .git && git init
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open `http://localhost:3000` to see the component showcase.
 
-## Project Structure
+---
 
-```
-/app                            Next.js App Router pages
-  /projects                     Projects index
-    /mmdm-openemr              MMDM case study (deep dive)
-  /resume                       Resume page
-  layout.tsx                    Root layout
-  page.tsx                      Home page
-  globals.css                   Global styles + Tailwind
-/components                     Reusable UI components
-/data
-  content.ts                    All site content — edit here
-/public                         Static assets (resume PDF goes here)
-```
+## What you get out of the box
 
-## Editing Content
+### Stack
+- **Next.js 14** with App Router and static export for Cloudflare Pages
+- **TypeScript** with strict mode
+- **Tailwind CSS 3** with the full token system pre-extended
+- Zero animation libraries. Zero UI libraries. Zero runtime deps beyond React.
 
-Everything visible on the site is in `data/content.ts`. Update jobs, projects, skills, and certifications there — all pages pull from this file.
+### Pre-wired branding
+- Color tokens in Tailwind config and `data/tokens.ts`
+- Fonts loaded: **Sora** (display), **Outfit** (body), **JetBrains Mono** (mono)
+- **Network Grid Pulse** canvas background mounted in the root layout
+- Scroll progress bar at the top of every page
+- Nav and Footer ready to customize per subdomain
 
-### Adding a project
+### Reusable components
+| Component | Purpose |
+|---|---|
+| `Button` | Primary and outline variants over the `.btn-primary` / `.btn-outline` utility classes |
+| `Card` | Translucent surface with backdrop blur and teal hover border |
+| `Tag` | Small pill for skill, tech, or category labels |
+| `StatusPill` | Shipped (teal) or in-progress (purple) status indicators |
+| `SectionHeader` | Bracketed label and title pattern used across the portfolio |
+| `SectionNav` | Right-side scroll-spy navigation for long pages |
+| `FadeUp` | Drop-in wrapper that fades and translates content into view |
+| `AnimatedCounter` | Scroll-triggered numeric counters with ease-out animation |
+| `ScrollProgress` | Top-of-page progress bar |
+| `NetworkGrid` | Triangulated canvas background with traveling packets |
+| `TerminalPanel` | Decorative animated JSON terminal element |
+| `Icons` | Hand-rolled SVG icon set including animated GitHub and LinkedIn |
 
-Append to the `projects` array in `data/content.ts`:
+---
 
-```ts
-{
-  slug: 'project-slug',
-  title: 'Project Name',
-  category: 'Category Label',
-  status: 'shipped',     // or 'progress'
-  statusLabel: 'Shipped', // or 'In Progress'
-  context: 'Optional context line',
-  description: 'What it does.',
-  technologies: ['Tech1', 'Tech2'],
-}
-```
-
-### Updating the resume PDF
-
-Drop your file at `public/John_Andrew_Castor_Resume.pdf` — overwrite the existing one. Both the home page Resume button and the Resume page Download button link to this file.
-
-## Deploying to Cloudflare Pages
-
-1. Push to GitHub (private repo).
-2. In Cloudflare dashboard → **Workers & Pages** → **Create application** → **Pages** → **Connect to Git**.
-3. Authorize GitHub and select the repo.
-4. Configure build:
-   - Framework preset: **Next.js (Static HTML Export)**
-   - Build command: `npm run build`
-   - Build output directory: `out`
-   - Node version: `20`
-5. Save and Deploy.
-6. In **Custom domains** tab → add `andrewcastor.dev` and `www.andrewcastor.dev`. DNS auto-configures since the domain is on Cloudflare.
-
-## Updates after launch
-
-```bash
-git add .
-git commit -m "describe changes"
-git push
-```
-
-Cloudflare auto-deploys within ~2 minutes.
+## Repository structure

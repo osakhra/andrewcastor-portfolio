@@ -10,7 +10,7 @@ export default function GithubTile() {
       className="ac-card flex flex-col items-center justify-center text-center"
       style={{
         background:
-          'linear-gradient(135deg, #0D1117 0%, #0A1418 100%)',
+          'linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-terminal) 100%)',
       }}
     >
       <GithubIcon className="mb-2.5 text-accent-teal opacity-80" size={32} />

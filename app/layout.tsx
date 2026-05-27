@@ -31,10 +31,28 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+// FOUC prevention: reads the `theme` cookie and applies data-theme="light"
+// before first paint if the user previously selected light mode.
+// Must run before any other JS — placed as the first child of <body>.
+const themeScript = `(function() {
+  try {
+    var c = document.cookie.split(';');
+    for (var i = 0; i < c.length; i++) {
+      var p = c[i].trim().split('=');
+      if (p[0] === 'theme' && p[1] === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        return;
+      }
+    }
+  } catch(e) {}
+})();`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" data-theme="dark">
       <body className="flex min-h-screen flex-col bg-bg-primary text-text-primary">
+        {/* Runs synchronously before React hydration to prevent FOUC on light mode */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <NetworkGrid />
         <Nav />
         <ScrollProgress />
