@@ -1,15 +1,15 @@
 export default function TerminalPanel() {
   return (
     <div className="overflow-hidden rounded-lg border border-border-subtle bg-bg-terminal">
-      {/* Title bar */}
-      <div className="flex items-center gap-1.5 border-b border-border-subtle bg-bg-secondary px-3 py-2">
+      {/* Title bar - Updated to bg-bg-tertiary for crisp contrast in light mode */}
+      <div className="flex items-center gap-1.5 border-b border-border-subtle bg-bg-tertiary px-3 py-2">
         <span className="inline-block h-2 w-2 rounded-full" style={{ backgroundColor: '#E24B4A' }} />
         <span className="inline-block h-2 w-2 rounded-full" style={{ backgroundColor: '#EF9F27' }} />
         <span className="inline-block h-2 w-2 rounded-full bg-accent-teal" />
         <span className="ml-2 font-mono text-[11px] text-text-tertiary">andrew@castor:~</span>
       </div>
 
-      {/* Body */}
+      {/* Body - Text tokens automatically inherit the darkened light-mode colors */}
       <div className="px-3.5 py-4 font-mono text-[12px] leading-relaxed">
         <div>
           <span className="text-accent-teal">$</span>{' '}

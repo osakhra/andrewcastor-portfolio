@@ -72,8 +72,8 @@ const config: Config = {
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         pulseSlow: {
-          '0%, 100%': { opacity: '1', boxShadow: '0 0 8px rgba(30,158,138,0.4)' },
-          '50%':       { opacity: '0.6', boxShadow: '0 0 4px rgba(30,158,138,0.2)' },
+          '0%, 100%': { opacity: '1', boxShadow: '0 0 8px rgb(var(--accent-teal-rgb) / 0.4)' },
+          '50%':       { opacity: '0.6', boxShadow: '0 0 4px rgb(var(--accent-teal-rgb) / 0.2)' },
         },
         blink: {
           '0%, 100%': { opacity: '1' },

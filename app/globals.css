@@ -61,47 +61,47 @@
 }
 
 [data-theme="light"] {
-  /* Backgrounds */
-  --bg-primary:   #F4F6FA;
-  --bg-secondary: #EAEDF4;
-  --bg-tertiary:  #DDE1EC;
-  --bg-terminal:  #D0D5E3;
+  /* Backgrounds - Pure White base, light gray cards */
+  --bg-primary:   #FFFFFF;
+  --bg-secondary: #F3F4F6;
+  --bg-tertiary:  #E5E7EB;
+  --bg-terminal:  #F3F4F6;
 
-  /* Text */
-  --text-primary:   #0D1219;
-  --text-secondary: #2A3444;
-  --text-tertiary:  #455266;
-  --text-muted:     #7E8898;
+  /* Text - Near Black */
+  --text-primary:   #111827;
+  --text-secondary: #374151;
+  --text-tertiary:  #4B5563;
+  --text-muted:     #9CA3AF;
 
   /* Borders */
-  --border-subtle:  #C8D0DF;
-  --border-default: #B2BCCC;
-  --border-accent:  rgba(30, 158, 138, 0.5);
+  --border-subtle:  #E5E7EB;
+  --border-default: #D1D5DB;
+  --border-accent:  rgba(5, 150, 105, 0.5); /* Darkened teal for contrast */
 
-  /* Accent — teal (unchanged across modes; passes WCAG AA on both surfaces) */
-  --accent-teal:      #1E9E8A;
-  --accent-teal-dim:  #17796A;
-  --accent-teal-glow: rgba(30, 158, 138, 0.35);
+  /* Accent — teal (Darkened for Plan B crisp contrast) */
+  --accent-teal:      #059669;
+  --accent-teal-dim:  #047857;
+  --accent-teal-glow: rgba(5, 150, 105, 0.35);
 
-  /* Accent — purple (darkened for WCAG AA on light backgrounds) */
+  /* Accent — purple */
   --accent-purple:        #5B2D8E;
-  --accent-purple-soft:   #7B5CB5;   /* decorative/low-emphasis: darker than #8B6EC4 to avoid over-saturation */
-  --accent-purple-bright: #7B52B8;   /* darkened from #9B6FD4 to maintain WCAG AA on #F4F6FA */
+  --accent-purple-soft:   #7B5CB5;
+  --accent-purple-bright: #7B52B8;
 
   /* Status */
-  --status-shipped-bg:      rgba(30, 158, 138, 0.1);
-  --status-shipped-border:  rgba(30, 158, 138, 0.35);
+  --status-shipped-bg:      rgba(5, 150, 105, 0.1);
+  --status-shipped-border:  rgba(5, 150, 105, 0.35);
   --status-progress-bg:     rgba(91, 45, 142, 0.1);
   --status-progress-border: rgba(91, 45, 142, 0.35);
 
   /* Selection */
-  --selection-bg: rgba(30, 158, 138, 0.25);
+  --selection-bg: rgba(5, 150, 105, 0.25);
 
-  /* ── RGB channels (space-separated for CSS4 rgb() / <alpha-value>) ── */
-  --bg-primary-rgb:            244 246 250;
-  --bg-secondary-rgb:          234 237 244;
-  --bg-tertiary-rgb:           221 225 236;
-  --accent-teal-rgb:           30 158 138;    /* unchanged */
+  /* ── RGB channels (space-separated) ── */
+  --bg-primary-rgb:            255 255 255;
+  --bg-secondary-rgb:          243 244 246;
+  --bg-tertiary-rgb:           229 231 235;
+  --accent-teal-rgb:           5 150 105;
   --accent-purple-bright-rgb:  123 82 184;
 
   color-scheme: light;
@@ -241,18 +241,20 @@
 
   .ac-card {
     @apply rounded-lg border border-border-subtle p-4 transition-all duration-300;
-    background-color: rgba(13, 17, 23, 0.7);   /* intentionally kept: translucency effect, not a semantic token */
+    /* Replaced hardcoded dark values with dynamic RGB vars */
+    background-color: rgb(var(--bg-secondary-rgb) / 0.7); 
     backdrop-filter: blur(8px);
   }
 
   .ac-card:hover {
     border-color: var(--border-accent);
-    background-color: rgba(13, 17, 23, 0.85);  /* intentionally kept: hover opacity variant */
+    background-color: rgb(var(--bg-secondary-rgb) / 0.85); 
   }
 
   .ac-tag {
     @apply inline-block rounded-full border border-border-subtle px-2.5 py-1 font-mono text-[11px] text-text-secondary;
-    background-color: rgba(19, 26, 36, 0.75);  /* intentionally kept: translucency effect */
+    /* Replaced hardcoded dark values with dynamic RGB vars */
+    background-color: rgb(var(--bg-tertiary-rgb) / 0.75); 
   }
 
   .ac-label {
