@@ -90,11 +90,11 @@ export default function NetworkGrid() {
         for (let c = 0; c < cols; c++) {
           // Offset every other row by half-spacing for a triangular layout
           const offset = r % 2 === 0 ? 0 : spacing / 2;
-          
+
           // 2. Reduce jitter slightly to prevent skip-connections
           const jitterX = (Math.random() - 0.5) * spacing * 0.25;
           const jitterY = (Math.random() - 0.5) * spacing * 0.25;
-          
+
           nodes.push({
             x: c * spacing + offset + jitterX - spacing,
             y: r * rowHeight + jitterY - spacing, // 3. Apply the new row height here
@@ -105,7 +105,7 @@ export default function NetworkGrid() {
       // Build edges by connecting nodes within a distance threshold
       edges = [];
       const maxDist = spacing * 1.4; // 4. Increase the threshold so jittered nodes always connect
-      
+
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
@@ -149,7 +149,17 @@ export default function NetworkGrid() {
     };
 
     // ── Render loop ──────────────────────────────────────────────────────────
+    let lastFrame = 0;
+    const TARGET_FPS = 30;
+    const FRAME_INTERVAL = 1000 / TARGET_FPS;
+
     const render = (now: number) => {
+      if (now - lastFrame < FRAME_INTERVAL) {
+        animationRef.current = requestAnimationFrame(render);
+        return;
+      }
+      lastFrame = now;
+
       ctx.clearRect(0, 0, width, height);
 
       // Draw edges (static grid lines — use teal at low opacity)
@@ -247,14 +257,53 @@ export default function NetworkGrid() {
       packets.length = 0;
     };
 
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      } else {
+        animationRef.current = requestAnimationFrame(render);
+      }
+    };
+
+    // ── Prefers-reduced-motion ───────────────────────────────────────────────
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReduced) {
+      setSize();
+      buildGrid();
+      // Draw static grid once — no animation loop
+      ctx.strokeStyle = `rgba(${tealRgb}, 0.12)`;
+      ctx.lineWidth = 0.6;
+      for (const edge of edges) {
+        const na = nodes[edge.a];
+        const nb = nodes[edge.b];
+        ctx.beginPath();
+        ctx.moveTo(na.x, na.y);
+        ctx.lineTo(nb.x, nb.y);
+        ctx.stroke();
+      }
+      ctx.fillStyle = `rgba(${tealRgb}, 0.32)`;
+      for (const node of nodes) {
+        if (node.x < -10 || node.x > width + 10 || node.y < -10 || node.y > height + 10) continue;
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, 1.3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      return () => {
+        themeObserver.disconnect();
+      };
+    }
+
     setSize();
     buildGrid();
     animationRef.current = requestAnimationFrame(render);
 
     window.addEventListener('resize', handleResize);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
       themeObserver.disconnect();
     };
