@@ -79,28 +79,33 @@ export default function NetworkGrid() {
 
     // ── Grid construction ────────────────────────────────────────────────────
     const buildGrid = () => {
-      // Triangulated point grid with slight jitter — looks like a network topology, not a regular grid
+      // Triangulated point grid with slight jitter
       const spacing = 110;
+      const rowHeight = spacing * 0.866; // 1. Set true equilateral triangle height
       const cols = Math.ceil(width / spacing) + 2;
-      const rows = Math.ceil(height / spacing) + 2;
+      const rows = Math.ceil(height / rowHeight) + 2;
       nodes = [];
 
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
           // Offset every other row by half-spacing for a triangular layout
           const offset = r % 2 === 0 ? 0 : spacing / 2;
-          const jitterX = (Math.random() - 0.5) * spacing * 0.3;
-          const jitterY = (Math.random() - 0.5) * spacing * 0.3;
+          
+          // 2. Reduce jitter slightly to prevent skip-connections
+          const jitterX = (Math.random() - 0.5) * spacing * 0.25;
+          const jitterY = (Math.random() - 0.5) * spacing * 0.25;
+          
           nodes.push({
             x: c * spacing + offset + jitterX - spacing,
-            y: r * spacing + jitterY - spacing,
+            y: r * rowHeight + jitterY - spacing, // 3. Apply the new row height here
           });
         }
       }
 
       // Build edges by connecting nodes within a distance threshold
       edges = [];
-      const maxDist = spacing * 1.3;
+      const maxDist = spacing * 1.4; // 4. Increase the threshold so jittered nodes always connect
+      
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
