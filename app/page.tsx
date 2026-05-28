@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import {
   siteConfig,
@@ -23,6 +26,7 @@ import FadeUp from '@/components/FadeUp';
 import SectionHeader from '@/components/SectionHeader';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import SectionNav from '@/components/SectionNav';
+import ContactModal from '@/components/ContactModal';
 
 const sectionLinks = [
   { id: 'hero', label: 'Top' },
@@ -34,6 +38,7 @@ const sectionLinks = [
 ];
 
 export default function HomePage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const flagship = projects.find((p) => p.featured);
   const otherProjects = projects.filter((p) => !p.featured);
 
@@ -80,14 +85,12 @@ export default function HomePage() {
             </p>
 
             <div className="mb-6 flex flex-wrap items-center gap-2.5">
-              <a
-                href={`mailto:${siteConfig.email}`}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => setIsModalOpen(true)}
                 className="btn-primary"
               >
                 <MailIcon size={14} /> Get in Touch
-              </a>
+              </button>
               <Link href="/projects" className="btn-outline">
                 View Projects <ArrowRightIcon size={12} />
               </Link>
@@ -127,37 +130,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* ═══════ LIVE STATUS ═══════
-      <section id="status" className="border-t border-border-subtle py-8">
-        <div className="section-container">
-          <FadeUp>
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="font-mono text-[11px] uppercase tracking-widest text-text-tertiary">
-                [ Currently ]
-              </span>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  { text: 'Studying AZ-500 — Azure Security Engineer', dot: 'teal' },
-                  { text: 'Building Splunk detection lab', dot: 'teal' },
-                  { text: 'Developing bilingual EMR forms for MMDM 2027', dot: 'purple' },
-                  { text: 'UCF Fall 2026 — NSA CAE-CD Cybersecurity', dot: 'purple' },
-                ].map((item) => (
-                  <span
-                    key={item.text}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-border-subtle bg-bg-secondary/60 px-3 py-1 font-mono text-[11px] text-text-secondary backdrop-blur"
-                  >
-                    <span
-                      className={`inline-block h-1.5 w-1.5 rounded-full ${item.dot === 'teal' ? 'bg-accent-teal animate-pulse-slow' : 'bg-accent-purple-bright'}`}
-                    />
-                    {item.text}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </FadeUp>
-        </div>
-      </section>  */}
 
       {/* ═══════ FLAGSHIP TEASER ═══════ */}
       {flagship && (
@@ -295,14 +267,12 @@ export default function HomePage() {
               I am open to infrastructure, security, and field deployment roles — internships, co-op, contract, or full-time.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2.5">
-              <a
-                href={`mailto:${siteConfig.email}`}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => setIsModalOpen(true)}
                 className="btn-primary"
               >
-                {siteConfig.email}
-              </a>
+                <MailIcon size={14} /> Get in Touch
+              </button>
               <a
                 href={siteConfig.links.linkedin}
                 target="_blank"
@@ -323,6 +293,9 @@ export default function HomePage() {
           </FadeUp>
         </div>
       </section>
+
+      {/* Render the modal at the bottom of the page */}
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }

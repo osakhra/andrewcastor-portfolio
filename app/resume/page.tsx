@@ -1,4 +1,6 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { useState } from 'react';
 import {
   siteConfig,
   resumeSummary,
@@ -20,11 +22,7 @@ import FadeUp from '@/components/FadeUp';
 import SectionHeader from '@/components/SectionHeader';
 import SectionNav from '@/components/SectionNav';
 import AnimatedCounter from '@/components/AnimatedCounter';
-
-export const metadata: Metadata = {
-  title: 'Resume',
-  description: 'Professional resume of Andrew Castor — Infrastructure & Cloud Security Engineer.',
-};
+import ContactModal from '@/components/ContactModal';
 
 const resumeSections = [
   { id: 'summary', label: 'Summary' },
@@ -35,6 +33,8 @@ const resumeSections = [
 ];
 
 export default function ResumePage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section className="py-14">
       <SectionNav sections={resumeSections} />
@@ -55,14 +55,15 @@ export default function ResumePage() {
                 <span className="flex items-center gap-1.5 font-body text-[13px]">
                   <MapPinIcon /> {siteConfig.location}
                 </span>
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                
+                {/* Updated Header Email Button */}
+                <button
+                  onClick={() => setIsModalOpen(true)}
                   className="flex items-center gap-1.5 font-body text-[13px] transition-colors hover:text-accent-teal"
                 >
                   <MailIcon size={13} /> {siteConfig.email}
-                </a>
+                </button>
+                
                 <a
                   href={siteConfig.links.linkedin}
                   target="_blank"
@@ -105,7 +106,7 @@ export default function ResumePage() {
           </div>
         </FadeUp>
 
-{/* Experience */}
+        {/* Experience */}
         <FadeUp>
           <div id="experience" className="mb-10 scroll-mt-24">
             <h2 className="mb-5 font-mono text-[12px] font-semibold uppercase tracking-widest text-text-tertiary">
@@ -274,17 +275,20 @@ export default function ResumePage() {
             <p className="font-body text-[14px] text-text-secondary">
               {siteConfig.availability}
             </p>
-            <a
-              href={`mailto:${siteConfig.email}`}
-              target="_blank"
-              rel="noopener noreferrer"
+            
+            {/* Updated Footer Email Button */}
+            <button
+              onClick={() => setIsModalOpen(true)}
               className="btn-primary mt-3 inline-flex"
             >
               <MailIcon size={14} /> Reach Out
-            </a>
+            </button>
           </div>
         </FadeUp>
       </div>
+      
+      {/* Render the modal */}
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }
