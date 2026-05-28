@@ -6,7 +6,7 @@ export const siteConfig = {
   email: 'JohnAndrewCastor@gmail.com',
   location: 'Orlando, FL',
   availability: 'Available for co-op, internships & infrastructure roles',
-  resumeFilename: 'John_Andrew_Castor_Resume.pdf',
+  resumeFilename: 'Andrew_Castor_Resume.pdf',
   links: {
     github: 'https://github.com/osakhra',
     linkedin: 'https://linkedin.com/in/jandrewcastor',
