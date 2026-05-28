@@ -281,7 +281,7 @@ export default function ResumePage() {
               onClick={() => setIsModalOpen(true)}
               className="btn-primary mt-3 inline-flex"
             >
-              <MailIcon size={14} /> Reach Out
+              <MailIcon size={14} /> {siteConfig.email}
             </button>
           </div>
         </FadeUp>

@@ -271,7 +271,7 @@ export default function HomePage() {
                 onClick={() => setIsModalOpen(true)}
                 className="btn-primary"
               >
-                <MailIcon size={14} /> Get in Touch
+                <MailIcon size={14} /> Reach Out
               </button>
               <a
                 href={siteConfig.links.linkedin}
