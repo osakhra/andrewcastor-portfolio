@@ -137,10 +137,12 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  html {
-    scroll-behavior: smooth;
-    background-color: var(--bg-primary);
-    transition: background-color 1.2s ease-in-out, color 1.2s ease-in-out;
+  *,
+  *::before,
+  *::after {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
   }
 
   body {
