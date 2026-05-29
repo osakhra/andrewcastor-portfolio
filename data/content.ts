@@ -112,7 +112,7 @@ type ExperienceEntry = {
   company: string;
   location: string;
   dates: string;
-  link?: ExperienceLink;
+  links?: ExperienceLink[];
   metrics?: ExperienceMetric[];
   bulletGroups?: ExperienceBulletGroup[];
   bullets?: string[];
@@ -125,6 +125,11 @@ export const experience: ExperienceEntry[] = [
     company: 'Medical Missionaries of Divine Mercy',
     location: 'Houston, TX',
     dates: '2023 – Present',
+    links: [
+      { url: 'https://mmdm.org', label: 'MMDM.org' },
+      { url: 'https://mmdm.andrewcastor.dev', label: 'Field Journal' },
+    ],
+
     metrics: [
       { value: '6', label: 'Clinical Stations' },
       { value: '~40%', label: 'Intake Delay ↓' },
@@ -161,10 +166,9 @@ export const experience: ExperienceEntry[] = [
     company: 'J. Martini Hospitality Group',
     location: 'Houston, TX',
     dates: 'Apr 2023 – Apr 2025',
-    link: {
-      url: 'https://jmartiniservices.com/',
-      label: 'View Company',
-    },
+    links: [
+      { url: 'https://jmartiniservices.com/', label: 'View Company' },
+    ],
     bullets: [
       'Worked client-facing event operations across the Houston metro area — corporate gatherings, weddings, and private events for a hospitality firm specializing in premium service delivery (high-end bar service, cigar service, full-event waitstaff coordination).',
       'Trusted by the company owner with multi-venue supply logistics across Houston, transporting setup and inventory between sites on schedules often extending past 2 AM; supported onboarding for new event staff and on-site setup verification. Averaged ~30 hours/week over 2 years.',

@@ -121,23 +121,23 @@ export default function ResumePage() {
                   <span className="font-mono text-[12px] text-text-tertiary">{job.dates}</span>
                 </div>
                 <p className="mb-3 flex flex-wrap items-center gap-1.5 font-body text-[13px] text-accent-teal">
-                  <span>{job.company}</span>
-                  <span className="text-text-tertiary">·</span>
-                  <span className="text-text-tertiary">{job.location}</span>
-                  {job.link && (
-                    <>
-                      <span className="text-text-tertiary">·</span>
-                      <a
-                        href={job.link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 rounded-md border border-border-subtle bg-bg-secondary/60 px-2 py-0.5 font-mono text-[11px] text-text-tertiary transition-colors hover:border-accent-teal/50 hover:text-accent-teal"
-                      >
-                        {job.link.label} <ExternalLinkIcon size={11} />
-                      </a>
-                    </>
-                  )}
-                </p>
+                 <span>{job.company}</span>
+                 <span className="text-text-tertiary">·</span>
+                 <span className="text-text-tertiary">{job.location}</span>
+                 {job.links && job.links.map((link) => (
+                     <span key={link.url} className="inline-flex items-center gap-1.5">
+                     <span className="text-text-tertiary">·</span>
+                     <a
+                       href={link.url}
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       className="inline-flex items-center gap-1 rounded-md border border-border-subtle bg-bg-secondary/60 px-2 py-0.5 font-mono text-[11px] text-text-tertiary transition-colors hover:border-accent-teal/50 hover:text-accent-teal"
+                     >
+                      {link.label} <ExternalLinkIcon size={11} />
+                     </a>
+               </span>
+            ))}
+           </p>
 
                 {/* Optional metrics strip */}
                 {job.metrics && (
