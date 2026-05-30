@@ -134,7 +134,7 @@ export const experience: ExperienceEntry[] = [
       { value: '6', label: 'Clinical Stations' },
       { value: '~40%', label: 'Intake Delay ↓' },
       { value: '50+', label: 'Users Trained' },
-      { value: 'Offline', label: 'Operations Posture' },
+      { value: '1,121', label: 'Patients Served' },
     ],
     bulletGroups: [
       {
@@ -159,7 +159,7 @@ export const experience: ExperienceEntry[] = [
       },
     ],
     closingNote:
-      'Costa Rica Field Deployment (April 2026): deployed offline LAN running OpenEMR in austere, no-internet environment supporting full-cycle traveling clinic operations. Roadmap: Laredo (Nov 2026) HIPAA-compliant pre-deployment testing track; full incorporation targeted Costa Rica April 2027.',
+      'Costa Rica Field Deployment (April 18–25, 2026, Grano de Oro): deployed offline LAN running OpenEMR in austere, no-internet environment supporting full-cycle traveling clinic operations. Roadmap: Laredo (Nov 4–10, 2026) pre-deployment testing track; Costa Rica (April 17–24, 2027) full incorporation; Philippines (Feb 16–25, 2027) first Asia-Pacific deployment.',
   },
   {
     role: 'Bartender · Event Operations',
@@ -225,7 +225,7 @@ export const projects: Project[] = [
     statusLabel: 'Deployed 2026 · Ongoing',
     context: 'Medical Missionaries of Divine Mercy · Houston → Costa Rica · 2024–Present',
     description:
-      'Self-hosted EMR built to run a six-station volunteer clinic in a Costa Rican parish hall with no internet, no cloud, and no public DNS. Migrated off a corrupted XAMPP environment to a hardened Ubuntu / Apache / MariaDB / PHP stack with a private certificate authority, daily backups, and bilingual Spanish/English clinical forms. Deployed at the April 2026 Costa Rica mission; next field deployment 2027.',
+      'Self-hosted EMR built to run a six-station volunteer clinic in a Costa Rican parish hall with no internet, no cloud, and no public DNS. Migrated off a corrupted XAMPP environment to a hardened Ubuntu / Apache / MariaDB / PHP stack with a private certificate authority, daily backups, and bilingual Spanish/English clinical forms. Deployed at the April 18–25, 2026 mission in Grano de Oro, Costa Rica; next field deployment 2027.',
     technologies: [
       'Ubuntu 22.04',
       'Apache',
@@ -320,7 +320,7 @@ export const navLinks = [
 export const mmdmCaseStudy = {
   metrics: [
     { value: '6', label: 'Clinical Stations' },
-    { value: '~40%', label: 'Intake Delay ↓' },
+    { value: '1,121', label: 'Patients in 40 hours' },
     { value: '50+', label: 'Users Trained' },
     { value: 'Offline', label: 'Operations Posture' },
   ],
@@ -338,11 +338,9 @@ export const mmdmCaseStudy = {
     'Implementation guide (canonical doc)',
   ],
   roadmap: [
-    'Bilingual LBFs across all 6 stations',
-    'Custom dental tooth-chart widget (PHP)',
-    'Autorefractor CSV ingest pipeline',
-    'HL7 export for CR National Healthcare',
-    'Off-VM encrypted USB backup',
+    'Laredo, TX · Nov 4–10, 2026 — HIPAA pre-deployment test track',
+    'Costa Rica · April 17–24, 2027 — full clinical incorporation',
+    'Philippines · Feb 16–25, 2027 — first Asia-Pacific deployment',
   ],
   principles: [
     {

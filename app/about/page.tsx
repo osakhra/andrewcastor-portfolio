@@ -213,6 +213,18 @@ export default function AboutPage() {
           </div>
         </FadeUp>
 
+        {/* MMDM background paragraph */}
+        <FadeUp delay={80}>
+          <div className="ac-card mb-10">
+            <p className="mb-3 font-mono text-[11px] uppercase tracking-wider text-accent-teal">
+              Medical Mission Work · MMDM
+            </p>
+            <p className="font-body text-[15px] leading-relaxed text-text-secondary">
+              In 2018, at 24, I deployed to Laredo, Texas on my first MMDM medical mission, running vision stations: tonometer, autorefractor, Snellen chart, and readers. Over the next several missions I rotated through every station in the clinic. In 2025, after our Laredo mission, leadership asked whether going digital was viable. I&apos;ve been building toward that answer since: the result is a hardened, offline-first OpenEMR deployment that ran its first full field use in Costa Rica in April 2026 with 1,121 patients served in a single week.
+            </p>
+          </div>
+        </FadeUp>
+
         {/* OASIS */}
         <FadeUp>
           <SectionHeader
@@ -343,6 +355,19 @@ export default function AboutPage() {
 
         {/* Bottom CTA */}
         <FadeUp>
+        {/* Published quote */}
+        <FadeUp>
+          <div className="mb-8 border-l-2 border-accent-teal/50 pl-5">
+            <p className="font-body text-[15px] italic leading-relaxed text-text-secondary">
+              &ldquo;There&apos;s a quiet dignity in being remembered, and if our technology can give that to even a fraction of the people we serve, that feels like a form of presence worth building.&rdquo;
+            </p>
+            <p className="mt-2 font-mono text-[11px] text-text-tertiary">
+              Andrew Castor · MMDM Newsletter · April 2026
+            </p>
+          </div>
+        </FadeUp>
+
+        {/* Bottom CTA */}
           <div className="rounded-lg border border-accent-teal/25 bg-accent-teal/[0.06] p-5 text-center backdrop-blur">
             <p className="mb-1 font-display text-base font-semibold text-text-primary">
               Ready to talk about the technical side?
