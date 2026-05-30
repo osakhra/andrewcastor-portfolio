@@ -192,14 +192,20 @@ export const education = [
     institution: 'University of Central Florida',
     degree: 'B.S. Information Technology (CECS) — Accelerated M.S. Cyber Security & Privacy Track',
     location: 'Orlando, FL',
-    dates: 'Fall 2026 – Expected 2030',
+    dates: 'Fall 2026',
   },
   {
-    institution: 'Houston Community College',
+    institution: 'Houston City College',
     degree: 'A.A.S. Artificial Intelligence — National Honor Society',
     location: 'Houston, TX',
     dates: 'Conferred 2025',
     gpa: '3.8',
+  },
+  {
+    institution: 'Houston City College',
+    degree: 'A.S. General Science',
+    location: 'Houston, TX',
+    dates: 'Conferred 2026',
   },
 ];
 
