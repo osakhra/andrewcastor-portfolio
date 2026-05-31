@@ -224,9 +224,12 @@ export default function ResumePage() {
             </h2>
             <div className="flex flex-wrap gap-2">
               {certifications.map((cert) => (
-                <span
+                <a
                   key={cert.name}
-                  className="inline-flex items-center gap-1.5 rounded-md border border-border-subtle bg-bg-secondary/70 px-3 py-1.5 font-mono text-[12px] text-text-secondary backdrop-blur"
+                  href={cert.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-md border border-border-subtle bg-bg-secondary/70 px-3 py-1.5 font-mono text-[12px] text-text-secondary backdrop-blur transition-colors hover:border-accent-teal/50 hover:text-accent-teal"
                 >
                   <ShieldIcon
                     className={cert.status === 'earned' ? 'text-accent-teal' : 'text-accent-purple-bright'}
@@ -235,7 +238,7 @@ export default function ResumePage() {
                   {cert.status === 'progress' && (
                     <span className="text-text-tertiary">(in study)</span>
                   )}
-                </span>
+                </a>
               ))}
             </div>
           </div>
