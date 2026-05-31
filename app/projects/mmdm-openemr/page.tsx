@@ -148,9 +148,19 @@ export default function MmdmCaseStudyPage() {
             ))}
           </div>
 
-          <Link href="/projects" className="btn-outline">
-            ← Back to all projects
-          </Link>
+          <div className="flex flex-wrap items-center gap-2.5">
+            
+              <a href="https://mmdm.andrewcastor.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              Field Journal <ArrowRightIcon size={12} />
+            </a>
+            <Link href="/projects" className="btn-outline">
+              ← Back to all projects
+            </Link>
+          </div>
         </FadeUp>
       </div>
     </section>
