@@ -65,7 +65,7 @@ export default function ThemeToggle() {
     const next: Theme = theme === 'dark' ? 'light' : 'dark';
     setTheme(next);
     document.documentElement.setAttribute('data-theme', next);
-    document.cookie = `theme=${next}; path=/; max-age=31536000; SameSite=Lax`;
+    document.cookie = `theme=${next}; path=/; max-age=31536000; SameSite=Lax; domain=.andrewcastor.dev`;
   };
 
   return (
