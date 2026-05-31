@@ -4,6 +4,17 @@ import { useState } from 'react';
 
 type ViewKey = 'emr' | 'wifi';
 
+// ── Shared style tokens (mirrors PatientFlowDiagram) ──────────────────────────
+const s = {
+  tealRect:   { fill: 'rgb(var(--accent-teal-rgb) / 0.08)',          stroke: 'rgb(var(--accent-teal-rgb) / 0.50)'          },
+  purpleRect: { fill: 'rgb(var(--accent-purple-bright-rgb) / 0.08)', stroke: 'rgb(var(--accent-purple-bright-rgb) / 0.50)' },
+  tealTitle:  { fill: 'var(--accent-teal)' },
+  purpleText: { fill: 'var(--accent-purple-soft)' },
+  sublabel:   { fill: 'var(--text-tertiary)' },
+  caption:    { fill: 'var(--text-tertiary)' },
+  separator:  { stroke: 'var(--border-subtle)' },
+};
+
 export default function ArchitectureToggle() {
   const [view, setView] = useState<ViewKey>('emr');
 
@@ -33,7 +44,7 @@ export default function ArchitectureToggle() {
         </button>
       </div>
 
-      {/* Diagram */}
+      {/* Diagram panel */}
       <div className="ac-card !p-5">
         {view === 'emr' ? <EmrDiagram /> : <WifiDiagram />}
       </div>
@@ -44,52 +55,48 @@ export default function ArchitectureToggle() {
 function EmrDiagram() {
   return (
     <svg width="100%" viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" className="block">
-      {/* Caption — theme-aware text */}
-      <text x="350" y="22" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="10"
-        style={{ fill: 'var(--text-tertiary)' }}>
+      {/* Caption */}
+      <text x="350" y="22" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="10" style={s.caption}>
         LAN-only · No internet · Offline-first
       </text>
-      {/* Separator — theme-aware border */}
-      <line x1="20" y1="36" x2="690" y2="36" strokeWidth="0.5" strokeDasharray="2,2"
-        style={{ stroke: 'var(--border-subtle)' }} />
+      {/* Separator */}
+      <line x1="20" y1="36" x2="690" y2="36" strokeWidth="0.5" strokeDasharray="2,2" style={s.separator} />
 
-      {/* Horizontal connection lines */}
-      <line x1="120" y1="100" x2="220" y2="100" stroke="#1E9E8A" strokeWidth="1" strokeDasharray="3,3" />
-      <line x1="340" y1="100" x2="440" y2="100" stroke="#1E9E8A" strokeWidth="1" strokeDasharray="3,3" />
-      <line x1="560" y1="100" x2="640" y2="100" stroke="#1E9E8A" strokeWidth="1" strokeDasharray="3,3" />
-      {/* Vertical drop lines to sub-tags */}
-      <line x1="280" y1="125" x2="280" y2="170" stroke="#5B2D8E" strokeWidth="1" strokeDasharray="3,3" />
-      <line x1="500" y1="125" x2="500" y2="170" stroke="#5B2D8E" strokeWidth="1" strokeDasharray="3,3" />
+      {/* Horizontal connections — teal */}
+      <line x1="120" y1="100" x2="220" y2="100" strokeWidth="1" strokeDasharray="3,3" strokeOpacity="0.6" style={{ stroke: 'var(--accent-teal)' }} />
+      <line x1="340" y1="100" x2="440" y2="100" strokeWidth="1" strokeDasharray="3,3" strokeOpacity="0.6" style={{ stroke: 'var(--accent-teal)' }} />
+      <line x1="560" y1="100" x2="640" y2="100" strokeWidth="1" strokeDasharray="3,3" strokeOpacity="0.6" style={{ stroke: 'var(--accent-teal)' }} />
+      {/* Vertical drop lines — purple */}
+      <line x1="280" y1="125" x2="280" y2="170" strokeWidth="1" strokeDasharray="3,3" strokeOpacity="0.6" style={{ stroke: 'var(--accent-purple-bright)' }} />
+      <line x1="500" y1="125" x2="500" y2="170" strokeWidth="1" strokeDasharray="3,3" strokeOpacity="0.6" style={{ stroke: 'var(--accent-purple-bright)' }} />
 
       {/* Node: Volunteer Workstation */}
-      <rect x="20" y="75" width="100" height="50" rx="6" fill="#0D1117" stroke="#1E9E8A" strokeWidth="1" />
-      <text x="70" y="95" textAnchor="middle" fill="#E8ECF1" fontFamily="JetBrains Mono" fontSize="11" fontWeight="500">Volunteer</text>
-      <text x="70" y="110" textAnchor="middle" fill="#8B95A5" fontFamily="JetBrains Mono" fontSize="9">Workstation</text>
+      <rect x="20" y="75" width="100" height="50" rx="6" strokeWidth="1" style={s.tealRect} />
+      <text x="70" y="95"  textAnchor="middle" fontFamily="JetBrains Mono" fontSize="11" fontWeight="600" style={s.tealTitle}>Volunteer</text>
+      <text x="70" y="110" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="9"  style={s.sublabel}>Workstation</text>
 
       {/* Node: Apache + TLS */}
-      <rect x="220" y="75" width="120" height="50" rx="6" fill="#0D1117" stroke="#1E9E8A" strokeWidth="1" />
-      <text x="280" y="95" textAnchor="middle" fill="#E8ECF1" fontFamily="JetBrains Mono" fontSize="11" fontWeight="500">Apache + TLS</text>
-      <text x="280" y="110" textAnchor="middle" fill="#8B95A5" fontFamily="JetBrains Mono" fontSize="9">Private CA · UFW</text>
+      <rect x="220" y="75" width="120" height="50" rx="6" strokeWidth="1" style={s.tealRect} />
+      <text x="280" y="95"  textAnchor="middle" fontFamily="JetBrains Mono" fontSize="11" fontWeight="600" style={s.tealTitle}>Apache + TLS</text>
+      <text x="280" y="110" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="9"  style={s.sublabel}>Private CA · UFW</text>
 
       {/* Node: OpenEMR 7.0 */}
-      <rect x="440" y="75" width="120" height="50" rx="6" fill="#0D1117" stroke="#1E9E8A" strokeWidth="1" />
-      <text x="500" y="95" textAnchor="middle" fill="#E8ECF1" fontFamily="JetBrains Mono" fontSize="11" fontWeight="500">OpenEMR 7.0</text>
-      <text x="500" y="110" textAnchor="middle" fill="#8B95A5" fontFamily="JetBrains Mono" fontSize="9">PHP 8.1 · 6 stations</text>
+      <rect x="440" y="75" width="120" height="50" rx="6" strokeWidth="1" style={s.tealRect} />
+      <text x="500" y="95"  textAnchor="middle" fontFamily="JetBrains Mono" fontSize="11" fontWeight="600" style={s.tealTitle}>OpenEMR 7.0</text>
+      <text x="500" y="110" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="9"  style={s.sublabel}>PHP 8.1 · 6 stations</text>
 
       {/* Node: DB */}
-      <rect x="640" y="75" width="50" height="50" rx="6" fill="#0D1117" stroke="#1E9E8A" strokeWidth="1" />
-      <text x="665" y="95" textAnchor="middle" fill="#E8ECF1" fontFamily="JetBrains Mono" fontSize="11" fontWeight="500">DB</text>
-      <text x="665" y="110" textAnchor="middle" fill="#8B95A5" fontFamily="JetBrains Mono" fontSize="8">MariaDB</text>
+      <rect x="640" y="75" width="50" height="50" rx="6" strokeWidth="1" style={s.tealRect} />
+      <text x="665" y="95"  textAnchor="middle" fontFamily="JetBrains Mono" fontSize="11" fontWeight="600" style={s.tealTitle}>DB</text>
+      <text x="665" y="110" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="8"  style={s.sublabel}>MariaDB</text>
 
-      {/* Sub-tag: RBAC */}
-      <rect x="220" y="170" width="120" height="22" rx="4" fill="#0D1117" stroke="#5B2D8E" strokeWidth="1" />
-      <text x="280" y="184" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="9"
-        style={{ fill: 'var(--accent-purple-soft)' }}>RBAC · 6 roles</text>
+      {/* Sub-tag: RBAC — purple */}
+      <rect x="220" y="170" width="120" height="22" rx="4" strokeWidth="1" style={s.purpleRect} />
+      <text x="280" y="184" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="9" style={s.purpleText}>RBAC · 6 roles</text>
 
-      {/* Sub-tag: Daily backup */}
-      <rect x="440" y="170" width="120" height="22" rx="4" fill="#0D1117" stroke="#5B2D8E" strokeWidth="1" />
-      <text x="500" y="184" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="9"
-        style={{ fill: 'var(--accent-purple-soft)' }}>Daily backup · cron</text>
+      {/* Sub-tag: Daily backup — purple */}
+      <rect x="440" y="170" width="120" height="22" rx="4" strokeWidth="1" style={s.purpleRect} />
+      <text x="500" y="184" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="9" style={s.purpleText}>Daily backup · cron</text>
     </svg>
   );
 }
@@ -103,42 +110,40 @@ function WifiDiagram() {
     { x: 560, label: 'Bldg E' },
   ];
 
-  // Fan lines spread evenly across the wider Core Switch box (x: 270–430)
+  // Fan lines spread across the 160-wide Core Switch box (x: 270–430, centre: 350)
   const fanX = [290, 315, 350, 385, 410];
-  // Each building node is 120 wide, so its center is x + 60
   const buildingCenters = buildings.map((b) => b.x + 60);
 
   return (
     <svg width="100%" viewBox="0 0 700 230" xmlns="http://www.w3.org/2000/svg" className="block">
-      {/* Caption — theme-aware text */}
-      <text x="350" y="22" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="10"
-        style={{ fill: 'var(--text-tertiary)' }}>
+      {/* Caption */}
+      <text x="350" y="22" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="10" style={s.caption}>
         50,000 sq ft · 5 buildings · Segmented VLANs
       </text>
-      {/* Separator — theme-aware border */}
-      <line x1="20" y1="36" x2="690" y2="36" strokeWidth="0.5" strokeDasharray="2,2"
-        style={{ stroke: 'var(--border-subtle)' }} />
+      {/* Separator */}
+      <line x1="20" y1="36" x2="690" y2="36" strokeWidth="0.5" strokeDasharray="2,2" style={s.separator} />
 
-      {/* Node: Core Switch — widened to 160 to fit subtitle */}
-      <rect x="270" y="55" width="160" height="50" rx="6" fill="#0D1117" stroke="#1E9E8A" strokeWidth="1" />
-      <text x="350" y="75" textAnchor="middle" fill="#E8ECF1" fontFamily="JetBrains Mono" fontSize="11" fontWeight="500">Core Switch</text>
-      <text x="350" y="91" textAnchor="middle" fill="#8B95A5" fontFamily="JetBrains Mono" fontSize="9">DHCP · DNS · VLAN trunk</text>
+      {/* Node: Core Switch */}
+      <rect x="270" y="55" width="160" height="50" rx="6" strokeWidth="1" style={s.tealRect} />
+      <text x="350" y="75" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="11" fontWeight="600" style={s.tealTitle}>Core Switch</text>
+      <text x="350" y="91" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="9"  style={s.sublabel}>DHCP · DNS · VLAN trunk</text>
 
-      {/* Fan connections from Core Switch to each building */}
+      {/* Fan connections */}
       {buildings.map((b, i) => (
         <line key={i}
           x1={fanX[i]} y1="105"
           x2={buildingCenters[i]} y2="165"
-          stroke="#1E9E8A" strokeWidth="1" strokeDasharray="3,3"
+          strokeWidth="1" strokeDasharray="3,3" strokeOpacity="0.6"
+          style={{ stroke: 'var(--accent-teal)' }}
         />
       ))}
 
       {/* Building nodes */}
       {buildings.map((b, i) => (
         <g key={i}>
-          <rect x={b.x} y="165" width="120" height="50" rx="6" fill="#0D1117" stroke="#1E9E8A" strokeWidth="1" />
-          <text x={b.x + 60} y="185" textAnchor="middle" fill="#E8ECF1" fontFamily="JetBrains Mono" fontSize="11" fontWeight="500">{b.label}</text>
-          <text x={b.x + 60} y="200" textAnchor="middle" fill="#8B95A5" fontFamily="JetBrains Mono" fontSize="9">Wi-Fi 6 AP</text>
+          <rect x={b.x} y="165" width="120" height="50" rx="6" strokeWidth="1" style={s.tealRect} />
+          <text x={b.x + 60} y="185" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="11" fontWeight="600" style={s.tealTitle}>{b.label}</text>
+          <text x={b.x + 60} y="200" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="9"  style={s.sublabel}>Wi-Fi 6 AP</text>
         </g>
       ))}
     </svg>
