@@ -87,7 +87,7 @@ export const capabilities = [
 
 export const certifications = [
   { name: 'CompTIA Security+', status: 'earned' as const,   url: 'https://placeholder.example.com/comptia-security-plus' },
-  { name: 'CompTIA Network+', status: 'earned' as const,    url: 'https://placeholder.example.com/comptia-network-plus' },
+  { name: 'CompTIA Network+', status: 'earned' as const,    url: 'https://www.coursera.org/account/accomplishments/specialization/ELN81ZE504J8' },
   { name: 'Google IT Support', status: 'earned' as const,   url: 'https://placeholder.example.com/google-it-support' },
   { name: 'Azure AZ-500',      status: 'progress' as const, url: 'https://placeholder.example.com/azure-az-500' },
 ];
