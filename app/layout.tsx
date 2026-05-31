@@ -7,6 +7,8 @@ import NetworkGrid from '@/components/NetworkGrid';
 import ScrollProgress from '@/components/ScrollProgress';
 import './globals.css';
 
+export const runtime = 'edge';
+
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${siteConfig.domain}`),
   title: {
