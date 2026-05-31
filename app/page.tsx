@@ -210,14 +210,17 @@ export default function HomePage() {
 
           <FadeUp delay={200}>
             <div className="mt-5">
-              <p className="mb-2.5 font-mono text-[11px] uppercase tracking-widest text-text-tertiary">
+              <p className="mb-3 font-mono text-[12px] font-semibold uppercase tracking-widest text-text-tertiary">
                 Certifications
               </p>
               <div className="flex flex-wrap gap-2">
                 {certifications.map((cert) => (
-                  <span
+                  <a
                     key={cert.name}
-                    className="inline-flex items-center gap-1.5 rounded-md border border-border-subtle bg-bg-secondary/70 px-3 py-1.5 font-mono text-[12px] text-text-secondary backdrop-blur"
+                    href={cert.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-md border border-border-subtle bg-bg-secondary/70 px-3 py-1.5 font-mono text-[12px] text-text-secondary backdrop-blur transition-colors hover:border-accent-teal/50 hover:text-accent-teal"
                   >
                     <ShieldIcon
                       className={
@@ -228,7 +231,7 @@ export default function HomePage() {
                     {cert.status === 'progress' && (
                       <span className="text-text-tertiary">(in study)</span>
                     )}
-                  </span>
+                  </a>
                 ))}
               </div>
             </div>
