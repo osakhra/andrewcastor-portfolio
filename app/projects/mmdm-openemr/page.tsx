@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { projects, mmdmCaseStudy } from '@/data/content';
-import { ArrowRightIcon } from '@/components/Icons';
+import { ArrowRightIcon, ExternalLinkIcon } from '@/components/Icons';
 import ArchitectureToggle from '@/components/ArchitectureToggle';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import FadeUp from '@/components/FadeUp';
@@ -155,7 +155,7 @@ export default function MmdmCaseStudyPage() {
               rel="noopener noreferrer"
               className="btn-primary"
             >
-              Field Journal <ArrowRightIcon size={12} />
+              Field Journal <ExternalLinkIcon size={12} />
             </a>
             <Link href="/projects" className="btn-outline">
               ← Back to all projects
