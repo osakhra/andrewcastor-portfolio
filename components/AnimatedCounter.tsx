@@ -13,7 +13,9 @@ function parseValue(raw: string): { num: number; prefix: string; suffix: string;
   if (!/\d/.test(raw)) {
     return { num: 0, prefix: '', suffix: raw, isNumeric: false };
   }
-  const match = raw.match(/^([^\d]*)(\d+)(?:[–-](\d+))?(.*)$/);
+  // Strip thousands-separator commas so "1,121" parses as 1121, not 1
+  const stripped = raw.replace(/,/g, '');
+  const match = stripped.match(/^([^\d]*)(\d+)(?:[–-](\d+))?(.*)$/);
   if (!match) return { num: 0, prefix: '', suffix: raw, isNumeric: false };
   const high = match[3] ? parseInt(match[3], 10) : parseInt(match[2], 10);
   return {
@@ -56,10 +58,10 @@ export default function AnimatedCounter({ value, label, duration = 2200 }: Props
               // Ease-out quintic — strong settle at the end
               const eased = 1 - Math.pow(1 - t, 5);
               const current = Math.round(num * eased);
-              setDisplay(`${prefix}${current}${suffix}`);
+              setDisplay(`${prefix}${current.toLocaleString('en-US')}${suffix}`);
               if (t < 1) requestAnimationFrame(animate);
               else {
-                setDisplay(`${prefix}${num}${suffix}`);
+                setDisplay(`${prefix}${num.toLocaleString('en-US')}${suffix}`);
                 setFadeIn(true);
               }
             };
