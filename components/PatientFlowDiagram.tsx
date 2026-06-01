@@ -257,7 +257,7 @@ export default function PatientFlowDiagram() {
   return (
     <div>
       <p className="mb-3 font-mono text-[11px] uppercase tracking-widest text-text-tertiary">
-        Patient Flow · 7 Stations · EMR-Tracked
+        Patient Flow · 6 Stations · EMR-Tracked
       </p>
       <div className="ac-card !p-5 overflow-x-auto">
         <div className="relative" style={{ minWidth: 700, height: CANVAS_H }}>
@@ -272,13 +272,20 @@ export default function PatientFlowDiagram() {
 
           {/* Station nodes */}
           {STATIONS.map((s) => {
-            const color       = s.color === 'teal' ? '#1E9E8A' : '#B89CE0';
-            const borderColor = s.color === 'teal'
-              ? 'rgba(30,158,138,0.5)'
-              : 'rgba(184,156,224,0.5)';
-            const bg = s.color === 'teal'
-              ? 'rgba(30,158,138,0.08)'
-              : 'rgba(184,156,224,0.08)';
+            const isPharmacy  = s.id === 'pharmacy';
+            const color       = isPharmacy
+              ? 'rgba(168,178,191,0.55)'
+              : s.color === 'teal' ? '#1E9E8A' : '#B89CE0';
+            const borderColor = isPharmacy
+              ? 'rgba(168,178,191,0.30)'
+              : s.color === 'teal'
+                ? 'rgba(30,158,138,0.5)'
+                : 'rgba(184,156,224,0.5)';
+            const bg = isPharmacy
+              ? 'rgba(168,178,191,0.04)'
+              : s.color === 'teal'
+                ? 'rgba(30,158,138,0.08)'
+                : 'rgba(184,156,224,0.08)';
             const isActive = active === s.id;
             return (
               <div
@@ -291,12 +298,12 @@ export default function PatientFlowDiagram() {
                   top: s.y,
                   width: NODE_W,
                   height: NODE_H,
-                  background: isActive
+                  background: isActive && !isPharmacy
                     ? (s.color === 'teal' ? 'rgba(30,158,138,0.18)' : 'rgba(184,156,224,0.18)')
                     : bg,
-                  border: `1px solid ${borderColor}`,
-                  transform: isActive ? 'scale(1.04)' : 'scale(1)',
-                  boxShadow: isActive ? `0 0 16px ${borderColor}` : 'none',
+                  border: `1px ${isPharmacy ? 'dashed' : 'solid'} ${borderColor}`,
+                  transform: isActive && !isPharmacy ? 'scale(1.04)' : 'scale(1)',
+                  boxShadow: isActive && !isPharmacy ? `0 0 16px ${borderColor}` : 'none',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
@@ -314,7 +321,7 @@ export default function PatientFlowDiagram() {
                   className="font-mono leading-tight text-center text-text-tertiary"
                   style={{ fontSize: 9 }}
                 >
-                  {s.sublabel}
+                  {isPharmacy ? 'External · dispensing' : s.sublabel}
                 </span>
               </div>
             );
@@ -328,6 +335,7 @@ export default function PatientFlowDiagram() {
             <span style={{ color: 'var(--text-secondary)' }}>● Entry</span>
             <span style={{ color: 'rgba(30,158,138,0.9)'  }}>● Treatment</span>
             <span style={{ color: 'rgba(184,156,224,0.9)' }}>● Discharge</span>
+            <span style={{ color: 'rgba(168,178,191,0.55)' }}>⌐ External</span>
           </div>
         </div>
       </div>
