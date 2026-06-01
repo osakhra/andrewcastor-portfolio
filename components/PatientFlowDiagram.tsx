@@ -130,11 +130,24 @@ export default function PatientFlowDiagram() {
     let last = 0;
 
     // Weighted random spawn — heavier edges fire more often, proportional to flow.
+    // Hard rule: at most ONE orb per line. Any edge that still has a live orb on it
+    // is excluded from the draw, so a node never appears to emit two patients onto
+    // the same line at once. If every candidate line is occupied, we spawn nothing
+    // this tick (the next 700 ms check tries again).
     const spawnPacket = () => {
-      let r = Math.random() * TOTAL_WEIGHT;
-      let idx = PACKET_EDGES.length - 1;
-      for (let i = 0; i < PACKET_EDGES.length; i++) {
-        r -= PACKET_EDGES[i].weight;
+      const occupied = new Set(
+        packets.filter(p => p.alive).map(p => p.edgeIdx)
+      );
+      const available = PACKET_EDGES
+        .map((edge, i) => ({ edge, i }))
+        .filter(({ i }) => !occupied.has(i));
+      if (available.length === 0) return;
+
+      const totalWeight = available.reduce((s, { edge }) => s + edge.weight, 0);
+      let r = Math.random() * totalWeight;
+      let idx = available[available.length - 1].i;
+      for (const { edge, i } of available) {
+        r -= edge.weight;
         if (r <= 0) { idx = i; break; }
       }
       packets.push({ edgeIdx: idx, t: 0, alive: true });
