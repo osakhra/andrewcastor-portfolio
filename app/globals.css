@@ -39,11 +39,18 @@
   --accent-purple-soft:   #B89CE0;
   --accent-purple-bright: #9B6FD4;
 
+  /* Accent — gold */
+  --accent-gold: #C9922A;
+
   /* Status */
   --status-shipped-bg:      rgba(30, 158, 138, 0.12);
   --status-shipped-border:  rgba(30, 158, 138, 0.3);
   --status-progress-bg:     rgba(91, 45, 142, 0.15);
   --status-progress-border: rgba(91, 45, 142, 0.4);
+  --status-live-bg:         rgba(201, 146, 42, 0.12);
+  --status-live-border:     rgba(201, 146, 42, 0.35);
+  --status-private-bg:      rgba(130, 148, 166, 0.10);
+  --status-private-border:  rgba(130, 148, 166, 0.25);
 
   /* Selection */
   --selection-bg: rgba(30, 158, 138, 0.3);
@@ -88,11 +95,18 @@
   --accent-purple-soft:   #7B5CB5;
   --accent-purple-bright: #7B52B8;
 
+  /* Accent — gold (slightly richer for white bg) */
+  --accent-gold: #B07D20;
+
   /* Status */
   --status-shipped-bg:      rgba(5, 150, 105, 0.1);
   --status-shipped-border:  rgba(5, 150, 105, 0.35);
   --status-progress-bg:     rgba(91, 45, 142, 0.1);
   --status-progress-border: rgba(91, 45, 142, 0.35);
+  --status-live-bg:         rgba(201, 146, 42, 0.10);
+  --status-live-border:     rgba(201, 146, 42, 0.40);
+  --status-private-bg:      rgba(100, 116, 139, 0.08);
+  --status-private-border:  rgba(100, 116, 139, 0.28);
 
   /* Selection */
   --selection-bg: rgba(5, 150, 105, 0.25);
@@ -295,6 +309,18 @@
     background-color: var(--status-progress-bg);
     border: 0.5px solid var(--status-progress-border);
     color: var(--accent-purple-bright);
+  }
+
+  .status-live {
+    background-color: var(--status-live-bg);
+    border: 0.5px solid var(--status-live-border);
+    color: var(--accent-gold);
+  }
+
+  .status-private {
+    background-color: var(--status-private-bg);
+    border: 0.5px solid var(--status-private-border);
+    color: var(--text-tertiary);
   }
 
   /* Display tagline used above the name on home */

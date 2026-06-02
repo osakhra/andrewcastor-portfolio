@@ -276,7 +276,7 @@ export const projects: Project[] = [
     title: 'Emergency Evacuation Guidance Device',
     category: 'Embedded / IoT',
     status: 'shipped',
-    statusLabel: 'Shipped',
+    statusLabel: 'Prototype',
     context: 'ENGR 1201 · Houston City College · Spring 2026',
     description:
       'Handheld device that computes real-time evacuation routes via Dijkstra\'s algorithm, rerouting users away from heat sources detected by distributed DS18B20 probes. Raspberry Pi 4 + ESP32 sensor hub over USB-serial.',
@@ -294,10 +294,10 @@ export const projects: Project[] = [
     title: 'Fall Detection System',
     category: 'AI / Edge',
     status: 'shipped',
-    statusLabel: 'Prototype',
+    statusLabel: 'Private',
     description:
-      'Real-time emergency detection model on TensorFlow Lite + Raspberry Pi with mobile alert integration. Edge inference, no cloud round-trip.',
-    technologies: ['LiteRT', 'Raspberry Pi', 'Python', 'Flutter'],
+      'Flutter safety monitor app paired over BLE to an ESP32 sensor hub. TensorFlow Lite classifies accelerometer, gyroscope, and barometric altitude readings on-device to detect freefall, abrupt impact, or severe rotation — triggering an audible alarm and a servo actuator for physical deployment. Live dashboard shows altitude, heading, temperature, GPS lock, detection probability, and raw sensor waveform. Timestamped event logging for post-incident review. Edge inference, no cloud round-trip.',
+    technologies: ['TensorFlow Lite', 'Flutter', 'ESP32', 'BLE', 'Python', 'Raspberry Pi'],
   },
   {
     slug: 'air-grid',

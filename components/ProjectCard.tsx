@@ -1,5 +1,5 @@
 import { Project } from '@/data/content';
-import { ServerIcon, CloudIcon, CodeIcon, ShieldIcon } from './Icons';
+import { ServerIcon, CloudIcon, CodeIcon, ShieldIcon, WalletIcon, CpuIcon } from './Icons';
 
 type ProjectCardProps = Pick<
   Project,
@@ -9,10 +9,23 @@ type ProjectCardProps = Pick<
 // Pick a representative glyph for the card header based on the category.
 function categoryIcon(category: string): typeof CodeIcon {
   const c = category.toLowerCase();
-  if (c.includes('security')) return ShieldIcon;
+  if (c.includes('finance') || c.includes('budget')) return WalletIcon;
+  if (c.includes('embedded') || c.includes('iot'))   return CpuIcon;
+  if (c.includes('lab') || c.includes('soc'))         return ServerIcon;
+  if (c.includes('security'))                          return ShieldIcon;
   if (c.includes('data') || c.includes('geo') || c.includes('cloud')) return CloudIcon;
-  if (c.includes('embedded') || c.includes('iot') || c.includes('network')) return ServerIcon;
+  if (c.includes('network'))                           return ServerIcon;
   return CodeIcon;
+}
+
+// Derive pill class from the statusLabel text so color conveys meaning:
+//   Live → gold   |   Private / Prototype → silver   |   In Progress → purple   |   else → teal
+function pillClass(statusLabel: string): string {
+  const l = statusLabel.toLowerCase();
+  if (l.includes('live'))                          return 'status-live';
+  if (l.includes('private') || l.includes('prototype')) return 'status-private';
+  if (l.includes('progress'))                      return 'status-progress';
+  return 'status-shipped';
 }
 
 export default function ProjectCard({
@@ -43,7 +56,7 @@ export default function ProjectCard({
             {title}
           </h3>
         </div>
-        <span className={`status-pill shrink-0 ${status === 'shipped' ? 'status-shipped' : 'status-progress'}`}>
+        <span className={`status-pill shrink-0 ${pillClass(statusLabel)}`}>
           {statusLabel}
         </span>
       </div>
