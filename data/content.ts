@@ -283,9 +283,7 @@ export const projects: Project[] = [
     bullets: [
       `5 DS18B20 probes on a shared 1-Wire bus monitor 10 building zones (6 rooms, 2 hallways, 2 exits), streaming one CSV line per second to the Pi over USB-serial at 115,200 baud.`,
       `Dijkstra's algorithm via NetworkX rebuilds the optimal evacuation route in under 1 ms on every sensor state change; edge weights are dynamically scaled by zone temperature.`,
-      `Reached Rev 5 after four architectural pivots — cut UWB positioning, distributed Wi-Fi mesh, and MQTT broker in favor of one USB cable and 40 bytes per second of CSV.`,
       `D-pad navigation drives a top-down Pygame floor plan; RGB LED and piezo buzzer mirror the active threat state in real time.`,
-      `Full hardware stack assembled for $48.94 under a $50 budget cap; ~8 h runtime from an Anker 10,000 mAh USB-C power bank.`
     ],
     technologies: [
       'Raspberry Pi 4',
@@ -315,7 +313,7 @@ export const projects: Project[] = [
     description:
       'Live U.S. air quality and industrial emissions atlas built in one day using Claude Code\'s multi-agent system. Parallel ingestion agents pulled from 6 federal data sources; a geo-matcher joined 108,336 schools to their nearest emitters using scipy cKDTree; a QA agent validated before deploy. Stack: Next.js, MapLibre, deck.gl, Python. 268,980 facilities, 15,897 live sensors, real proximity joins — no mock data.',
     bullets: [
-      'Built in one day, June 2026 · air.andrewcastor.dev · github.com/Osakhra/air.grid',
+      'Built in one day, 1, June 2026 · air.andrewcastor.dev',
     ],
     technologies: [
       'Next.js 14',
