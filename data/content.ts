@@ -218,6 +218,7 @@ export type Project = {
   statusLabel: string;
   context?: string;
   description: string;
+  bullets?: string[];
   technologies: string[];
   featured?: boolean;
 };
@@ -247,14 +248,28 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: 'wifi6-mesh',
-    title: '50,000 sq ft Wi-Fi 6 Mesh',
-    category: 'Network Architecture',
+    slug: 'forecastor',
+    title: 'foreCastor',
+    category: 'Finance · Personal',
     status: 'shipped',
-    statusLabel: 'Deployed',
+    statusLabel: 'Private',
     description:
-      'Multi-building Wi-Fi 6 mesh across five buildings for MMDM Houston ops center. Segmented VLANs, DHCP/DNS, offline-tolerant routing.',
-    technologies: ['Wi-Fi 6', 'VLAN', 'Multi-site LAN'],
+      'A PIN-locked personal finance tracker with live bank integration, spending analytics, and a long-term savings goal engine — built entirely for personal use.',
+    bullets: [
+      'Connected to Bank of America via the Plaid API to automatically import, normalize, and categorize transactions without manual entry.',
+      'Tracks a long-term savings goal with a compound-growth projection chart and a target date that changes color based on whether you\'re on pace.',
+      'Per-category monthly spending limits with live progress bars that shift from teal to amber to red as you approach and exceed your budget.',
+      'Scans transaction history to detect recurring charges and suggests adding them to your fixed expenses list automatically.',
+      '31 unlockable achievements tied to real savings milestones, income streaks, and usage habits — with rarity tiers styled after Steam.',
+    ],
+    technologies: [
+      'Next.js 15',
+      'TypeScript',
+      'Tailwind CSS',
+      'Cloudflare Pages',
+      'SQLite',
+      'Plaid API',
+    ],
   },
   {
     slug: 'eegd',
