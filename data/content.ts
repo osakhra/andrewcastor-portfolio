@@ -256,7 +256,7 @@ export const projects: Project[] = [
     description:
       'A PIN-locked personal finance tracker with live bank integration, spending analytics, and a long-term savings goal engine — built entirely for personal use.',
     bullets: [
-      'Connected to Bank of America via the Plaid API to automatically import, normalize, and categorize transactions without manual entry.',
+      'Connected to the bank via the Plaid API to automatically import, normalize, and categorize transactions without manual entry.',
       'Tracks a long-term savings goal with a compound-growth projection chart and a target date that changes color based on whether you\'re on pace.',
       'Per-category monthly spending limits with live progress bars that shift from teal to amber to red as you approach and exceed your budget.',
       'Scans transaction history to detect recurring charges and suggests adding them to your fixed expenses list automatically.',
@@ -294,9 +294,9 @@ export const projects: Project[] = [
     title: 'Fall Detection System',
     category: 'AI / Edge',
     status: 'shipped',
-    statusLabel: 'Private',
+    statusLabel: 'Prototype',
     description:
-      'Flutter safety monitor app paired over BLE to an ESP32 sensor hub. TensorFlow Lite classifies accelerometer, gyroscope, and barometric altitude readings on-device to detect freefall, abrupt impact, or severe rotation — triggering an audible alarm and a servo actuator for physical deployment. Live dashboard shows altitude, heading, temperature, GPS lock, detection probability, and raw sensor waveform. Timestamped event logging for post-incident review. Edge inference, no cloud round-trip.',
+      'Flutter safety monitor app connected over BLE to an ESP32 sensor hub — the BLE link handles the deploy signal with fallback behavior defined for out-of-range or battery-dead scenarios. TensorFlow Lite classifies accelerometer, gyroscope, and barometric altitude readings on-device to detect freefall, abrupt impact, or severe rotation; tuned for low false positives. Triggers an immediate audible alarm and a servo actuator for physical deployment. Live dashboard shows altitude, heading, temperature, GPS lock, detection probability, and raw sensor waveform. Timestamped event logging for post-incident review; crash and sensor-loss events are also logged for reliability improvement. Edge inference, no cloud round-trip.',
     technologies: ['TensorFlow Lite', 'Flutter', 'ESP32', 'BLE', 'Python', 'Raspberry Pi'],
   },
   {
@@ -305,9 +305,11 @@ export const projects: Project[] = [
     category: 'Geospatial / Data',
     status: 'shipped',
     statusLabel: 'Live 2026',
-    context: 'air.andrewcastor.dev · github.com/Osakhra/air.grid · Built in one day, June 2026',
     description:
       'Live U.S. air quality and industrial emissions atlas built in one day using Claude Code\'s multi-agent system. Parallel ingestion agents pulled from 6 federal data sources; a geo-matcher joined 108,336 schools to their nearest emitters using scipy cKDTree; a QA agent validated before deploy. Stack: Next.js, MapLibre, deck.gl, Python. 268,980 facilities, 15,897 live sensors, real proximity joins — no mock data.',
+    bullets: [
+      'Built in one day, June 2026 · air.andrewcastor.dev · github.com/Osakhra/air.grid',
+    ],
     technologies: [
       'Next.js 14',
       'TypeScript',

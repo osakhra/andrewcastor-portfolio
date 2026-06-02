@@ -1,5 +1,5 @@
 import { Project } from '@/data/content';
-import { ServerIcon, CloudIcon, CodeIcon, ShieldIcon, WalletIcon, CpuIcon } from './Icons';
+import { ServerIcon, CloudIcon, CodeIcon, ShieldIcon, WalletIcon, TabletIcon } from './Icons';
 
 type ProjectCardProps = Pick<
   Project,
@@ -10,7 +10,7 @@ type ProjectCardProps = Pick<
 function categoryIcon(category: string): typeof CodeIcon {
   const c = category.toLowerCase();
   if (c.includes('finance') || c.includes('budget')) return WalletIcon;
-  if (c.includes('embedded') || c.includes('iot'))   return CpuIcon;
+  if (c.includes('embedded') || c.includes('iot'))   return TabletIcon;
   if (c.includes('lab') || c.includes('soc'))         return ServerIcon;
   if (c.includes('security'))                          return ShieldIcon;
   if (c.includes('data') || c.includes('geo') || c.includes('cloud')) return CloudIcon;
