@@ -75,11 +75,17 @@ export default function ProjectsPage() {
           </h2>
         </FadeUp>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {others.map((p, i) => (
-            <FadeUp key={p.slug} delay={i * 60}>
-              <ProjectCard {...p} />
-            </FadeUp>
-          ))}
+          {others.map((p, i) => {
+            const cardHref =
+              p.slug === 'air-grid' ? 'https://air.andrewcastor.dev' :
+              p.slug === 'eegd'     ? '/EEGD_Final_Report.pdf'        :
+              undefined;
+            return (
+              <FadeUp key={p.slug} delay={i * 60}>
+                <ProjectCard {...p} href={cardHref} />
+              </FadeUp>
+            );
+          })}
           <FadeUp delay={others.length * 60}>
             <GithubTile />
           </FadeUp>

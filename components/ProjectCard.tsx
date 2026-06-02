@@ -1,10 +1,13 @@
 import { Project } from '@/data/content';
-import { ServerIcon, CloudIcon, CodeIcon, ShieldIcon, WalletIcon, TabletIcon } from './Icons';
+import { ServerIcon, CloudIcon, CodeIcon, ShieldIcon, WalletIcon, TabletIcon, ExternalLinkIcon } from './Icons';
 
 type ProjectCardProps = Pick<
   Project,
   'title' | 'category' | 'status' | 'statusLabel' | 'context' | 'description' | 'bullets' | 'technologies'
->;
+> & {
+  /** When set, wraps the card in an <a> and shows a small ExternalLinkIcon. */
+  href?: string;
+};
 
 // Pick a representative glyph for the card header based on the category.
 function categoryIcon(category: string): typeof CodeIcon {
@@ -37,10 +40,11 @@ export default function ProjectCard({
   description,
   bullets,
   technologies,
+  href,
 }: ProjectCardProps) {
   const Icon = categoryIcon(category);
 
-  return (
+  const card = (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-border-subtle bg-bg-secondary/70 backdrop-blur transition-all duration-300 hover:border-accent-teal/40">
       {/* Corner-bracket accents — give the card a defined, framed edge */}
       <span aria-hidden className="pointer-events-none absolute left-0 top-0 h-3 w-3 border-l border-t border-accent-teal/40" />
@@ -48,7 +52,7 @@ export default function ProjectCard({
       <span aria-hidden className="pointer-events-none absolute bottom-0 left-0 h-3 w-3 border-b border-l border-accent-teal/40" />
       <span aria-hidden className="pointer-events-none absolute bottom-0 right-0 h-3 w-3 border-b border-r border-accent-teal/40" />
 
-      {/* Header: icon + title, status pill */}
+      {/* Header: icon + title, status pill, optional external-link indicator */}
       <div className="flex items-start justify-between gap-2 px-5 pb-3 pt-5">
         <div className="flex items-center gap-2.5">
           <Icon className="mt-0.5 shrink-0 text-accent-teal" size={16} />
@@ -56,9 +60,12 @@ export default function ProjectCard({
             {title}
           </h3>
         </div>
-        <span className={`status-pill shrink-0 ${pillClass(statusLabel)}`}>
-          {statusLabel}
-        </span>
+        <div className="flex shrink-0 items-center gap-1.5">
+          <span className={`status-pill ${pillClass(statusLabel)}`}>
+            {statusLabel}
+          </span>
+          {href && <ExternalLinkIcon size={11} className="text-text-tertiary" />}
+        </div>
       </div>
 
       {/* Summary block: category, optional context, description */}
@@ -100,4 +107,18 @@ export default function ProjectCard({
       </div>
     </article>
   );
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block h-full transition-transform duration-200 hover:-translate-y-0.5"
+      >
+        {card}
+      </a>
+    );
+  }
+  return card;
 }
