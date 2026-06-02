@@ -317,7 +317,7 @@ export const projects: Project[] = [
       'MapLibre GL',
       'deck.gl',
       'Recharts',
-      'Python · geopandas',
+      'Python',
       'scipy cKDTree',
       'Vercel',
     ],
