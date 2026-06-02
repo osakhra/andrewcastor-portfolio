@@ -274,12 +274,19 @@ export const projects: Project[] = [
   {
     slug: 'eegd',
     title: 'Emergency Evacuation Guidance Device',
-    category: 'Embedded / IoT',
+    category: 'Embedded · IoT',
     status: 'shipped',
     statusLabel: 'Prototype',
     context: 'ENGR 1201 · Houston City College · Spring 2026',
-    description:
-      'Handheld device that computes real-time evacuation routes via Dijkstra\'s algorithm, rerouting users away from heat sources detected by distributed DS18B20 probes. Raspberry Pi 4 + ESP32 sensor hub over USB-serial.',
+    description: 
+      'Handheld emergency evacuation device that computes and displays real-time escape routes from live temperature sensor data. Routes rebuild automatically as heat develops; reroutes around blocked zones, escalating through warning states, and triggering Shelter-In-Place when all exits are blocked.',
+    bullets: [
+      `5 DS18B20 probes on a shared 1-Wire bus monitor 10 building zones (6 rooms, 2 hallways, 2 exits), streaming one CSV line per second to the Pi over USB-serial at 115,200 baud.`,
+      `Dijkstra's algorithm via NetworkX rebuilds the optimal evacuation route in under 1 ms on every sensor state change; edge weights are dynamically scaled by zone temperature.`,
+      `Reached Rev 5 after four architectural pivots — cut UWB positioning, distributed Wi-Fi mesh, and MQTT broker in favor of one USB cable and 40 bytes per second of CSV.`,
+      `D-pad navigation drives a top-down Pygame floor plan; RGB LED and piezo buzzer mirror the active threat state in real time.`,
+      `Full hardware stack assembled for $48.94 under a $50 budget cap; ~8 h runtime from an Anker 10,000 mAh USB-C power bank.`
+    ],
     technologies: [
       'Raspberry Pi 4',
       'ESP32',
@@ -292,7 +299,7 @@ export const projects: Project[] = [
   {
     slug: 'fall-detection',
     title: 'Fall Detection System',
-    category: 'AI / Edge',
+    category: 'AI · Edge',
     status: 'shipped',
     statusLabel: 'Prototype',
     description:
@@ -301,7 +308,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'air-grid',
-    title: 'air.grid — Live U.S. Air Quality & Emissions Atlas',
+    title: 'air.grid - Live U.S. Air Quality & Emissions',
     category: 'Geospatial / Data',
     status: 'shipped',
     statusLabel: 'Live 2026',
