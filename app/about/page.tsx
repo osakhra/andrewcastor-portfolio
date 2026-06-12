@@ -344,7 +344,7 @@ export default function AboutPage() {
               },
               {
                 title: 'Ocean Swimming & Offshore Fishing',
-                body: "I like to swim out twice as far as the surfers, finding a calm wave to float on, and fish 5+ miles offshore for the kind of catch that will feed the neighbors.",
+                body: "I like to swim out twice as far as the surfers, finding a calm wave to float on, as well as fish 5+ miles offshore for the kind of catch that will feed the neighbors.",
               },
               {
                 title: 'Competitive Gaming',
