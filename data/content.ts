@@ -214,7 +214,7 @@ export type Project = {
   title: string;
   subtitle?: string;
   category: string;
-  status: 'shipped' | 'progress';
+  status: 'shipped' | 'progress' | 'live';
   statusLabel: string;
   context?: string;
   description: string;
@@ -228,7 +228,7 @@ export const projects: Project[] = [
     slug: 'mmdm-openemr',
     title: 'MMDM OpenEMR · Offline-First Clinical Platform',
     category: 'Flagship Project',
-    status: 'progress',
+    status: 'live',
     statusLabel: 'Deployed 2026 · Ongoing',
     context: 'Medical Missionaries of Divine Mercy · Houston → Costa Rica · 2024–Present',
     description:

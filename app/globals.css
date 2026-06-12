@@ -312,6 +312,9 @@
     background-color: var(--status-progress-bg);
     border: 0.5px solid var(--status-progress-border);
     color: var(--accent-purple-bright);
+    .status-live {
+  @apply border-accent-gold/40 bg-accent-gold/10 text-accent-gold;
+}
   }
 
   .status-live {
