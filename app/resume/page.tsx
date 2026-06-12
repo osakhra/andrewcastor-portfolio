@@ -31,7 +31,7 @@ const resumeSections = [
   { id: 'certifications', label: 'Certs' },
   { id: 'education', label: 'Education' },
 ];
-
+// apples to oranges
 export default function ResumePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
