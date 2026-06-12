@@ -3,7 +3,7 @@ import Link from 'next/link';
 import FadeUp from '@/components/FadeUp';
 import SectionHeader from '@/components/SectionHeader';
 import SectionNav from '@/components/SectionNav';
-import { ArrowRightIcon, DownloadIcon } from '@/components/Icons';
+import { ArrowRightIcon, DownloadIcon, ExternalLinkIcon } from '@/components/Icons';
 import { siteConfig } from '@/data/content';
 
 export const metadata: Metadata = {
@@ -133,6 +133,16 @@ export default function AboutPage() {
                   <span className="font-mono text-[11px] text-text-tertiary">{loc.note}</span>
                 </div>
               ))}
+            </div>
+            <div className="mt-4 flex justify-end">
+              <a
+                href="https://atlas.andrewcastor.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-mono text-[11px] text-text-tertiary transition-colors hover:text-accent-teal"
+              >
+                View interactive travel atlas <ExternalLinkIcon size={10} />
+              </a>
             </div>
           </div>
         </FadeUp>

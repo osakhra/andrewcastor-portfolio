@@ -167,6 +167,11 @@
     position: relative;
   }
 
+  html {
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
+  }
+
   ::selection {
     background-color: var(--selection-bg);
     color: #E8ECF1;
