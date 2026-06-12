@@ -1,7 +1,15 @@
 import { NextResponse } from 'next/server';
 
 // This specific line tells Next.js to compile this as a Cloudflare Worker
-export const runtime = 'edge'; 
+export const runtime = 'edge';
+
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
 
 export async function POST(request: Request) {
   try {
@@ -36,17 +44,17 @@ export async function POST(request: Request) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Portfolio Contact <contact@andrewcastor.dev>', 
-        to: 'johnandrewcastor@gmail.com', 
-        subject: `Portfolio: ${subject}`,
+        from: 'Portfolio Contact <contact@andrewcastor.dev>',
+        to: 'johnandrewcastor@gmail.com',
+        subject: `Portfolio: ${escapeHtml(subject)}`,
         html: `
           <div style="font-family: sans-serif; color: #111827;">
             <h2 style="color: #059669;">New Contact Form Submission</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+            <p><strong>Email:</strong> ${escapeHtml(email)}</p>
             <hr style="border: 1px solid #E5E7EB; margin: 16px 0;" />
             <p><strong>Message:</strong></p>
-            <p style="white-space: pre-wrap;">${message}</p>
+            <p style="white-space: pre-wrap;">${escapeHtml(message)}</p>
           </div>
         `,
         reply_to: email, // This allows you to just hit "Reply" in your inbox!

@@ -9,7 +9,7 @@ import SectionHeader from '@/components/SectionHeader';
 import PatientFlowDiagram from '@/components/PatientFlowDiagram';
 
 export const metadata: Metadata = {
-  title: 'MMDM OpenEMR — Case Study',
+  title: 'MMDM OpenEMR · Case Study',
   description:
     'Self-hosted, offline-first EMR for a six-station volunteer clinic in Costa Rica. Linux + Apache + MariaDB + PHP with private CA TLS and daily backups.',
 };

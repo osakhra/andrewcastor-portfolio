@@ -245,7 +245,7 @@ export default function HomePage() {
           <FadeUp>
             <SectionHeader label="Other Work" title="Additional Projects" />
           </FadeUp>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {otherProjects.map((project, i) => (
               <FadeUp key={project.slug} delay={i * 60}>
                 <ProjectCard {...project} />
@@ -267,7 +267,7 @@ export default function HomePage() {
               Build systems that hold up.
             </h2>
             <p className="mx-auto mb-5 max-w-md font-body text-base leading-relaxed text-text-secondary">
-              I am open to infrastructure, security, and field deployment roles — internships, co-op, contract, or full-time.
+              I am open to infrastructure, security, and field deployment roles: internships, co-op, contract, or full-time.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2.5">
               <button

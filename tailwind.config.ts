@@ -51,9 +51,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ['Sora', 'system-ui', 'sans-serif'],
-        body:    ['Outfit', 'system-ui', 'sans-serif'],
-        mono:    ['"JetBrains Mono"', 'monospace'],
+        display: ['var(--font-sora)', 'system-ui', 'sans-serif'],
+        body:    ['var(--font-outfit)', 'system-ui', 'sans-serif'],
+        mono:    ['var(--font-jbm)', 'monospace'],
       },
       animation: {
         'fade-in':    'fadeIn 0.6s ease-out forwards',

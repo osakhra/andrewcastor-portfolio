@@ -13,7 +13,7 @@ export const siteConfig = {
   },
   meta: {
     description:
-      'Andrew Castor — Infrastructure & Cloud Security Engineer. Cybersecurity student at UCF building hardened Linux deployments, multi-site networks, and offline-first clinical systems.',
+      'Andrew Castor · Infrastructure & Cloud Security Engineer. Cybersecurity student at UCF building hardened Linux deployments, multi-site networks, and offline-first clinical systems.',
     keywords: [
       'infrastructure engineer',
       'cloud security',
@@ -142,7 +142,7 @@ export const experience: ExperienceEntry[] = [
         items: [
           'Rebuilt OpenEMR 7.0.x on Ubuntu 22.04 / Apache / MariaDB 10.6 / PHP 8.1 after diagnosing an AJAX/JSON failure rooted in globals.php; chose full rebuild over patch to eliminate latent config drift.',
           'Built private Certificate Authority and signed server certificate with OpenSSL; deployed the full chain to /etc/ssl/openemr/ and enforced HTTP → HTTPS 301 redirect for offline TLS coverage.',
-          'Hardened OS for austere field conditions — UFW firewall scoped to ports 80/22, disabled snapd and unattended-upgrades to eliminate unplanned reboots, and configured daily cron-driven encrypted backups with 30-day rotation.',
+          'Hardened OS for austere field conditions: UFW firewall scoped to ports 80/22, disabled snapd and unattended-upgrades to eliminate unplanned reboots, and configured daily cron-driven encrypted backups with 30-day rotation.',
           'Designed HIPAA-aligned RBAC across 8 station-specific service accounts with documented post-pilot tightening plan; provisioned VirtualBox snapshot rollback strategy for rapid recovery.',
           'Designed and deployed a 50,000 sq ft Wi-Fi 6 mesh network spanning five buildings with segmented VLANs, DHCP/DNS, and offline-tolerant routing.',
         ],
@@ -170,7 +170,7 @@ export const experience: ExperienceEntry[] = [
       { url: 'https://jmartiniservices.com/', label: 'View Company' },
     ],
     bullets: [
-      'Worked client-facing event operations across the Houston metro area — corporate gatherings, weddings, and private events for a hospitality firm specializing in premium service delivery (high-end bar service, cigar service, full-event waitstaff coordination).',
+      'Worked client-facing event operations across the Houston metro area: corporate gatherings, weddings, and private events for a hospitality firm specializing in premium service delivery (high-end bar service, cigar service, full-event waitstaff coordination).',
       'Trusted by the company owner with multi-venue supply logistics across Houston, transporting setup and inventory between sites on schedules often extending past 2 AM; supported onboarding for new event staff and on-site setup verification. Averaged ~30 hours/week over 2 years.',
     ],
   },
@@ -181,8 +181,8 @@ export const experience: ExperienceEntry[] = [
     dates: '2022 – 2024',
     bullets: [
       'Founded and operated a competitive playtesting organization partnering with indie PvP developers to run structured pre-release events using experienced esports participants for media, feedback, and community momentum.',
-      'Built the first competitive scene for Shatterline (Frag Lab Studio, Ukraine) from scratch near the start of the Russia-Ukraine war — negotiated dedicated practice server access across language and time-zone barriers, drafted competitive rulesets, and operated tournament brackets with grant-funded prize pools up to $600.',
-      'Expanded to a generalized dev-partnership model after Shatterline — pitched studios at gaming conventions, nearly secured a Stockholm residency with Alara Prime before their funding collapse, and managed community transition through the bankruptcy without losing partner trust.',
+      'Built the first competitive scene for Shatterline (Frag Lab Studio, Ukraine) from scratch near the start of the Russia-Ukraine war: negotiated dedicated practice server access across language and time-zone barriers, drafted competitive rulesets, and operated tournament brackets with grant-funded prize pools up to $600.',
+      'Expanded to a generalized dev-partnership model after Shatterline: pitched studios at gaming conventions, nearly secured a Stockholm residency with Alara Prime before their funding collapse, and managed community transition through the bankruptcy without losing partner trust.',
     ],
   },
 ];
@@ -190,13 +190,13 @@ export const experience: ExperienceEntry[] = [
 export const education = [
   {
     institution: 'University of Central Florida',
-    degree: 'B.S. Information Technology (CECS) — Accelerated M.S. Cyber Security & Privacy Track',
+    degree: 'B.S. Information Technology (CECS) · Accelerated M.S. Cyber Security & Privacy Track',
     location: 'Orlando, FL',
     dates: 'Fall 2026',
   },
   {
     institution: 'Houston City College',
-    degree: 'A.A.S. Artificial Intelligence — National Honor Society',
+    degree: 'A.A.S. Artificial Intelligence · National Honor Society',
     location: 'Houston, TX',
     dates: 'Conferred 2025',
     gpa: '3.8',
@@ -226,13 +226,13 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: 'mmdm-openemr',
-    title: 'MMDM OpenEMR — Offline-First Clinical Platform',
+    title: 'MMDM OpenEMR · Offline-First Clinical Platform',
     category: 'Flagship Project',
     status: 'progress',
     statusLabel: 'Deployed 2026 · Ongoing',
     context: 'Medical Missionaries of Divine Mercy · Houston → Costa Rica · 2024–Present',
     description:
-      'Self-hosted EMR built to run a six-station volunteer clinic in a Costa Rican parish hall with no internet, no cloud, and no public DNS. Migrated off a corrupted XAMPP environment to a hardened Ubuntu / Apache / MariaDB / PHP stack with a private certificate authority, daily backups, and bilingual Spanish/English clinical forms. Deployed at the April 18–25, 2026 mission in Grano de Oro, Costa Rica; next field deployment 2027.',
+      'Self-hosted EMR built to run a six-station volunteer clinic in a Costa Rican parish hall with no internet, no cloud, and no public DNS. Migrated off a corrupted XAMPP environment to a hardened Ubuntu / Apache / MariaDB / PHP stack with a private certificate authority, daily backups, and bilingual Spanish/English clinical forms. Deployed at the April 18–25, 2026 mission in Grano de Oro, Costa Rica; next deployments: Laredo Nov 2026, Costa Rica and Philippines 2027.',
     technologies: [
       'Ubuntu 22.04',
       'Apache',
@@ -254,13 +254,13 @@ export const projects: Project[] = [
     status: 'shipped',
     statusLabel: 'Private',
     description:
-      'A PIN-locked personal finance tracker with live bank integration, spending analytics, and a long-term savings goal engine — built entirely for personal use.',
+      'A PIN-locked personal finance tracker with live bank integration, spending analytics, and a long-term savings goal engine, built entirely for personal use.',
     bullets: [
       'Connected to the bank via the Plaid API to automatically import, normalize, and categorize transactions without manual entry.',
       'Tracks a long-term savings goal with a compound-growth projection chart and a target date that changes color based on whether you\'re on pace.',
       'Per-category monthly spending limits with live progress bars that shift from teal to amber to red as you approach and exceed your budget.',
       'Scans transaction history to detect recurring charges and suggests adding them to your fixed expenses list automatically.',
-      '31 unlockable achievements tied to real savings milestones, income streaks, and usage habits — with rarity tiers styled after Steam.',
+      '31 unlockable achievements tied to real savings milestones, income streaks, and usage habits, with rarity tiers styled after Steam.',
     ],
     technologies: [
       'Next.js 15',
@@ -295,25 +295,15 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: 'fall-detection',
-    title: 'Fall Detection System',
-    category: 'AI · Edge',
-    status: 'shipped',
-    statusLabel: 'Prototype',
-    description:
-      'Flutter safety monitor app connected over BLE to an ESP32 sensor hub — the BLE link handles the deploy signal with fallback behavior defined for out-of-range or battery-dead scenarios. TensorFlow Lite classifies accelerometer, gyroscope, and barometric altitude readings on-device to detect freefall, abrupt impact, or severe rotation; tuned for low false positives. Triggers an immediate audible alarm and a servo actuator for physical deployment. Live dashboard shows altitude, heading, temperature, GPS lock, detection probability, and raw sensor waveform. Timestamped event logging for post-incident review; crash and sensor-loss events are also logged for reliability improvement. Edge inference, no cloud round-trip.',
-    technologies: ['TensorFlow Lite', 'Flutter', 'ESP32', 'BLE', 'Python', 'Raspberry Pi'],
-  },
-  {
     slug: 'air-grid',
     title: 'air.grid - Live U.S. Air Quality & Emissions',
     category: 'Geospatial / Data',
     status: 'shipped',
     statusLabel: 'Live 2026',
     description:
-      'Live U.S. air quality and industrial emissions atlas built in one day using Claude Code\'s multi-agent system. Parallel ingestion agents pulled from 6 federal data sources; a geo-matcher joined 108,336 schools to their nearest emitters using scipy cKDTree; a QA agent validated before deploy. Stack: Next.js, MapLibre, deck.gl, Python. 268,980 facilities, 15,897 live sensors, real proximity joins — no mock data.',
+      'Live U.S. air quality and industrial emissions atlas built in one day using Claude Code\'s multi-agent system. Parallel ingestion agents pulled from 6 federal data sources; a geo-matcher joined 108,336 schools to their nearest emitters using scipy cKDTree; a QA agent validated before deploy. Stack: Next.js, MapLibre, deck.gl, Python. 268,980 facilities, 15,897 live sensors, real proximity joins, no mock data.',
     bullets: [
-      'Built in one day, 1, June 2026 · air.andrewcastor.dev',
+      'One-day build challenge (Handshake AI Projects) · June 1, 2026 · air.andrewcastor.dev',
     ],
     technologies: [
       'Next.js 14',
@@ -326,16 +316,6 @@ export const projects: Project[] = [
       'scipy cKDTree',
       'Vercel',
     ],
-  },
-  {
-    slug: 'splunk-lab',
-    title: 'Splunk SOC Home Lab',
-    category: 'Security Lab',
-    status: 'progress',
-    statusLabel: 'In Progress',
-    description:
-      'Self-hosted Splunk environment for log ingestion, detection rule writing, and SOC triage exercises. Pairs with TryHackMe SOC L1 path.',
-    technologies: ['Splunk', 'SIEM', 'Detection Eng'],
   },
 ];
 
@@ -350,7 +330,7 @@ export const navLinks = [
 export const mmdmCaseStudy = {
   metrics: [
     { value: '6', label: 'Clinical Stations' },
-    { value: '1,121', label: 'Patients in 40 hours' },
+    { value: '1,121', label: 'Patients · 40 hrs' },
     { value: '50+', label: 'Users Trained' },
     { value: 'Offline', label: 'Operations Posture' },
   ],
@@ -368,9 +348,9 @@ export const mmdmCaseStudy = {
     'Implementation guide (canonical doc)',
   ],
   roadmap: [
-    'Laredo, TX · Nov 4–10, 2026 — HIPAA pre-deployment test track',
-    'Costa Rica · April 17–24, 2027 — full clinical incorporation',
-    'Philippines · Feb 16–25, 2027 — first Asia-Pacific deployment',
+    'Laredo, TX · Nov 4–10, 2026: HIPAA pre-deployment test track',
+    'Costa Rica · April 17–24, 2027: full clinical incorporation',
+    'Philippines · Feb 16–25, 2027: first Asia-Pacific deployment',
   ],
   principles: [
     {

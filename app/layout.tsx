@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { cookies } from 'next/headers';
+import { Sora, Outfit, JetBrains_Mono } from 'next/font/google';
 import { siteConfig } from '@/data/content';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
@@ -7,7 +7,9 @@ import NetworkGrid from '@/components/NetworkGrid';
 import ScrollProgress from '@/components/ScrollProgress';
 import './globals.css';
 
-export const runtime = 'edge';
+const sora = Sora({ subsets: ['latin'], weight: ['400', '600', '700', '800'], variable: '--font-sora' });
+const outfit = Outfit({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'], variable: '--font-outfit' });
+const jetbrains = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-jbm' });
 
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${siteConfig.domain}`),
@@ -50,12 +52,9 @@ const themeScript = `(function() {
   } catch(e) {}
 })();`;
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const cookieStore = await cookies();
-  const theme = cookieStore.get('theme')?.value === 'light' ? 'light' : 'dark';
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme={theme}>
+    <html lang="en" data-theme="dark" className={`${sora.variable} ${outfit.variable} ${jetbrains.variable}`}>
       <body className="flex min-h-screen flex-col bg-bg-primary text-text-primary">
         {/* Runs synchronously before React hydration to prevent FOUC on light mode */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

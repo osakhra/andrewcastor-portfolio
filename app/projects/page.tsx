@@ -23,7 +23,7 @@ export default function ProjectsPage() {
         <FadeUp>
           <SectionHeader
             label="Projects"
-            title="What I have Built & Deployed"
+            title="Built & Deployed"
             subtitle="From field infrastructure to embedded systems and AI prototypes, I make systems designed to work in production."
           />
         </FadeUp>
@@ -74,7 +74,7 @@ export default function ProjectsPage() {
             Other Projects
           </h2>
         </FadeUp>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {others.map((p, i) => {
             const cardHref =
               p.slug === 'air-grid' ? 'https://air.andrewcastor.dev' :

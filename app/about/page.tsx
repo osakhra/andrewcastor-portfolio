@@ -9,7 +9,7 @@ import { siteConfig } from '@/data/content';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Beyond the resume — military family background, competitive esports career, OASIS founding, and personal story of Andrew Castor.',
+    'Beyond the resume: military family background, competitive esports career, OASIS founding, and personal story of Andrew Castor.',
 };
 
 const aboutSections = [
@@ -23,13 +23,13 @@ const aboutSections = [
 // Timeline of where I've lived — US-born, military family moves
 const locations = [
   { place: 'United States',     note: 'Born' },
-  { place: 'Germany',           note: 'Age ~3 — first overseas posting' },
+  { place: 'Germany',           note: 'Age ~3, first overseas posting' },
   { place: 'Tampa, FL',         note: 'Age ~5' },
   { place: 'Virginia',          note: 'Age ~8' },
   { place: 'Abu Dhabi, UAE',    note: 'Age ~9' },
-  { place: 'Florida (statewide)', note: 'Age ~12 — multiple schools' },
-  { place: 'Houston, TX',       note: 'Age ~16 — stayed through college' },
-  { place: 'Orlando, FL',       note: 'Now — UCF Fall 2026' },
+  { place: 'Florida (statewide)', note: 'Age ~12, multiple schools' },
+  { place: 'Houston, TX',       note: 'Age ~16, stayed through college' },
+  { place: 'Orlando, FL',       note: 'Now, UCF Fall 2026' },
 ];
 
 const transferableSkills = [
@@ -111,7 +111,7 @@ export default function AboutPage() {
             id="intro"
             label="Background"
             title="Beyond the Resume"
-            subtitle="Military family. Ten schools. Always the new kid — which turns out to be excellent training for operating in environments where you have to build trust quickly and figure things out fast."
+            subtitle="Military family. Ten schools. Always the new kid, which turns out to be excellent training for operating in environments where you have to build trust quickly and figure things out fast."
           />
         </FadeUp>
 
@@ -230,7 +230,7 @@ export default function AboutPage() {
               Medical Mission Work · MMDM
             </p>
             <p className="font-body text-[15px] leading-relaxed text-text-secondary">
-              In 2018, at 24, I deployed to Laredo, Texas on my first MMDM medical mission, running vision stations: tonometer, autorefractor, Snellen chart, and readers. Over the next several missions I rotated through every station in the clinic. In 2025, after our Laredo mission, leadership asked whether going digital was viable. I&apos;ve been building toward that answer since: the result is a hardened, offline-first OpenEMR deployment that ran its first full field use in Costa Rica in April 2026 with 1,121 patients served in a single week.
+              In 2018, at 24, I deployed to Laredo, Texas on my first MMDM medical mission, running vision stations: tonometer, autorefractor, Snellen chart, and readers. Over the next several missions I rotated through every station in the clinic. In 2025, after our Laredo mission, leadership asked whether going digital was viable. I&apos;ve been building toward that answer since: the result is a hardened, offline-first OpenEMR deployment that ran its first full field use in Costa Rica in April 2026 with 1,121 patients served across a 40-hour clinic week.
             </p>
           </div>
         </FadeUp>
@@ -240,7 +240,7 @@ export default function AboutPage() {
           <SectionHeader
             id="oasis"
             label="Founder"
-            title="O Λ S I S — Esports Events & Dev Partnerships"
+            title="O Λ S I S · Esports Events & Dev Partnerships"
           />
         </FadeUp>
 
