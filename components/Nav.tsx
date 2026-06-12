@@ -24,9 +24,9 @@ export default function Nav() {
         <nav className="section-container flex h-14 items-center justify-between">
           <Link
             href="/"
-            className="font-display text-[14px] font-semibold tracking-wide text-text-primary transition-colors hover:text-accent-teal"
+            className="flex items-center gap-2 font-display text-[14px] font-semibold tracking-wide text-text-primary transition-colors hover:text-accent-teal"
           >
-            <span className="text-accent-teal">{'>'}</span> andrew.castor
+            <img src="/ac_mark.svg" alt="AC" className="h-6 w-6" /> andrew.castor
           </Link>
 
           <ul className="hidden items-center gap-6 md:flex">
