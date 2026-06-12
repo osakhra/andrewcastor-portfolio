@@ -139,9 +139,9 @@ export default function AboutPage() {
                 href="https://atlas.andrewcastor.dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-mono text-[11px] text-text-tertiary transition-colors hover:text-accent-teal"
+                className="inline-flex items-center gap-1.5 rounded-md border border-border-subtle bg-bg-secondary/70 px-3 py-1.5 font-mono text-[11px] text-text-secondary backdrop-blur transition-colors hover:border-accent-teal/50 hover:text-accent-teal"
               >
-                View interactive travel atlas <ExternalLinkIcon size={10} />
+                Atlas <ExternalLinkIcon size={10} />
               </a>
             </div>
           </div>
