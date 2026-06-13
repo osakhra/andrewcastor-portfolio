@@ -12,6 +12,12 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  safelist: [
+    'status-shipped',
+    'status-progress',
+    'status-live',
+    'status-private',
+  ],
   theme: {
     extend: {
       colors: {

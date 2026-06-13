@@ -141,7 +141,7 @@ export default function HomePage() {
                 <h2 className="font-display text-xl font-semibold text-text-primary sm:text-2xl">
                   {flagship.title}
                 </h2>
-                <span className="status-pill status-progress">{flagship.statusLabel}</span>
+                <span className={`status-pill status-${flagship.status}`}>{flagship.statusLabel}</span>
               </div>
               {flagship.context && (
                 <p className="mb-5 font-mono text-[13px] text-text-tertiary">{flagship.context}</p>

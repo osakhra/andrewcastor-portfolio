@@ -41,7 +41,7 @@ export default function ProjectsPage() {
                     <p className="font-mono text-[11px] uppercase tracking-wider text-accent-teal">
                       {flagship.category}
                     </p>
-                    <span className="status-pill status-progress">{flagship.statusLabel}</span>
+                    <span className={`status-pill status-${flagship.status}`}>{flagship.statusLabel}</span>
                   </div>
                   <h2 className="mb-1 font-display text-2xl font-semibold text-text-primary">
                     {flagship.title}

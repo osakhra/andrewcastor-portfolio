@@ -31,7 +31,7 @@ export default function MmdmCaseStudyPage() {
           <SectionHeader label={project.category} />
           <div className="mb-1 flex flex-wrap items-baseline justify-between gap-2">
             <h1 className="font-display text-3xl font-semibold text-text-primary">{project.title}</h1>
-            <span className="status-pill status-progress">{project.statusLabel}</span>
+            <span className={`status-pill status-${project.status}`}>{project.statusLabel}</span>
           </div>
           {project.context && (
             <p className="mb-6 font-mono text-[13px] text-text-tertiary">{project.context}</p>
