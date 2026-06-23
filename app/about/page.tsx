@@ -230,7 +230,7 @@ export default function AboutPage() {
               Medical Mission Work · MMDM
             </p>
             <p className="font-body text-[15px] leading-relaxed text-text-secondary">
-              In 2018, at 16, I deployed to Laredo, Texas on my first MMDM medical mission, running vision stations: tonometer, autorefractor, Snellen chart, and readers. Over the next several missions I rotated through every station in the clinic. In 2025, after our Laredo mission, leadership asked whether going digital was viable. I&apos;ve been building toward that answer since: the result is a hardened, offline-first OpenEMR deployment that ran its first full field use in Costa Rica in April 2026 with 1,121 patients served across a 40-hour clinic week.
+              In 2018, at 16, I deployed to Laredo, Texas on my first MMDM medical mission, running vision stations: tonometer, autorefractor, Snellen chart, and readers. Over the next several missions I rotated through every station in the clinic. In 2025, after our Laredo mission, leadership asked whether going digital was viable. I&apos;ve been building toward that answer since: the result is a hardened, offline-first clinical platform that ran its first full field use in Costa Rica in April 2026 with 1,121 patients served across a 40-hour clinic week.
             </p>
           </div>
         </FadeUp>

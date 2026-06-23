@@ -30,7 +30,7 @@ export default function ArchitectureToggle() {
               : 'text-text-tertiary hover:text-text-secondary'
           }`}
         >
-          EMR Stack
+          App Stack
         </button>
         <button
           onClick={() => setView('wifi')}
@@ -75,28 +75,28 @@ function EmrDiagram() {
       <text x="70" y="95"  textAnchor="middle" fontFamily="JetBrains Mono" fontSize="11" fontWeight="600" style={s.tealTitle}>Volunteer</text>
       <text x="70" y="110" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="9"  style={s.sublabel}>Workstation</text>
 
-      {/* Node: Apache + TLS */}
+      {/* Node: React UI */}
       <rect x="220" y="75" width="120" height="50" rx="6" strokeWidth="1" style={s.tealRect} />
-      <text x="280" y="95"  textAnchor="middle" fontFamily="JetBrains Mono" fontSize="11" fontWeight="600" style={s.tealTitle}>Apache + TLS</text>
-      <text x="280" y="110" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="9"  style={s.sublabel}>Private CA · UFW</text>
+      <text x="280" y="95"  textAnchor="middle" fontFamily="JetBrains Mono" fontSize="11" fontWeight="600" style={s.tealTitle}>React UI</text>
+      <text x="280" y="110" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="9"  style={s.sublabel}>Static files</text>
 
-      {/* Node: OpenEMR 7.0 */}
+      {/* Node: Node.js */}
       <rect x="440" y="75" width="120" height="50" rx="6" strokeWidth="1" style={s.tealRect} />
-      <text x="500" y="95"  textAnchor="middle" fontFamily="JetBrains Mono" fontSize="11" fontWeight="600" style={s.tealTitle}>OpenEMR 7.0</text>
-      <text x="500" y="110" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="9"  style={s.sublabel}>PHP 8.1 · 6 stations</text>
+      <text x="500" y="95"  textAnchor="middle" fontFamily="JetBrains Mono" fontSize="11" fontWeight="600" style={s.tealTitle}>Node.js</text>
+      <text x="500" y="110" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="9"  style={s.sublabel}>systemd service</text>
 
       {/* Node: DB */}
       <rect x="640" y="75" width="50" height="50" rx="6" strokeWidth="1" style={s.tealRect} />
       <text x="665" y="95"  textAnchor="middle" fontFamily="JetBrains Mono" fontSize="11" fontWeight="600" style={s.tealTitle}>DB</text>
-      <text x="665" y="110" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="8"  style={s.sublabel}>MariaDB</text>
+      <text x="665" y="110" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="8"  style={s.sublabel}>SQLite</text>
 
       {/* Sub-tag: RBAC — purple */}
       <rect x="220" y="170" width="120" height="22" rx="4" strokeWidth="1" style={s.purpleRect} />
-      <text x="280" y="184" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="9" style={s.purpleText}>RBAC · 6 roles</text>
+      <text x="280" y="184" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="9" style={s.purpleText}>RBAC · 3 tiers</text>
 
-      {/* Sub-tag: Daily backup — purple */}
+      {/* Sub-tag: Hourly backup — purple */}
       <rect x="440" y="170" width="120" height="22" rx="4" strokeWidth="1" style={s.purpleRect} />
-      <text x="500" y="184" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="9" style={s.purpleText}>Daily backup · cron</text>
+      <text x="500" y="184" textAnchor="middle" fontFamily="JetBrains Mono" fontSize="9" style={s.purpleText}>Hourly backup · SQLite API</text>
     </svg>
   );
 }

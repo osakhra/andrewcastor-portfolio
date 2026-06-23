@@ -145,6 +145,7 @@ export const experience: ExperienceEntry[] = [
           'Hardened OS for austere field conditions: UFW firewall scoped to ports 80/22, disabled snapd and unattended-upgrades to eliminate unplanned reboots, and configured daily cron-driven encrypted backups with 30-day rotation.',
           'Designed HIPAA-aligned RBAC across 8 station-specific service accounts with documented post-pilot tightening plan; provisioned VirtualBox snapshot rollback strategy for rapid recovery.',
           'Designed and deployed a 50,000 sq ft Wi-Fi 6 mesh network spanning five buildings with segmented VLANs, DHCP/DNS, and offline-tolerant routing.',
+          "Subsequently redesigned the system from scratch as a custom Node.js / SQLite / React application after identifying constraints OpenEMR couldn't cleanly satisfy in the field; consolidated to a single-process, systemd-managed service with hourly automated SQLite backups.",
         ],
       },
       {
@@ -159,7 +160,7 @@ export const experience: ExperienceEntry[] = [
       },
     ],
     closingNote:
-      'Costa Rica Field Deployment (April 18–25, 2026, Grano de Oro): deployed offline LAN running OpenEMR in austere, no-internet environment supporting full-cycle traveling clinic operations. Roadmap: Laredo (Nov 4–10, 2026) pre-deployment testing track; Costa Rica (April 17–24, 2027) full incorporation; Philippines (Feb 16–25, 2027) first Asia-Pacific deployment.',
+      'Costa Rica Field Deployment (April 18–25, 2026, Grano de Oro): deployed offline LAN running the clinical platform in austere, no-internet environment supporting full-cycle traveling clinic operations. Roadmap: Laredo (Nov 4–10, 2026) LAN setup and UX skeleton test; Costa Rica (April 17–24, 2027) full incorporation; Philippines (Feb 16–25, 2027) first Asia-Pacific deployment.',
   },
   {
     role: 'Bartender · Event Operations',
@@ -225,24 +226,23 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: 'mmdm-openemr',
-    title: 'MMDM OpenEMR · Offline-First Clinical Platform',
+    slug: 'mmdm-clinical-platform',
+    title: 'MMDM · Offline-First Clinical Platform',
     category: 'Flagship Project',
     status: 'live',
     statusLabel: 'Deployed 2026 · Ongoing',
     context: 'Medical Missionaries of Divine Mercy · Houston → Costa Rica · 2024–Present',
     description:
-      'Self-hosted EMR built to run a six-station volunteer clinic in a Costa Rican parish hall with no internet, no cloud, and no public DNS. Migrated off a corrupted XAMPP environment to a hardened Ubuntu / Apache / MariaDB / PHP stack with a private certificate authority, daily backups, and bilingual Spanish/English clinical forms. Deployed at the April 18–25, 2026 mission in Grano de Oro, Costa Rica; next deployments: Laredo Nov 2026, Costa Rica and Philippines 2027.',
+      "Purpose-built offline clinical platform for a six-station volunteer clinic in a Costa Rican parish hall. Started as an OpenEMR rebuild on Linux; evolved into a custom Node.js / SQLite / React system designed from first principles around the mission's actual constraints: no internet, non-technical volunteers, and hundreds of patients in a single week.",
     technologies: [
-      'Ubuntu 22.04',
-      'Apache',
-      'MariaDB 10.6',
-      'PHP 8.1',
-      'OpenEMR 7.0',
-      'Private CA · OpenSSL',
-      'UFW',
-      'Bash · Cron',
-      'Netplan',
+      'Node.js',
+      'SQLite',
+      'React',
+      'Linux (Kubuntu)',
+      'systemd',
+      'Tailwind CSS',
+      'LAN-only',
+      'Offline-first',
       'RBAC',
     ],
     featured: true,
@@ -326,7 +326,7 @@ export const navLinks = [
   { label: 'About', href: '/about' },
 ];
 
-// Flagship case study — full deep-dive content for /projects/mmdm-openemr
+// Flagship case study — full deep-dive content for /projects/mmdm-clinical-platform
 export const mmdmCaseStudy = {
   metrics: [
     { value: '6', label: 'Clinical Stations' },
@@ -337,18 +337,20 @@ export const mmdmCaseStudy = {
   problem:
     'Corrupted Windows XAMPP stack with Aria storage engine failure. Paper forms across six clinical stations. No backups, no encryption, no recovery path. Mission-critical with zero connectivity guarantee.',
   solution:
-    'Clean rebuild on Ubuntu 22.04 + Apache + MariaDB 10.6 + PHP 8.1. Private CA for offline TLS. UFW-hardened LAN posture. Daily cron backups with 30-day rotation. VirtualBox snapshot recovery.',
+    "Rebuilt as a purpose-built Node.js / SQLite / React application running as a single process on a dedicated Linux machine. SQLite replaces MariaDB: one file, no server to configure. React frontend served as static files. systemd auto-start with no manual steps after reboot. Hourly automated backups using SQLite's online backup API. All dependencies installed before the mission; zero internet required during operation.",
   impact:
-    'Replaced 20+ years of paper workflow with structured clinical data. HIPAA-aligned posture. Recoverable from hardware failure. Designed for volunteers to redeploy at any mission site without a network engineer present.',
+    'Replaced 20+ years of paper workflow with structured clinical data. Five clinical forms co-designed with named station leads, touch-optimized for tablet use by first-day volunteers. Reboot-tested for autonomous operation in the field — recoverable from hardware failure with no network engineer present.',
   shipped: [
-    'Linux VM rebuild & XAMPP migration',
-    'Private CA + hardened Apache TLS',
-    'RBAC across 6 clinical stations',
-    'Daily cron backups, 30-day rotation',
-    'Implementation guide (canonical doc)',
+    'Custom Node.js / SQLite / React system built and reboot-tested',
+    'Five station forms co-designed with clinical leads (Registration, Triage, Medical, Vision, Dental)',
+    '96-drug Spanish formulary with Costa Rica naming conventions preserved',
+    'Automated hourly SQLite backups, offline-safe',
+    'Role-based access: admin, station lead, volunteer PIN tiers',
+    'Live patient routing and station capacity state management',
+    'Reporting screen: patients by station, vision inventory consumed, computed live from DB',
   ],
   roadmap: [
-    'Laredo, TX · Nov 4–10, 2026: HIPAA pre-deployment test track',
+    'Laredo, TX · Nov 4–10, 2026: LAN setup and UX skeleton test. No patient data. HIPAA compliance is the open question before any real deployment.',
     'Costa Rica · April 17–24, 2027: full clinical incorporation',
     'Philippines · Feb 16–25, 2027: first Asia-Pacific deployment',
   ],

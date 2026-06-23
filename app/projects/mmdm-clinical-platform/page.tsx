@@ -9,13 +9,13 @@ import SectionHeader from '@/components/SectionHeader';
 import PatientFlowDiagram from '@/components/PatientFlowDiagram';
 
 export const metadata: Metadata = {
-  title: 'MMDM OpenEMR · Case Study',
+  title: 'MMDM · Case Study',
   description:
-    'Self-hosted, offline-first EMR for a six-station volunteer clinic in Costa Rica. Linux + Apache + MariaDB + PHP with private CA TLS and daily backups.',
+    'Self-hosted, offline-first clinical platform for a six-station volunteer clinic in Costa Rica. Custom Node.js / SQLite / React stack with systemd auto-start and hourly automated backups.',
 };
 
 export default function MmdmCaseStudyPage() {
-  const project = projects.find((p) => p.slug === 'mmdm-openemr')!;
+  const project = projects.find((p) => p.slug === 'mmdm-clinical-platform')!;
 
   return (
     <section className="py-14">
@@ -74,7 +74,7 @@ export default function MmdmCaseStudyPage() {
             System Architecture
           </h2>
           <p className="mb-4 font-body text-[14px] text-text-secondary">
-            Toggle between the EMR application stack and the field network it runs on.
+            Toggle between the application stack and the field network it runs on.
           </p>
           <div className="mb-10">
             <ArchitectureToggle />
