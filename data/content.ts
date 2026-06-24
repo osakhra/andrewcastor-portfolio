@@ -75,10 +75,10 @@ export const capabilities = [
     category: 'Application & Data',
     icon: 'code',
     items: [
+      'Node.js · React',
       'PHP 8.1',
       'Python',
-      'SQL · MariaDB',
-      'OpenEMR · LBF',
+      'SQL · SQLite/MariaDB',
       'HL7 (planned)',
       'TensorFlow Lite',
     ],
